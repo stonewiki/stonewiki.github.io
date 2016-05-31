@@ -9,7 +9,7 @@
 title: 薛尧博客
 email: yaoxue2014@hotmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Welcome to my awesome blog.
+  专注PHP的小白.
 baseurl: "" # the subpath of your site, e.g. /blog
 permalink : '/:year/:title.html'
 url: "http://xueyao.me" # the base hostname & protocol for your site
