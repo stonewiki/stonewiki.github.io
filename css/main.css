@@ -671,8 +671,7 @@ a         { color: #91736b; text-decoration: none; }
     height: auto;
 }
 .aside-contact .det-image {
-    width: 48px;
-    height: 48px;
+   
     float: left;
     padding: 2px 2px;
     background: #fff;
