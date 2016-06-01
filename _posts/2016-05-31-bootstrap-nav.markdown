@@ -2,7 +2,7 @@
 layout: post
 title:  "bootstrap框架-导航条"
 category: "学习笔记"
-commit:true
+comment: true
 ---
 
 #### 导航条有下列几种
