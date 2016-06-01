@@ -2,6 +2,7 @@
 layout: default
 title:  "test2"
 category: "学习笔记"
+comment: true
 ---
 
 #### 测试
