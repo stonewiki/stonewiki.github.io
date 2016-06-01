@@ -3,18 +3,18 @@
     <head>
         <!--
          **
-         * Auther:      掌心
-         * Contact:     http://www.zhanxin.info
-         * Create:      2013.08.10
-         * Theme Name:  Kunka
-         * Authorize:   BY-NC-SA
+         * Auther:      薛尧
+         * Contact:     http://xueyao.me
+         * Create:      2016.6.1
+         * Theme Name:  XueYao
+         * Authorize:   
          **
         -->
         <meta charset="utf-8">
         <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
         <!-- meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <meta name="generator" content="Jekyll" />
+        <meta name="generator" content="xueyao" />
         <meta name="author" content="{{ site.author.name }}" />
         <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
         <meta name="keywords" content="{{ page.keywords | join: ',' }}" />
@@ -22,10 +22,12 @@
         <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="{{ site.url }}{{ site.feed }}" />
         <link rel="shortcut icon" href="{{ site.favicon }}" type="image/x-icon" />
         <!-- font-awesome -->
-        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-        <link href='http://fonts.googleapis.com/css?family=Spirax' rel='stylesheet' type='text/css'>
+       <link href="{{ site.url }}/css/font-awesome.css" rel="stylesheet">
+        <link href='{{ site.url }}/css/googleapifonts.css' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{{ site.url }}/css/syntax.css">
         <link rel="stylesheet" href="{{ site.url }}/css/main.css">
+        <link rel="stylesheet" href="{{ site.url }}/css/bootstrap.min.css">
+
         {% if site.googleAnaly.config %}
         <script type="text/javascript">
             var _gaq = _gaq || [];
@@ -41,27 +43,10 @@
         {% endif %}
     </head>
     <body>
-        <div class="head fn-clear">
-            <div class="header">
-                <h1 class="logo">
-                    <a href="{{ site.url }}"><i class="icon-anchor"></i></a>
-                </h1>
-                <nav class="nav">
-                    <ul>
-                        {% for link in site.nav %}
-                        {% assign active = nil %}
-                        {% if page.url == link.url%}
-                          {% assign active = 'nav-item-active' %}
-                        {% endif %}
-                        <li class="nav-item {{ active }}">
-                            <a href="{{ site.url }}{{ link.url }}">
-                                {{ link.text }}
-                            </a>
-                            {{ indicator }}
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </nav>
+    <div class="container">
+        <!-- 顶部部分-->
+        <div class="row">
+            <div class="col-lg-3 col-lg-offset-9 ">
                 <div class="follow">
                     {% for link in site.follow %}
                     <a href="{{ link.url }}" target="_blank"><i class="{{ link.class }}"></i></a>
@@ -69,55 +54,72 @@
                 </div>
             </div>
         </div>
-        <div class="contain fn-clear">
-            <div class="container fn-clear">
-                <div class="main">
+        <!--导航条开始-->
+
+        <!--导航条结束-->
+        <!--内容部分开始-->
+        <div class="page fn-clear" id="contain" >
+            <div class="row fn-clear" id="container">
+                <div class="col-lg-9 col-md-9 col-sm-9 " id="main">
                     {{ content }}
                 </div>
-                <div class="aside">
-                    <div class="aside-contact">
-                        <h4 class="title">About me</h4>
-                        <div class="det fn-clear">
-                            <div class="det-image">
-                                <img src="{{ site.author.imageLink }}" />
-                            </div>
-                            <div class="det-text">
-                                <p>{{ site.author.simpleIntro }}</p>
+                <div class="col-lg-3 col-md-3 col-sm-3 " >
+
+                    <div class="aside">
+                        <div class="aside-contact">
+                            <h4 class="title">About me</h4>
+                            <div class="det fn-clear">
+                                <div class="det-image">
+                                    <img src="{{ site.author.imageLink }}" />
+                                </div>
+                                <div class="det-text">
+                                    <p>{{ site.author.simpleIntro }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="aside-item">
-                        <h4 class="title">Recent Posts</h4>
-                        <ul class="list">
-                            {% for rpost in site.posts limit:6  %}
+                        <div class="aside-item">
+                            <h4 class="title">Recent Posts</h4>
+                            <ul class="list">
+                                {% for rpost in site.posts limit:6  %}
                                 <li><a href="{{ site.url }}{{ rpost.url }}" title="{{ rpost.title }}" rel="bookmark">{{ rpost.title }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+                                {% endfor %}
+                            </ul>
+                        </div>
 
-                    <div class="aside-item">
-                        <h4 class="title">Links</h4>
-                        <ul class="list">
-                            {% for i in site.customLinks %}
+                        <div class="aside-item">
+                            <h4 class="title">Links</h4>
+                            <ul class="list">
+                                {% for i in site.customLinks %}
                                 {% if i.message == "Friends" %}
-                                    {% for link in i.item %}
-                                    <li><a href="{{ link.url }}" title="{{ link.text }}" target="_blank">{{ link.text }}</a></li>
-                                    {% endfor %}
+                                {% for link in i.item %}
+                                <li><a href="{{ link.url }}" title="{{ link.text }}" target="_blank">{{ link.text }}</a></li>
+                                {% endfor %}
                                 {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </div>
+                                {% endfor %}
+                            </ul>
+                        </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="foot">
+        <!--内容部分结束-->
+
+        <!-- 尾部开始-->
+        <div class="foot text-center">
             <div class="footer">
-                <p>Copyright 2013. All rights reserved. Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, Design by <a href="http://www.zhanxin.info" target="_blank">zhanxin.info</a>.</p>
+                <p>Copyright 2013. All rights reserved. Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, Design by <a href="http://xueyao.me" target="_blank">XueYao</a>.</p>
             </div>
         </div>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <!-- 尾部结束-->
+
+     </div>
+
+
+
+        <!-- JS 部分代码-->
+        <script type="text/javascript" src="{{ site.url }}/js/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="{{ site.url }}/js/bootstrap.min.js"></script>
         {% if page.comment %}
             {% if site.disqus.config %}
             <script type="text/javascript">
