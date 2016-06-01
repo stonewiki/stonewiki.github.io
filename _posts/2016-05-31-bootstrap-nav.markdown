@@ -1,5 +1,5 @@
 ---
-layout: "default"
+layout: post
 title:  "bootstrap框架-导航条"
 category: "学习笔记"
 ---
