@@ -107,7 +107,7 @@ googleAnaly:
 #comment config
 disqus:
   config: true
-  id: flowstones
+  id: flowstone
 
 duoshuo:
   config: false
