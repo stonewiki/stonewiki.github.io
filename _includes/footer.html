@@ -1,7 +1,13 @@
-<footer class="footer-main">
-    {{ site.name }} © {{ site.time | date: '%Y' }} <a class="link" href="{{ site.url }}/feed.xml" target="_blank"><svg class="icon icon-rss"><use xlink:href="#icon-rss"></use></svg></a>
+<footer class="site-footer">
 
-    <p class="extra">
-        <a class="link" href="https://github.com/sergiokopplin/indigo">Indigo theme</a> by <a class="link" href="http://koppl.in">Kopplin</a>
-    </p>
+  <p>Copyright &copy; <a href="{{ site.baseurl }}/">{{site.title}}</a></p>
+  <p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a> 
+  on 
+  {% if site.github_username %}
+  <a href="https://github.com/">Github</a>
+  {% else %}
+  GitHub 
+  {% endif %}
+  | Theme <a href="https://github.com/yulijia/freshman21/">Freshman21</a> Design by <a href="http://yulijia.net">Lijia Yu</a>  
+
 </footer>
