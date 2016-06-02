@@ -1,13 +1,13 @@
 ### Site info:
 title: 薛尧 Blog
-tagline: 专注于PHP的小白
+tagline: 专注PHP的小白
 author: 薛尧
 email: xueyao2014@hotmail.com
 description: "薛尧博客." # You can edit this line in _config.yml. It will appear in your document head meta and in your feed.xml site description
 keywords: "薛尧, 薛尧博客, php薛尧"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://xueyao.me" # the base hostname & protocol for your site
-locale: cn
+locale: en_US
 #locale: cn
 
 ### Personal info and site tools info:
