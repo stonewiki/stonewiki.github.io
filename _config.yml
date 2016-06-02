@@ -1,16 +1,16 @@
 # main text of home
-name: John Doe
-bio: 'A Man who travels the world eating noodles'
+name: 薛尧
+bio: '专注PHP的小白'
 
 # if it's an external image, update below for true
 # better with square images
 external-image: false
 picture: 'assets/images/profile.jpg'
 
-url: http://koppl.in/indigo
+url: http://xueyao.me
 # your url: http://USERNAME.github.io
 
-permalink: /:title/
+permalink: /:title.html
 
 markdown: kramdown
 highlighter: rouge
@@ -23,21 +23,21 @@ highlighter: rouge
 # analytics-piwik-id: 1
 
 # if you don't want comments in your posts, set to false
-disqus: mydisqus
+disqus: flowstones
 
 # if you don't have any of social below, comment the line
-facebook: myfacebook
-twitter: mytwitter
+facebook: sisoyaoxue
+twitter: flowstones
 # google: mygoogle
-# instagram: myinstagram
-# pinterest: mypinterest
-# linkedin: mylinkedin
-youtube: myyoutube
-spotify: myspotify
-github: mygithub
-medium: medium
-vimeo: myvimeo
-email: myemail@gmail.com
+instagram: flowstone
+pinterest: flowstones
+linkedin: flowstone
+#youtube: myyoutube
+#spotify: myspotify
+github: flowstone
+#medium: medium
+#vimeo: myvimeo
+email: xueyao2014@hotmail.com
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
