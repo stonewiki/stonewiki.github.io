@@ -7,7 +7,7 @@ description: "薛尧博客." # You can edit this line in _config.yml. It will ap
 keywords: "薛尧, 薛尧博客, php薛尧"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://xueyao.me" # the base hostname & protocol for your site
-locale: en_US
+locale: cn
 #locale: cn
 
 ### Personal info and site tools info:
