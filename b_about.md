@@ -10,8 +10,10 @@ permalink: /about/
 
 #### 自我简介
 >为理想奋斗
+
 #### 资格认证
 >ncre四级网络工程师
+
 #### 教育背景
 >2012-2015年 
 > 
@@ -28,6 +30,7 @@ permalink: /about/
 >
 >Free Code Camp
 >>Full Stack Web Development Certification
+
 #### 荣誉奖项
 
 >2013年9月
