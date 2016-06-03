@@ -13,7 +13,7 @@ locale: en_US
 ### Personal info and site tools info:
 twitter_username: flowstone
 github_username:  flowstone
-disqus_shortname: flowstones
+disqus_shortname: flowstone
 favicon:     "/images/favicon.ico"
 aboutme: 你好，我叫薛尧，一个来自农村的小伙子，热爱编程。 # these are shown on aboutme-sidebar.
 aboutme_photo: https://i.imgur.com/Mdc4szJl.jpg # your photo.
