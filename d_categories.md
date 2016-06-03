@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Categories
-permalink: /categories/
+title: 目录
+permalink: /categories.html
 ---
 
 <ul class="tags-box">

@@ -15,7 +15,7 @@ twitter_username: flowstone
 github_username:  flowstone
 disqus_shortname: flowstones
 favicon:     "/images/favicon.ico"
-aboutme: Hi, this is Lijia Yu. I made the Freshman21 theme. Please enjoy it. # these are shown on aboutme-sidebar.
+aboutme: 你好，我叫薛尧，一个来自农村的小伙子，热爱编程。 # these are shown on aboutme-sidebar.
 aboutme_photo: https://i.imgur.com/Mdc4szJl.jpg # your photo.
 
 
@@ -41,7 +41,7 @@ locales:
     cn:
       Aboutme: "关于我"
       Archives: "存档"
-      Blogroll: "良师益友"        
+      Blogroll: "友情链接"        
       Categories: "分类目录"    
       Copyright_Notice: "版权声明"
       Recent_Posts: "近期文章"
