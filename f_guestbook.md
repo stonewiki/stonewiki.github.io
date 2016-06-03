@@ -2,7 +2,7 @@
 layout: page
 title: 留言
 comments: yes
-permalink: /guestbook.html
+permalink: /guestbook/
 ---
 ## Hi, welcome to leave a message here.:)
 

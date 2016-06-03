@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 标签
-permalink: /tags.html
+permalink: /tags/
 ---
 
 <ul class="tags-box">

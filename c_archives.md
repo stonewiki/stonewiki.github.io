@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 档案
-permalink: /archives.html
+permalink: /archives/
 ---
 
 <ul class="tags-box">
