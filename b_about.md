@@ -6,22 +6,47 @@ permalink: /about/
 ---
 
 
-### Freshman21 is a Jekyll theme.
+## 关于我
 
-A tribute to Twenty Twelve and Twenty eleven.
+#### 自我简介
+>为理想奋斗
+#### 资格认证
+>ncre四级网络工程师
+#### 教育背景
+>2012-2015年 
+> 
+>苏州工业园区服务外包职业学院
+>>嵌入式技术与应用
+>
+>2015-2016年
+>
+>苏州大学
+>
+>>计算机信息与管理
+>
+>2016-2016年
+>
+>Free Code Camp
+>>Full Stack Web Development Certification
+#### 荣誉奖项
 
-I like wordpress's theme Twenty Twelve and Twenty eleven very much. 
-So I called my Jekyll theme Freshman21 (Freshman <q>twenty-first</q> , it means twenty-first century, not twenty-one), this theme is based on my former theme [Freshman](https://github.com/yulijia/freshman/).
+>2013年9月
+>>学院二等奖学金
+>
+>2014年1月
+>>学期项目汇报比赛三等奖
+>
+>2014年9月
+>>学院三等奖学金
 
-Freshman21 have two main page format, one is [single column](http://yulijia.net/en/  "see demo"), the other is two columns. For more details, please see the articles on the site.
+#### 所会技能
 
-<cite>Proudly enjoy using Freshman21 theme.</cite> <code>;)</code>
-
-<img title="麋鹿" src="https://i.imgur.com/Mdc4szJl.jpg" alt="麋鹿" width="580" height="668" />
-
-#### Hi, the picture you have seen in the sample-page is a Père David's deer photoed by my friend at Beijing Milu Park, China.
-
-Milu(麋鹿) is the chinese name of Père David's deer.
++ HTML
++ CSS
++ Javascritp
++ BootStrap
++ PHP
++ MySQL
 
 
 
