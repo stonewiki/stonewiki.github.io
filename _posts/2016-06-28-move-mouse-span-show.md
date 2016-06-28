@@ -21,7 +21,6 @@ comments: true
 			设置li为相对定位		
 		*/
 		.content ul li {
-			 float:left;
 			 list-style:none;
 			 position:relative;
 		}
