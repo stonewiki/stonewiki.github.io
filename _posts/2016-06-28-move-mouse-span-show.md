@@ -60,16 +60,16 @@ comments: true
 **2.代码如下**
 {% highlight html  %}
 
-    <div class="content">
-			<ul>
-				<li>
-					<a href="#"><img src="http://xueyao.me/images/2016/chanpin_img.jpg"></a>
-					<span>PHP工程师</span>
-				</li>
-			</ul>
-	</div>
+<div class="content">
+	<ul>
+		<li>
+			<a href="#"><img src="http://xueyao.me/images/2016/chanpin_img.jpg"></a>
+			<span>PHP工程师</span>
+		</li>
+	</ul>
+</div>
 {% endhighlight %}
-{% highlight html  %}
+{% highlight css  %}
 		
 		/***
 			设置li为相对定位		
