@@ -11,7 +11,6 @@ comments: true
 
 #### 如何实现鼠标悬停隐藏文字出现
 **1.普通导航条**
-```
 <html>
 <head>
 	<meta charset="UTF-8" />
@@ -59,10 +58,22 @@ comments: true
 		</div>
 </body>
 </html>
-```
 
-#####效果图如下
+
+##### 效果图如下
 
 
 
 ![悬停显示](http://xueyao.me/images/2016/2016-06-28.png "悬停显示")
+{% highlight html linenos %}
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="navbar-brand">导航条的品牌/logo</div>     
+        </div>
+        <ul class="nav navbar-nav">
+           <li><a href="#">具体内容</a></li>
+        </ul>
+    </div>
+</nav>
+{% endhighlight %}
