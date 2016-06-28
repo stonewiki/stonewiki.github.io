@@ -12,7 +12,6 @@ comments: true
 #### 如何实现鼠标悬停隐藏文字出现
 **1.普通导航条**
 ```
-<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8" />
@@ -53,7 +52,7 @@ comments: true
 		<div class="content">
 			<ul>
 				<li>
-					<a href="#"><img src="images/chanpin_img.jpg"></a>
+					<a href="#"><img src="http://xueyao.me/images/2016/chanpin_img.jpg"></a>
 					<span>PHP工程师</span>
 				</li>
 			</ul>
@@ -66,4 +65,4 @@ comments: true
 
 
 
-![悬停显示](https://github.com/flowstone/flowstone.github.io/blob/master/images/2016-06-28.png "悬停显示")
+![悬停显示](http://xueyao.me/images/2016/2016-06-28.png "悬停显示")
