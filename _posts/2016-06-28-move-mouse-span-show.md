@@ -1,9 +1,13 @@
 ---
 layout: post
-title:  "Display学习实例-鼠标悬停隐藏文字出现"
-category: "泰牛程序员学习"
-comment: true
+title: 如何实现鼠标悬停隐藏文字出现
+categories: 泰牛程序员笔记
+tags: 
+- Display
+- block
+comments: true
 ---
+
 
 #### 如何实现鼠标悬停隐藏文字出现
 **1.普通导航条**
