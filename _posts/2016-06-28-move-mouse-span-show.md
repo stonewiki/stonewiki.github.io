@@ -58,9 +58,9 @@ comments: true
 </body>
 </html>
 <br>
-##### 代码如下
+**2.代码如下**
 {% highlight html  %}
-<nav class="navbar navbar-default navbar-fixed-top">
+
     <div class="content">
 			<ul>
 				<li>
