@@ -11,7 +11,7 @@ comments: true
 
 #### 如何实现鼠标悬停隐藏文字出现
 **1.普通导航条**
-
+{% highlight html linenos %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +60,7 @@ comments: true
 		</div>
 </body>
 </html>
-
+{% endhighlight %}
 
 #####效果图如下
 
