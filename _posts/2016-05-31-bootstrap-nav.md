@@ -10,7 +10,7 @@ comments: true
 
 #### 导航条有下列几种
 **1.普通导航条**
-{% highlight html linenos %}
+{% highlight html %}
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
