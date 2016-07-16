@@ -12,7 +12,7 @@ comments: true
 
 #### 如何安装WAMP开发环境
 
-**1.Apache安装**  
+**一.Apache安装**  
 1.以管理员方式运行cmd   
 2.在apache\bin目录下运行 httpd -k install   
 3.安装成功后配置apache的配置文件   
@@ -20,7 +20,7 @@ comments: true
 5.并修改serverName服务地址为localhost  
 6.配置后，重新启动apache服务   httpd -k start  
 
-**2.PHP安装**  
+**二.PHP安装**  
 1.将php处理模块和apache整合到一起，修改httpd.conf
 
 //PHP - Module   
@@ -41,5 +41,5 @@ extension=php_mysqli.dll
 extension_dir = "{php路径}/php-5.6.16/ext"    
 重新apache服务
 
-**3.mysql安装**  
+**三.mysql安装**  
 典型安装-细节配置-并发设置-端口设置-字符集-服务名-密码配置
