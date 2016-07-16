@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 如何实现鼠标悬停隐藏文字出现
+title: 如何实现鼠标悬停时隐藏的文字出现
 categories: 泰牛程序员笔记
 tags: 
 - Display
@@ -9,7 +9,7 @@ comments: true
 ---
 
 
-#### 如何实现鼠标悬停隐藏文字出现
+#### 如何实现鼠标悬停时隐藏的文字出现
 **1.效果如下**
 <html>
 <head>
