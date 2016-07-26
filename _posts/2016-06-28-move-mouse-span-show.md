@@ -49,7 +49,7 @@ comments: true
 		<div class="content">
 			<ul>
 				<li>
-					<a href="#"><img src="http://xueyao.me/images/2016/chanpin_img.jpg"></a>
+					<a href="#"><img src="http://xueyao.org/images/2016/chanpin_img.jpg"></a>
 					<span>PHP工程师</span>
 				</li>
 			</ul>
