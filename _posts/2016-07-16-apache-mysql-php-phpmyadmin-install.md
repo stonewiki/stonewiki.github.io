@@ -1,7 +1,7 @@
 ---
 layout: post
 title: WAMP环境的安装
-categories: 泰牛程序员笔记
+categories: PHP笔记
 tags: 
 - apache
 - mysql

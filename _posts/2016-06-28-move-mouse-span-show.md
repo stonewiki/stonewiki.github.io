@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 如何实现鼠标悬停时隐藏的文字出现
-categories: 泰牛程序员笔记
+categories: 学习笔记
 tags: 
 - Display
 - block
