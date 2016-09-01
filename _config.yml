@@ -1,10 +1,10 @@
 ### Site info:
-title: 薛尧 Blog
+title: 薛尧 技术博客
 tagline: 专注PHP的小白
 author: 薛尧
 email: yaoxue2014@hotmail.com
 description: "薛尧博客." # You can edit this line in _config.yml. It will appear in your document head meta and in your feed.xml site description
-keywords: "薛尧, 薛尧博客, php薛尧"
+keywords: "薛尧, 薛尧博客, php技术"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://xueyao.org" # the base hostname & protocol for your site
 locale: en_US
@@ -16,7 +16,7 @@ github_username:  flowstone
 disqus_shortname: flowstone
 favicon:     "/images/favicon.ico"
 aboutme: 你好，我叫薛尧，技术宅，热爱编程。 # these are shown on aboutme-sidebar.
-aboutme_photo: https://i.imgur.com/Mdc4szJl.jpg # your photo.
+aboutme_photo: https://avatars3.githubusercontent.com/u/6500681?v=3&u=8b21049902d0e50df9d474899a98116a07fd9f74&s=140 # your photo.
 
 
 ### Site setting:
