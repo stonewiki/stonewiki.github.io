@@ -108,7 +108,7 @@ html代码如下
     </div>
 </body>
 </html>
-{% highlight %}
+{% endhighlight %}
 
 当创建固定日历后，把日历的html部分注释掉(title和table)，保留css部分              
 
@@ -309,7 +309,7 @@ window.onload = function () {
            }
        }
 }
-{% highlight  %}
+{% endhighlight  %}
 
 3、 从服务器获取促销的信息并在日历中显示              
 
@@ -336,7 +336,7 @@ window.onload = function () {
            }
        });
   }
-{% highlight  %}
+{% endhighlight  %}
 
 
 **$.request()是封装在js里的Ajax方法,代码如下：**                
@@ -371,7 +371,7 @@ var $ = {
         }
     }
 }
-{% highlight %}        
+{% endhighlight %}        
 
 promotion.php     
 
@@ -382,7 +382,7 @@ promotion.php
 	$data['dates'] = array(28,29,30);
 
 	echo json_encode($data);
-{% highlight %}
+{% endhighlight %}
 最终效果图如下，样式不是很美观                
 
 ![自定义日历最终效果图](http://xueyao.org/images/2016/09/sp160927_232715.png)
