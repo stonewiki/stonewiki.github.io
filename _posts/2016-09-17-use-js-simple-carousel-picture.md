@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 用js写的简单轮播图特效
-categories: js笔记
+categories: JSNote
 tags:
 - js
 - 轮播图

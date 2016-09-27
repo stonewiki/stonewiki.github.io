@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 如何实现鼠标悬停时隐藏的文字出现
-categories: 学习笔记
-tags: 
+categories: StudyNote
+tags:
 - Display
 - block
 comments: true
@@ -16,7 +16,7 @@ comments: true
 	<meta charset="UTF-8" />
 	<title>鼠标移动到图片文字显示</title>
 	<style type="text/css">
-		
+
 		/***
 			设置li为相对定位		
 		*/
@@ -26,7 +26,7 @@ comments: true
 		}
 		/***
 			设置隐藏文本为绝对定位
-			并且把文本隐藏起来	
+			并且把文本隐藏起来
 		*/
 		.content li span{
 			position:absolute;
@@ -80,7 +80,7 @@ comments: true
 }
 /***
 设置隐藏文本为绝对定位
-并且把文本隐藏起来	
+并且把文本隐藏起来
 */
 .content li span{
 	position:absolute;

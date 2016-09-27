@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 开发自己的模板引擎
-categories: PHP笔记
-tags: 
+categories: PHPNote
+tags:
 - 模板
 comments: true
 ---

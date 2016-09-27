@@ -1,8 +1,8 @@
 ---
 layout: post
 title: bootstrap框架-导航条
-categories: 学习笔记
-tags: 
+categories: StudyNote
+tags:
 - bootstrap
 - nav
 comments: true
