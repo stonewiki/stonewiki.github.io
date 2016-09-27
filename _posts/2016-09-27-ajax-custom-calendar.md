@@ -13,7 +13,7 @@ comments: true
 ### 需求分析
 在一些购物网站中，都会有促销活动，这些活动都在日历上标注出来，如何通过Ajax让日历
 通过读取数据库中的信息，正确的把促销活动标注在日历上，本文通过自定义日历来实现这
-个问题。
+个问题。               
 
 ### 技术难点
 - 日历的布局
@@ -22,10 +22,13 @@ comments: true
 - 日历的促销定制
 
 ### 实现方法
-1、 先创建一个固定的日历，效果如下
-![自定义日历初始效果图](http://xueyao.org/images/2016/09/sp160927_232635.png)
-html代码如下
-```html
+1、 先创建一个固定的日历，效果如下       
+
+![自定义日历初始效果图](http://xueyao.org/images/2016/09/sp160927_232635.png)     
+
+html代码如下         
+
+{% highlight html %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,13 +108,14 @@ html代码如下
     </div>
 </body>
 </html>
-```
+{% highlight %}
 
-当创建固定日历后，把日历的html部分注释掉(title和table)，保留css部分
+当创建固定日历后，把日历的html部分注释掉(title和table)，保留css部分              
 
-2、 通过javascript动态生成日历
+2、 通过javascript动态生成日历                       
 
-```js
+
+{% highlight js %}
 window.onload = function () {
        var oInput = document.getElementsByTagName('input')[0];
        var oCalendar = document.getElementById('calendar');
@@ -305,9 +309,11 @@ window.onload = function () {
            }
        }
 }
-```
-3、 从服务器获取促销的信息并在日历中显示
-```js
+{% highlight  %}
+
+3、 从服务器获取促销的信息并在日历中显示              
+
+{% highlight js %}
 //从服务器获取促销信息
   function getPromotion() {
        $.request({
@@ -330,10 +336,12 @@ window.onload = function () {
            }
        });
   }
-```
+{% highlight  %}
 
-**$.request()是封装在js里的Ajax方法,代码如下：**
-```js
+
+**$.request()是封装在js里的Ajax方法,代码如下：**                
+
+{% highlight js %}
 var $ = {
     request:function(obj){
         var xhr;
@@ -363,23 +371,22 @@ var $ = {
         }
     }
 }
-```
-```php
-<?php
-/**
- * Created by PhpStorm.
- * User: 尧
- * Date: 9/27/2016
- * Time: 10:03 PM
- */
+{% highlight %}        
 
+promotion.php     
+
+{% highlight php %}
+<?php
 	$data['status'] = 1;
     //促销时间
 	$data['dates'] = array(28,29,30);
 
 	echo json_encode($data);
-```
-最终效果图如下，样式不是很美观
+{% highlight %}
+最终效果图如下，样式不是很美观                
+
 ![自定义日历最终效果图](http://xueyao.org/images/2016/09/sp160927_232715.png)
+
+
 
 **[代码托管于GitHub](https://github.com/flowstone/2016-Code/tree/master/day075AJax)**
