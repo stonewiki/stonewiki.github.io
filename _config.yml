@@ -71,4 +71,4 @@ kramdown:
         input: GFM
         syntax_highlighter: rouge
 gems: [jekyll-paginate]
-paginate: 5
+paginate: 1

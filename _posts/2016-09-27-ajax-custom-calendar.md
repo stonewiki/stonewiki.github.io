@@ -24,7 +24,8 @@ comments: true
 ### 实现方法
 1、 先创建一个固定的日历，效果如下       
 
-![自定义日历初始效果图](http://xueyao.org/images/2016/09/sp160927_232635.png)     
+![自定义日历初始效果图](http://xueyao.org/images/2016/09/sp160927_232635.png)  
+   
 
 html代码如下         
 
