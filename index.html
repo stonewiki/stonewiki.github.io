@@ -57,33 +57,33 @@
     <div class="container resume-content">
       <nav class="navbar navbar-default hidden-print hidden-xs" role="navigation">
         <div class="resume-nav">
-          <span>Built with <a href="https://github.com/ellekasai/resumecards" target="_blank">ResumeCards</a><span class="hidden-sm">, a Markdown based resume generator</span></span>.
+          <span><a href="https://github.com/flowstone/flowstone.github.io" target="_blank">简历</a>构建<span class="hidden-sm">, 基于Markdown的简历生成器</span></span>.
           <div class="dropdown resume-dropdown">
-            <button type="button" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Theme <span class="caret"></span></button>
+            <button type="button" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">主题 <span class="caret"></span></button>
             <ul class="dropdown-menu resume-dropdown-menu" role="menu">
-              <li><a href="#" id="default">Default</a></li>
-              <li><a href="#" id="red">Red</a></li>
-              <li><a href="#" id="pink">Pink</a></li>
-              <li><a href="#" id="brown">Brown</a></li>
-              <li><a href="#" id="blue">Blue</a></li>
-              <li><a href="#" id="purple">Purple</a></li>
-              <li><a href="#" id="teal">Teal</a></li>
-              <li><a href="#" id="green">Green</a></li>
+              <li><a href="#" id="default">默认</a></li>
+              <li><a href="#" id="red">红分</a></li>
+              <li><a href="#" id="pink">粉分</a></li>
+              <li><a href="#" id="brown">褐色</a></li>
+              <li><a href="#" id="blue">蓝色</a></li>
+              <li><a href="#" id="purple">紫色</a></li>
+              <li><a href="#" id="teal">蓝绿色</a></li>
+              <li><a href="#" id="green">绿色</a></li>
             </ul>
           </div>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#saveAsPdf">
-            Save as PDF
+            保存到PDF
           </button>
           <div class="modal fade" id="saveAsPdf" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-body">
                   <img src="{{ "/images/resume_print_dialog.png" | prepend:site.baseurl }}" class="img-rounded" width="400" height="342">
-                  <p>Warning: Currently, ResumeCards works the best on Chrome.<br>You need to adjust the CSS for Firefox/Safari.</p>
+                  <p>警告: 当前, 简历输出到PDF效果最好的是Chrome浏览器.<br>如果您使用Firefox/Safari需要调整CSS.</p>
                 </div>
                 <div class="modal-footer">
-                  <button onclick="window.print()" class="btn btn-primary">Open Print Dialog</button>
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button onclick="window.print()" class="btn btn-primary">打开打印对话框</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                 </div>
               </div>
             </div>
