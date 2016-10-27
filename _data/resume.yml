@@ -18,4 +18,4 @@ copy: "我是PHP工程师."
 # - purple
 # - teal
 # - green
-color: blue
+color: default
