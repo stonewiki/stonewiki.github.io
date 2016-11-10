@@ -1,61 +1,60 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
 # Site settings
 title: 流体石头博客
-author: 流体石头
-email: yaoxue2014@hotmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+brief-intro: PHP开发工程师
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://flowstone.github.io" # the base hostname & protocol for your site
 
-
-# Site URL NOTE: if your site is base on subdir /blog you should change base to "/blog"
-domain: "http://flowstone.github.io" # the domain URL for your site
-base: ""  # the relative path that different with domain so you can test locally
-
-# Source URL NOTE: end with / cause it's [URL + FILE]
-w3c_url: "/w3c/"  # the base url of css js and images
-images_url: "/w3c/images/" # the base url of post images
-postfile: "/db/Postfile" # the Database
-sitefile: "/db/Sitefile" # the Database
-
-# 3rd URL
-duoshuo_short_name: "sbys" # the user of user.domain.com
-duoshuo_user_uid: "6324572809590735618" # the admin user uid
-duoshuo_user_name: "xk" # the admin user name
-duoshuo_max_depth: "2"  # the max_depth setting in duoshuo comments
-duoshuo_url: "/w3c/duoshuo/embed.min.js" # the local duoshuo comment plugin, you can change it to remote "http://static.duoshuo.com/"
-jquery_url: "http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js" # use cdn
-baiduTemplate_url: "/w3c/js/baiduTemplate.js" #use local
-google_analytics_id: "UA-83197743-1"
-
-# Build Settings
-excerpt_separator: "\n\n" # you can specify your own separator here, default is "\n\n" String
 permalink: /:year/:month/:day/:title.html
-highlighter: rouge
+
+# other links
+twitter_username: yaoxue2014
+facebook_username: 
+github_username:  flowstone
+email: yaoxue2014@hotmail.com
+weibo_username: 1816649623
+zhihu_username: flowstones
+linkedIn_username: flowstone
+dribbble_username: flowstone
+
+description_footer: 本站记录学习PHP的那些事！
+
+# comments
+# two ways to comment, only choose one, and use your own short name
+# 两种评论插件，选一个就好了，使用自己的 short_name
+duoshuo_shortname: #hygblog
+disqus_shortname: #gaohaoyang
+
+# statistic analysis 统计代码
+# 百度统计 id，将统计代码替换为自己的百度统计id，即
+# hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
+# xxxxx字符串
+baidu_tongji_id: efb00b3ba3cba19959308034cd8ffdd6
+google_analytics_id: UA-87139830-1 # google 分析追踪id
+
+# Build settings
 markdown: kramdown
+
 kramdown:
   input: GFM
-  hard_wrap: true # a newline in markdown text would be changed to <br>
-gems:
-  - jemoji
+  syntax_highlighter: rouge
 
-# Following is got in Github Help With Configuring Jekyll
+# port
+# port: 1234
 
-# Github Page Default Settings which you can override:
-# kramdown:
-#   input: GFM
-#   hard_wrap: false
-# gems:
-#   - jekyll-coffeescript
-#   - jekyll-paginate
+# url
+category_dir: category/
+tag_dir: tag/
 
-# Github Page override the following settings which you cannot change:
-# lsi: false
-# safe: true
-# source: [your repo's top level directory]
-# incremental: false
-# highlighter: rouge
-# gist:
-#  noscript: false
-# kramdown:
-#  math_engine: mathjax
+# excerpt
+excerpt_separator: "\n\n\n\n"
+
+# paginate
+gems: [jekyll-paginate]
+paginate: 6
