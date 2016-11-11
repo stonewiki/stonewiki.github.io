@@ -8,8 +8,6 @@ tags:  javascript 轮播
 * content
 {:toc}
 
-
-
 **效果如下**
 
 ![轮播图](http://xueyao.org/images/2016/09/601849-20160917220146523-52456133.png)
