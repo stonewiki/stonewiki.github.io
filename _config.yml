@@ -37,25 +37,25 @@ disqus_shortname:   flowstone
   #ad-client:
   #ad-slot:
 #bing-verify:
-#email:             yaoxue2014@hotmail.com
+email:              yaoxue2014@hotmail.com
 twitter:            yaoxue2014
-facebook:           username
+#facebook:           username
 github:             flowstone
 #stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
-#linkedin:          flowstone
+linkedin:           flowstone
 #xing:              username
-instagram:          username
+#instagram:          username
 #lastfm:            username
 #tumblr:            username
 #pinterest:         username
 #foursquare:        username
-steam:              username
+#steam:             username
 #dribbble:          username
-#youtube:           username
+#youtube:            
 #soundcloud:        username
-#weibo:             1816649623
+weibo:              1816649623
 #flickr:            username
-#codepen:           username
+codepen:            flowstone
 #keybase:           username
 #xmpp:              username@server.com
 #hackernews:        username
