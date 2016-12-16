@@ -1,60 +1,74 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+# Site
+title:              流体石头博客
+bio:                'PHP开发工程师'
+description:        "本站记录学习PHP的那些事！"
+reading_time:       true
+words_per_minute:   200
+logo:               'assets/img/logo.png'
+background:         'assets/img/placeholder-big.jpg'
+tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
+locale:             en_US
+url:                http://xueyao.org
 
-# Site settings
-title: 流体石头博客
-brief-intro: PHP开发工程师
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://flowstone.github.io" # the base hostname & protocol for your site
-
-permalink: /:year/:month/:day/:title.html
-
-# other links
-twitter_username: yaoxue2014
-facebook_username: 
-github_username:  flowstone
-email: yaoxue2014@hotmail.com
-weibo_username: 1816649623
-zhihu_username: flowstones
-linkedIn_username: flowstone
-dribbble_username: flowstone
-
-description_footer: 本站记录学习PHP的那些事！
-
-# comments
-# two ways to comment, only choose one, and use your own short name
-# 两种评论插件，选一个就好了，使用自己的 short_name
-duoshuo_shortname: #hygblog
-disqus_shortname: #gaohaoyang
-
-# statistic analysis 统计代码
-# 百度统计 id，将统计代码替换为自己的百度统计id，即
-# hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
-# xxxxx字符串
-baidu_tongji_id: efb00b3ba3cba19959308034cd8ffdd6
-google_analytics_id: UA-87139830-1 # google 分析追踪id
-
-# Build settings
-markdown: kramdown
-
+# Jekyll
+permalink:          /:title.html
+markdown:           kramdown
+highlighter:        rouge
 kramdown:
-  input: GFM
-  syntax_highlighter: rouge
+  auto_ids:         true
+  footnote_nr:      1
+  entity_output:    as_char
+  toc_levels:       1..6
+  enable_coderay:   false
+mathjax:            true
+sass:
+  sass_dir:         _sass
+  style:            compressed
 
-# port
-# port: 1234
+# Comments
+disqus_shortname:   flowstone
 
-# url
-category_dir: category/
-tag_dir: tag/
+# Social
+# if you don't have any of social below, comment the line.
+#google:
+  #plus:            #username
+  #analytics:
+  #verify:
+  #ad-client:
+  #ad-slot:
+#bing-verify:
+#email:             yaoxue2014@hotmail.com
+twitter:            yaoxue2014
+facebook:           username
+github:             flowstone
+#stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
+#linkedin:          flowstone
+#xing:              username
+instagram:          username
+#lastfm:            username
+#tumblr:            username
+#pinterest:         username
+#foursquare:        username
+steam:              username
+#dribbble:          username
+#youtube:           username
+#soundcloud:        username
+#weibo:             1816649623
+#flickr:            username
+#codepen:           username
+#keybase:           username
+#xmpp:              username@server.com
+#hackernews:        username
 
-# excerpt
-excerpt_separator: "\n\n\n\n"
+# Gems
+gems:
+  - jekyll-mentions
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-gist
 
-# paginate
-gems: [jekyll-paginate]
-paginate: 6
+jekyll-mentions:
+    base_url: https://github.com
+
+# Exclude list
+exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile]
