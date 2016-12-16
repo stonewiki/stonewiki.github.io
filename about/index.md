@@ -1,10 +1,11 @@
 ---
 layout: page
 title: 关于我
+excerpt: "关于我"
 tags: [about]
-date: 2016-03-21
 comments: true
 ---
+
     
 <center><a href="http://taylantatli.github.io/Moon"><b>Moon</b></a> is a minimal, one column jekyll theme.</center>
 
