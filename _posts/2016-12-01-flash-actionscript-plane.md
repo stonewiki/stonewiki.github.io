@@ -11,7 +11,7 @@ comments: true
 <center><b>学期项目二</b></center> 
 
 #### 简介
-* 时间：2013年
+* 时间：2014年
 * 周期：1个月
 * 软件：Adobe Flash CS3
 * 语言：ActionScript3.0
