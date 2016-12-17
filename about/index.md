@@ -24,7 +24,8 @@ comments: true
 
 * 熟悉C/C++/Java编程语言
 * 了解Android开发
-* 了解ActionScript脚本语言
+* 了解ActionScript3.0脚本语言开发
+* 了解dedeCMS、PHPCMS、EmpireCMS二次开发
 * 熟悉HTML、CSS、Javascript、AJAX、jQuery、JSON等页面技术；
 * 熟练使用PHP+Mysql进行网站程序开发(Window/Linux)；
 * 熟悉MVC开发模式，具备OOP编程思想；
@@ -57,5 +58,5 @@ comments: true
 
 * GitHub：[flowstone](https://github.com/flowstone)
 * Email：yaoxue2014#hotmail.com
-* 个人简历：[薛尧_PHP开发工程师](https://meresume.github.io/)
+
 
