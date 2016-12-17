@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 数独游戏
-date: 2016-12-01
+date: 2016-12-09
 excerpt: "基于Android开发的数独游戏."
 tags: [actionscript]
 project: true
