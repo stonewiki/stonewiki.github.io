@@ -26,8 +26,8 @@ sass:
   style:            compressed
 
 # Comments
-disqus_shortname:   flowstone
-
+#disqus_shortname:   flowstone
+duoshuo_shortname： flowstone
 # Social
 # if you don't have any of social below, comment the line.
 #google:
