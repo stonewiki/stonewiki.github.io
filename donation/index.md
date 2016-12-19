@@ -9,7 +9,7 @@ comments: true
 
 <b>支付宝付款码（支付宝手机客户端扫描二维码）：</b>
 {% capture images %}
-http://xueyao.org/images/payment/alipay.png
+http://xueyao.org/images/payment/alipay.jpg
 {% endcapture %}
 <center>{% include gallery images=images caption="支付宝捐赠" cols=1 %}</center>
 
