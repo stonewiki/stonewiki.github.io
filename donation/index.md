@@ -19,3 +19,7 @@ http://xueyao.org/images/payment/alipay.png
 http://xueyao.org/images/payment/weixin.png
 {% endcapture %}
 <center>{% include gallery images=images caption="微信捐赠" cols=1 %}</center>
+
+<b>[PayPal支付](https://www.paypal.me/flowstone)</b>
+
+
