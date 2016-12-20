@@ -38,9 +38,10 @@ layout: compress
                 </div>
             </div>
         </div>
-
+        <section id="disqus_thread" class="animated fadeInUp">
         <!-- 多说评论框 start -->
-        <select class="ds-thread animated fadeInUp" data-thread-key="{{ site.url }}{{ page.id }}" data-title="{{ page.title}}" data-url="{{ site.url }}{{ page.id }}"></select>
+        <div class="ds-thread " data-thread-key="{{ site.url }}{{ page.id }}" data-title="{{ page.title}}" data-url="{{ site.url }}{{ page.id }}"></div>
+        </section>
         <!-- 多说评论框 end -->
         <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
         <script type="text/javascript">
