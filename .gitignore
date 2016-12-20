@@ -3,4 +3,5 @@ _site/
 .jekyll-metadata
 
 _layouts/post-Copy.html
+_layouts/page-Copy.html
 _includes/disqus_comments-Copy.html
