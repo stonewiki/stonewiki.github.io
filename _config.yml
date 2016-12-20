@@ -27,10 +27,7 @@ sass:
 
 # Comments
 # disqus_shortname:   flowstone
-comments :
-  provider : duoshuo
-  duoshuo :
-    short_name : flowstone
+
 # Social
 # if you don't have any of social below, comment the line.
 #google:
