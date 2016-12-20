@@ -1,3 +1,6 @@
 _site/
 .sass-cache/
 .jekyll-metadata
+
+_layouts/post-Copy.html
+_includes/disqus_comments-Copy.html
