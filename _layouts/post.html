@@ -38,6 +38,7 @@ layout: compress
                 </div>
             </div>
         </div>
+       
         <section id="disqus_thread" class="animated fadeInUp">
         <!-- 多说评论框 start -->
         <div class="ds-thread " data-thread-key="{{ site.url }}{{ page.id }}" data-title="{{ page.title}}" data-url="{{ site.url }}{{ page.id }}"></div>
@@ -54,9 +55,9 @@ layout: compress
                 (document.getElementsByTagName('head')[0] 
                  || document.getElementsByTagName('body')[0]).appendChild(ds);
             })();
-            </script>
+        </script>
         <!-- 多说公共JS代码 end -->
-        </header>
+    </header>
     {% include scripts.html %}
     {% if site.mathjax == true %}
     <!-- MathJax -->
