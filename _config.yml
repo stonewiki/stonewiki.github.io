@@ -37,11 +37,11 @@ google:
   #ad-client:
   #ad-slot:
 #bing-verify:
-email:              yaoxue2014@hotmail.com
-twitter:            yaoxue2014
-facebook:           sisoyaoxue
+#email:              yaoxue2014@hotmail.com
+#twitter:            yaoxue2014
+#facebook:           sisoyaoxue
 github:             flowstone
-stackoverflow:     6685839/flowstone   from a "http://stackoverflow.com/users/123456/username" link
+stackoverflow:     6685839/flowstone  # from a "http://stackoverflow.com/users/123456/username" link
 linkedin:           flowstone
 #xing:              username
 #instagram:          username
