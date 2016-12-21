@@ -30,18 +30,18 @@ sass:
 
 # Social
 # if you don't have any of social below, comment the line.
-#google:
-  #plus:            #username
-  #analytics:
+google:
+  #plus:            #112302783904370653712
+  analytics:  87139830-1
   #verify:
   #ad-client:
   #ad-slot:
 #bing-verify:
 email:              yaoxue2014@hotmail.com
-#twitter:            yaoxue2014
-#facebook:           username
+twitter:            yaoxue2014
+facebook:           sisoyaoxue
 github:             flowstone
-#stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
+stackoverflow:     6685839/flowstone   from a "http://stackoverflow.com/users/123456/username" link
 linkedin:           flowstone
 #xing:              username
 #instagram:          username
