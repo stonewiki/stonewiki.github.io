@@ -14,7 +14,7 @@ comments: true
     {% capture images %}
         http://xueyao.org/images/2017/02/sp170202_220301.png
     {% endcapture %}
-    {% include gallery images=images caption="Source" cols=1 %}
+    {% include gallery images=images caption="Source" cols=2 %}
 * 并在Custom domain 里填写自定义的二级域名，如下图所示:
     {% capture images %}
 	    http://xueyao.org/images/2017/02/sp170202_220346.png
@@ -32,7 +32,7 @@ comments: true
     {% include gallery images=images caption="访问二级域名" cols=1 %}
 * 注意此二级域名的一级域名必须解析到自己flowstone.github.io下，如下图所示：
      {% capture images %}
-	    http://xueyao.org/images/2017/029/sp170202_220120.png
+	    http://xueyao.org/images/2017/02/sp170202_220120.png
     {% endcapture %}
     {% include gallery images=images caption="解析域名" cols=1 %}
 
