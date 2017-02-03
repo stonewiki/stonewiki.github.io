@@ -14,7 +14,6 @@ comments: true
     {% capture images %}
         http://xueyao.org/images/2017/02/sp170202_220301.png
     {% endcapture %}
-    {% include gallery images=images caption="Source" cols=2 %}
 * 并在Custom domain 里填写自定义的二级域名，如下图所示:
     {% capture images %}
 	    http://xueyao.org/images/2017/02/sp170202_220346.png
