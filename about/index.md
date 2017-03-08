@@ -6,12 +6,11 @@ tags: [about]
 comments: true
 ---
 
-    
+
 <center>good good study , day day up .</center>
 
 ## 关于我
 
-就职于**公司，PHP开发工程师。
 
 主要兴趣集中在PHP开发。
 
@@ -36,10 +35,6 @@ comments: true
 * 熟悉Git版本控制
 * 了解Bootstrap框架
 
-## 工作经历
-
-* 2015.08-2016.12  苏州**科技有限公司，PHP开发工程师
-* 2014.09-2015.05  苏州**科技有限公司，PHP开发工程师（实习生）
 
 
 ## 证书与荣誉
@@ -52,6 +47,4 @@ comments: true
 ## 联系我
 
 * GitHub：[flowstone](https://github.com/flowstone)
-* Email：yaoxue2014#hotmail.com
-
-
+* Email：yaoxue2014#gmail.com
