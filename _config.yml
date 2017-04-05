@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "Site Title"
+title                    : "流体石头"
 title_separator          : "-"
-name                     : "Your Name"
-description              : "An amazing website."
+name                     : "薛尧"
+description              : "本站记录学习PHP的那些事！"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -77,11 +77,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "薛尧"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
-  email            :
+  bio              : "PHP开发工程师"
+  location         : "上海"
+  email            : "yaoxue2014@gmail.com"
   uri              :
   bitbucket        :
   codepen          :
