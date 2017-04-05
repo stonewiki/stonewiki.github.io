@@ -7,13 +7,13 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "流体石头"
+title                    : "Site Title"
 title_separator          : "-"
-name                     : "薛尧"
-description              : "本站记录学习PHP的那些事！"
-url                      : "https://xueyao.org" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : "/" # the subpath of your site, e.g. "/blog"
-repository               : "flowstone/flowstone.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+name                     : "Your Name"
+description              : "An amazing website."
+url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+baseurl                  : # the subpath of your site, e.g. "/blog"
+repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -72,37 +72,37 @@ social:
 analytics:
   provider               : false # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          : "UA-87139830-1"
+    tracking_id          :
 
 
 # Site Author
 author:
-  name             : "薛尧"
+  name             : "Your Name"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "PHP开发工程师"
+  bio              : "I am an amazing person."
   location         : "Somewhere"
-  email            : "yaoxue2014@gmail.com"
+  email            :
   uri              :
   bitbucket        :
-  codepen          : "flowstone"
+  codepen          :
   dribbble         :
   flickr           :
-  facebook         : "sisoyaoxue"
+  facebook         :
   foursquare       :
   github           :
   google_plus      :
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         : "flowstone"
+  linkedin         :
   pinterest        :
   soundcloud       :
-  stackoverflow    : "6685839/flowstone" # "123456/username" (the last part of your profile url, e.g. http://stackoverflow.com/users/123456/username)
+  stackoverflow    : # "123456/username" (the last part of your profile url, e.g. http://stackoverflow.com/users/123456/username)
   steam            :
   tumblr           :
-  twitter          : "yaoxue2014"
+  twitter          :
   vine             :
-  weibo            : "1816649623"
+  weibo            :
   xing             :
   youtube          : # "https://youtube.com/c/MichaelRoseDesign"
 
@@ -171,7 +171,7 @@ sass:
 
 
 # Outputting
-permalink: /:categories/:title.html
+permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 timezone: # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -241,6 +241,6 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments:  true
+      comments: # true
       share: true
       related: true
