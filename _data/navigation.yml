@@ -1,9 +1,9 @@
 # main links
 main:
-  # title: "快速入门"
-  #  url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-   - title: "关于"
-     url: https://mmistakes.github.io/minimal-mistakes/about/
+#   - title: "快速入门"
+#     url: /docs/
+   - title: "关于我"
+     url: https://resume.xueyao.org
    - title: "文章归档"
      url: /year-archive/
 #   - title: "Sample Collections"
