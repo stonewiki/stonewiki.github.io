@@ -5,9 +5,11 @@
 #main {
   @include container;
   @include clearfix;
+  //新修改 start 把em 换成px
   margin-top: 2em;
   padding-left: 1em;
   padding-right: 1em;
+  //新修改  end
   -webkit-animation: intro 0.3s both;
           animation: intro 0.3s both;
   -webkit-animation-delay: 0.35s;
