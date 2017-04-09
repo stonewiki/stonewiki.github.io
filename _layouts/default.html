@@ -17,8 +17,9 @@
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
 
     {% include browser-upgrade.html %}
+    <!-- 头部导航栏去掉
     {% include masthead.html %}
-
+    -->
     {{ content }}
 
     <div class="page__footer">
