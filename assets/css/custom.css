@@ -3,7 +3,7 @@
     height:100%;
     border:1px solid blue;*/
 }
-body{
+body,ul,li,a,p,div,span,img{
     background:#3f3f3f;
     color:#999;
 }
@@ -15,7 +15,6 @@ body{
 /* 作者 siderbar */
 .sidebar{
     height:100%;
-    position: relative;
     border:1px solid red;
 }
 /* 最新文章 */
@@ -37,3 +36,14 @@ body{
     width:100%;
     text-align:center;
 }
+/* links */
+.links_custom{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    float:left;
+}
+.links_custom li a{
+    padding:0px;
+    text-decoration:none;}
