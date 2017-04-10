@@ -7,9 +7,20 @@ body{
     background:#3f3f3f;
     color:#999;
 }
-.main{
+#main{
     margin:0px;
-    padding:0px;
+    padding-top:80px;
+}
+
+/* 作者 siderbar */
+.sidebar{
+    height:100%;
+    position: relative;
+    border:1px solid red;
+}
+/* 最新文章 */
+.archive__subtitle{
+  border:0px;
 }
 /* 最新文章 列表项目 */
 .list__item{
