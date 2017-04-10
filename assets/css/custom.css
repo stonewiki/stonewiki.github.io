@@ -3,3 +3,12 @@
     height:100%;
     border:1px solid blue;*/
 }
+body{
+    background:#3f3f3f;
+    color:#999;
+}
+.list__item{
+    border:1px solid red;
+    margin-bottom:20px;
+    border-radius: 8px;
+}
