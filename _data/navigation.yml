@@ -1,7 +1,7 @@
 # main links
 main:
-   - title: "快速入门"
-     url: /docs/quick-start-guide/
+#   - title: "快速入门"
+#     url: http://xueyao.org/docs/quick-start-guide/
    - title: "关于我"
      url: http://resume.xueyao.org
    - title: "文章归档"
