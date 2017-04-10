@@ -13,12 +13,15 @@
 
     {% include browser-upgrade.html %}
      <!--头部导航栏-->
-    <!--{% include masthead.html %}-->
-
+    {% include masthead.html %}
     {{ content }}
 
-    <!--2017-04-10 删除页脚 start -->
-    <!--2017-04-10 删除页脚 end -->
+    <div class="page__footer">
+      <footer>
+        {% include footer/custom.html %}
+        {% include footer.html %}
+      </footer>
+    </div>
 
     {% include scripts.html %}
 

@@ -7,8 +7,22 @@ body{
     background:#3f3f3f;
     color:#999;
 }
+.main{
+    margin:0px;
+    padding:0px;
+}
+/* 最新文章 列表项目 */
 .list__item{
     border:1px solid red;
     margin-bottom:20px;
     border-radius: 8px;
+}
+/* 页脚 */
+.footer__custom{
+    /*border:1px solid red;*/
+    position:relative;
+    margin-top:20px;
+    float:left;
+    width:100%;
+    text-align:center;
 }
