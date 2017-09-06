@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://xueyao.org/2017/08/26/js-linkage-effect-example.html</loc>
+    <lastmod>2017-09-06T14:17:59.751Z</lastmod>
+    <data>
+        <display>
+        <title>js小例子之二级联动</title>
+        <pubTime>2017-08-25T16:00:00.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="js" url="http://xueyao.org/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xueyao.org/2017/09/06/java-web-jsp-start.html</loc>
+    <lastmod>2017-09-06T14:16:45.667Z</lastmod>
+    <data>
+        <display>
+        <title>JavaWeb之JSP入门</title>
+        <pubTime>2017-09-06T12:54:57.000Z</pubTime>
+        
+        <tag>jsp</tag>
+         
+         
+           
+             
+              <breadCrumb title="jsp" url="http://xueyao.org/categories/jsp/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://xueyao.org/2016/09/17/use-js-simple-carousel-picture.html</loc>
     <lastmod>2017-08-29T12:12:20.109Z</lastmod>
     <data>
@@ -19,26 +59,6 @@
            
              
               <breadCrumb title="js" url="http://xueyao.org/categories/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xueyao.org/2017/08/26/js-linkage-effect-example.html</loc>
-    <lastmod>2017-08-29T11:36:22.409Z</lastmod>
-    <data>
-        <display>
-        <title>js小例子之二级联动</title>
-        <pubTime>2017-08-25T16:00:00.000Z</pubTime>
-        
-        <tag>javascript</tag>
-         
-         
-           
-             
-              <breadCrumb title="JS" url="http://xueyao.org/categories/JS/"/>
           
         </display>
     </data>

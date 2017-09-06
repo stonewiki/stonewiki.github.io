@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xueyao.org/"/>
-  <updated>2017-08-29T11:36:22.409Z</updated>
+  <updated>2017-09-06T14:16:45.667Z</updated>
   <id>http://xueyao.org/</id>
   
   <author>
@@ -16,16 +16,139 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JavaWeb之JSP入门</title>
+    <link href="http://xueyao.org/2017/09/06/java-web-jsp-start.html"/>
+    <id>http://xueyao.org/2017/09/06/java-web-jsp-start.html</id>
+    <published>2017-09-06T12:54:57.000Z</published>
+    <updated>2017-09-06T14:16:45.667Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="JSP原理及执行过程"><a href="#JSP原理及执行过程" class="headerlink" title="JSP原理及执行过程"></a>JSP原理及执行过程</h4><ol>
+<li>流程图分析<br><img src="https://raw.githubusercontent.com/flowstone/blogimg/master/2017/2017-09-06_203303.png" alt="JSP流程图"></li>
+</ol>
+<ul>
+<li>用户发起请求,用户通过浏览器访问jsp页面,浏览器将HTTP协议的请求部分发送到服务端.</li>
+<li>服务端获取请求部分,分析请求,发现本次的请求的的是jsp页面,jsp引擎按照内部规定,将jsp页面转换为一个servlet文件,并生成java文件,index_jsp.java,<br>转换后的java文件中有init,service,destroy方法,在service方法中,将HTML标签原封不动输出到浏览器中,碰到java代码,复制到service方法中</li>
+</ul>
+<h4 id="JSP如何出现"><a href="#JSP如何出现" class="headerlink" title="JSP如何出现"></a>JSP如何出现</h4><p>如果开发中直接使用servlet对客户端响应,是难以维护的,因为它把html标签全部写到java文件中,更改一个小的部件,就要修改servlet文件.</p>
+<h4 id="JSP语法"><a href="#JSP语法" class="headerlink" title="JSP语法"></a>JSP语法</h4><ol>
+<li><p>JSP脚本段</p>
+<ol>
+<li><p>存放定义型的语句</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;%! %&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>普通的Java语句</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;%  %&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>可以计算出结果的表达式</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;%= %&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>JSP的注释</p>
+ <figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;%-- JSP的注释 --%&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>注意:JSP中实现注释,优先使用JSP注释,效率高,转换为servlet的时候,不需要处理</li>
+</ul>
+</li>
+<li><p>JSP指令</p>
+<ol>
+<li><p>指令格式</p>
+<pre><code class="jsp">&lt;%@ 指令名称 属性名<span class="number">1</span>=”属性值<span class="number">1</span>” 属性名<span class="number">2</span>=”属性值<span class="number">2</span>”  属性名<span class="number">3</span>=”属性值<span class="number">3</span>” %&gt;
+</code></pre>
+</li>
+<li>指令的分类(3个)<ul>
+<li>page:告诉JSP引擎如何将当前JSP转换为Servlet<ul>
+<li>import=”cn.itcast.domain.Product  导入其他JAVA对象</li>
+<li>language=”java”: 如果JSP中出现脚本,采用的语言类型,目前仅支持JAVA</li>
+<li>contentType=”text/html;charset=UTF-8”:告诉浏览器,本次响应内容类型和编码</li>
+<li>pageEncoding=”UTF-8” :告诉JSP引擎,当前页面采用的编码格式</li>
+<li>autoFlush=”true”: 是否自动刷新</li>
+<li>buffer=”8kb”: response缓存区大小</li>
+<li>session=”true”: 如果获取不到sessionid是否创建session</li>
+<li>errorPage=”error.jsp”: 当前页面发生错误之后,处理错误页面</li>
+<li>isErrorPage=”true”:当前页面是错误页面</li>
+</ul>
+</li>
+<li>include:包含其它文件</li>
+<li>taglib:引用其它的标签库</li>
+</ul>
+</li>
+<li>内置对象(9个)<ul>
+<li>application</li>
+<li>config<ul>
+<li>JSP相当于servlet可以为servlet配置参数,也可以为JSP配置参数</li>
+</ul>
+</li>
+<li>out <ul>
+<li>2个out不是同一个对象,response对应的out优先级高</li>
+<li>JSP中默认使用内置的out对象</li>
+</ul>
+</li>
+<li>request</li>
+<li>response</li>
+<li>session</li>
+<li>exception<ul>
+<li>需要将当前页面的page指令下设置isErrorPage=”true”才能使用</li>
+<li><strong>作用:开发阶段,通过JSP中获取exception中的信息判断JSP出错异常信息</strong></li>
+</ul>
+</li>
+<li>pageContext<ul>
+<li>获取其它8个内置对象</li>
+<li>当作域对象使用</li>
+<li>操作其它域对象</li>
+<li><strong>pageContext.findAttribute(name)</strong></li>
+<li>pageContext&gt;request&gt;session&gt;application</li>
+</ul>
+</li>
+<li>page<ul>
+<li>代表this(当前访问的servlet)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>JSP域对象</p>
+<ul>
+<li>pageContext</li>
+<li>request</li>
+<li>session</li>
+<li>application</li>
+</ul>
+</li>
+<li><p>JSP动作</p>
+<pre><code class="jsp">&lt;jsp:forward page=""&gt;&lt;/jsp:forward&gt;
+&lt;jsp:include page=""&gt;&lt;/jsp:include&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;JSP原理及执行过程&quot;&gt;&lt;a href=&quot;#JSP原理及执行过程&quot; class=&quot;headerlink&quot; title=&quot;JSP原理及执行过程&quot;&gt;&lt;/a&gt;JSP原理及执行过程&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;流程图分析&lt;br&gt;&lt;img src=&quot;https://raw.g
+    
+    </summary>
+    
+      <category term="jsp" scheme="http://xueyao.org/categories/jsp/"/>
+    
+    
+      <category term="jsp" scheme="http://xueyao.org/tags/jsp/"/>
+    
+  </entry>
+  
+  <entry>
     <title>js小例子之二级联动</title>
     <link href="http://xueyao.org/2017/08/26/js-linkage-effect-example.html"/>
     <id>http://xueyao.org/2017/08/26/js-linkage-effect-example.html</id>
     <published>2017-08-25T16:00:00.000Z</published>
-    <updated>2017-08-29T11:36:22.409Z</updated>
+    <updated>2017-09-06T14:17:59.751Z</updated>
     
     <content type="html"><![CDATA[<h4 id="联动原理"><a href="#联动原理" class="headerlink" title="联动原理"></a>联动原理</h4><p>当用户点击省级的下拉选项,选择所在省,下一个下拉选项里的选项,则变成用户选择省下的所有市的信息,不会出现其它省市的信息.</p>
 <a id="more"></a>
 <h4 id="省市数据"><a href="#省市数据" class="headerlink" title="省市数据"></a>省市数据</h4><p>把省市数据,保存在js文件中,以json形式保存,以便读取,下面代码使用部分数据,不影响效果<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">var china = [</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"p_name"</span>: <span class="string">"吉林省"</span>,</div><div class="line">        <span class="attr">"p_id"</span>: <span class="string">"jl"</span>,</div><div class="line">        <span class="attr">"cities"</span>: [</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"长春"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"cc"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"四平"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"sp"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"通化"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"th"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"松原"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"sy"</span></div><div class="line">            &#125;</div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"p_name"</span>: <span class="string">"辽宁省"</span>,</div><div class="line">        <span class="attr">"p_id"</span>: <span class="string">"ln"</span>,</div><div class="line">        <span class="attr">"cities"</span>: [</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"沈阳"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"sy"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"大连"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"dl"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"抚顺"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"fs"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"铁岭"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"tl"</span></div><div class="line">            &#125;</div><div class="line">        ]</div><div class="line">        </div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"p_name"</span>: <span class="string">"山东省"</span>,</div><div class="line">        <span class="attr">"p_id"</span>: <span class="string">"sd"</span>,</div><div class="line">        <span class="attr">"cities"</span>: [</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"济南"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"jn"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"青岛"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"qd"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"威海"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"wh"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"烟台"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"yt"</span></div><div class="line">            &#125;</div><div class="line">        ]</div><div class="line">        </div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"p_name"</span>: <span class="string">"上海市"</span>,</div><div class="line">        <span class="attr">"p_id"</span>: <span class="string">"sh"</span>,</div><div class="line">        <span class="attr">"cities"</span>: [</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"闵行区"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"mh"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"徐汇区"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"xh"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"黄浦区"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"hp"</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">"c_name"</span>: <span class="string">"浦东新区"</span>,</div><div class="line">                <span class="attr">"c_id"</span>: <span class="string">"pd"</span></div><div class="line">            &#125;</div><div class="line">        ]</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">];</div></pre></td></tr></table></figure></p>
-<h4 id="获取省市数据"><a href="#获取省市数据" class="headerlink" title="获取省市数据"></a>获取省市数据</h4><p>通过js dom编程读取省市数据,把省市数据读取到对应的select选项中.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>二级联动<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"content-type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span> </div><div class="line">    </div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"province"</span> <span class="attr">name</span>=<span class="string">"province"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"none"</span>&gt;</span>--请选择省--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">       </div><div class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line">     </div><div class="line">	  <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"city"</span> <span class="attr">name</span>=<span class="string">"city"</span>&gt;</span></div><div class="line">	 	  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"none"</span>&gt;</span>--请选择市--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line">	  <span class="comment">&lt;!-- 载入省市数据 --&gt;</span>	</div><div class="line">	  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"cities.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> &gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">        <span class="comment">//获得省级下拉框对象</span></span></div><div class="line"><span class="javascript">        <span class="keyword">var</span> province = <span class="built_in">document</span>.getElementById(<span class="string">"province"</span>);</span></div><div class="line"><span class="javascript">        <span class="comment">//遍历省市数据,并把里面省的数据追加到option选项中</span></span></div><div class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;china.length; i++) &#123;</span></div><div class="line"><span class="javascript">            <span class="keyword">var</span> option = <span class="built_in">document</span>.createElement(<span class="string">"option"</span>);</span></div><div class="line"><span class="undefined">            option.value = china[i].p_id;</span></div><div class="line"><span class="undefined">            option.innerHTML = china[i].p_name;</span></div><div class="line"><span class="undefined">            province.appendChild(option);</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="javascript">		  <span class="comment">//省级下拉框发生改变事件</span></span></div><div class="line"><span class="javascript">		  province.onchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">            <span class="comment">//获取当前点击对象的值</span></span></div><div class="line"><span class="javascript">            <span class="keyword">var</span> proid = <span class="keyword">this</span>.value;</span></div><div class="line"><span class="javascript">            <span class="keyword">var</span> cities;</span></div><div class="line"><span class="javascript">            <span class="comment">//遍历省市数据,把省级下点击的那一个选项的值和省市数据中的</span></span></div><div class="line"><span class="javascript">            <span class="comment">//省级数据对比,如果相等,取出当前的市的数据</span></span></div><div class="line"><span class="javascript">            <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;china.length; i++) &#123;</span></div><div class="line"><span class="javascript">                <span class="keyword">if</span> (proid == china[i].p_id) &#123;</span></div><div class="line"><span class="undefined">                    cities = china[i].cities;</span></div><div class="line"><span class="undefined">                &#125;</span></div><div class="line"><span class="undefined">            &#125;</span></div><div class="line"><span class="javascript">            <span class="comment">//获得市级下拉框对象</span></span></div><div class="line"><span class="javascript">            <span class="keyword">var</span> city = <span class="built_in">document</span>.getElementById(<span class="string">"city"</span>);</span></div><div class="line"><span class="javascript">            <span class="comment">//每次点击省级后,市级初始化,避免高级重复追加</span></span></div><div class="line"><span class="xml">            city.innerHTML = "<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">'none'</span>&gt;</span>--请选择市--<span class="tag">&lt;/<span class="name">option</span>&gt;</span>";</span></div><div class="line"><span class="javascript">            <span class="comment">//遍历市级数据,并取出市级数据,追加到市级对象中</span></span></div><div class="line"><span class="javascript">            <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;cities.length; i++) &#123;</span></div><div class="line"><span class="javascript">                <span class="keyword">var</span> option = <span class="built_in">document</span>.createElement(<span class="string">"option"</span>);</span></div><div class="line"><span class="undefined">                option.innerHTML = cities[i].c_name;</span></div><div class="line"><span class="undefined">                option.value = cities[i].c_id;</span></div><div class="line"><span class="undefined">                city.appendChild(option);</span></div><div class="line"><span class="undefined">            &#125;</span></div><div class="line"><span class="undefined">		  &#125;</span></div><div class="line"><span class="undefined">	  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="获取省市数据"><a href="#获取省市数据" class="headerlink" title="获取省市数据"></a>获取省市数据</h4><p>通过js dom编程读取省市数据,把省市数据读取到对应的select选项中.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>二级联动<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"content-type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span> </div><div class="line">    </div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"province"</span> <span class="attr">name</span>=<span class="string">"province"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"none"</span>&gt;</span>--请选择省--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">       </div><div class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line">     </div><div class="line">	  <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"city"</span> <span class="attr">name</span>=<span class="string">"city"</span>&gt;</span></div><div class="line">	 	  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"none"</span>&gt;</span>--请选择市--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line">	  <span class="comment">&lt;!-- 载入省市数据 --&gt;</span>	</div><div class="line">	  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"cities.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> &gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">        //获得省级下拉框对象</span></div><div class="line"><span class="undefined">        var province = document.getElementById("province");</span></div><div class="line"><span class="undefined">        //遍历省市数据,并把里面省的数据追加到option选项中</span></div><div class="line"><span class="undefined">        for (var i=0; i&lt;china.length; i++) &#123;</span></div><div class="line"><span class="undefined">            var option = document.createElement("option");</span></div><div class="line"><span class="undefined">            option.value = china[i].p_id;</span></div><div class="line"><span class="undefined">            option.innerHTML = china[i].p_name;</span></div><div class="line"><span class="undefined">            province.appendChild(option);</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined">		  //省级下拉框发生改变事件</span></div><div class="line"><span class="undefined">		  province.onchange = function() &#123;</span></div><div class="line"><span class="undefined">            //获取当前点击对象的值</span></div><div class="line"><span class="undefined">            var proid = this.value;</span></div><div class="line"><span class="undefined">            var cities;</span></div><div class="line"><span class="undefined">            //遍历省市数据,把省级下点击的那一个选项的值和省市数据中的</span></div><div class="line"><span class="undefined">            //省级数据对比,如果相等,取出当前的市的数据</span></div><div class="line"><span class="undefined">            for (var i=0; i&lt;china.length; i++) &#123;</span></div><div class="line"><span class="undefined">                if (proid == china[i].p_id) &#123;</span></div><div class="line"><span class="undefined">                    cities = china[i].cities;</span></div><div class="line"><span class="undefined">                &#125;</span></div><div class="line"><span class="undefined">            &#125;</span></div><div class="line"><span class="undefined">            //获得市级下拉框对象</span></div><div class="line"><span class="undefined">            var city = document.getElementById("city");</span></div><div class="line"><span class="undefined">            //每次点击省级后,市级初始化,避免高级重复追加</span></div><div class="line"><span class="xml">            city.innerHTML = "<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">'none'</span>&gt;</span>--请选择市--<span class="tag">&lt;/<span class="name">option</span>&gt;</span>";</span></div><div class="line"><span class="undefined">            //遍历市级数据,并取出市级数据,追加到市级对象中</span></div><div class="line"><span class="undefined">            for (var i=0; i&lt;cities.length; i++) &#123;</span></div><div class="line"><span class="undefined">                var option = document.createElement("option");</span></div><div class="line"><span class="undefined">                option.innerHTML = cities[i].c_name;</span></div><div class="line"><span class="undefined">                option.value = cities[i].c_id;</span></div><div class="line"><span class="undefined">                city.appendChild(option);</span></div><div class="line"><span class="undefined">            &#125;</span></div><div class="line"><span class="undefined">		  &#125;</span></div><div class="line"><span class="undefined">	  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <h4 id="二级联动效果"><a href="#二级联动效果" class="headerlink" title="二级联动效果"></a>二级联动效果</h4><p><img src="https://raw.githubusercontent.com/flowstone/blogimg/master/2017/2017-08-26-123422.gif" alt="二级联动效果图"></p>
 <p><strong><a href="https://github.com/flowstone/blog-example-code/tree/master/2017-08-26-js-linkage-effect-example" target="_blank" rel="external">代码托管于GitHub</a></strong></p>
 ]]></content>
@@ -36,7 +159,7 @@
     
     </summary>
     
-      <category term="JS" scheme="http://xueyao.org/categories/JS/"/>
+      <category term="js" scheme="http://xueyao.org/categories/js/"/>
     
     
       <category term="javascript" scheme="http://xueyao.org/tags/javascript/"/>
@@ -357,6 +480,32 @@
   </entry>
   
   <entry>
+    <title>PHP实现分页功能</title>
+    <link href="http://xueyao.org/2016/07/16/paging.html"/>
+    <id>http://xueyao.org/2016/07/16/paging.html</id>
+    <published>2016-07-15T16:00:00.000Z</published>
+    <updated>2017-08-29T09:21:41.526Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="如何实现分页功能"><a href="#如何实现分页功能" class="headerlink" title="如何实现分页功能"></a>如何实现分页功能</h4><p><strong>1.代码如下</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$total = mysql_num_rows($res1);             </div><div class="line"><span class="comment">//页面大小               </span></div><div class="line">$pagesize = <span class="number">3</span>;           </div><div class="line"><span class="comment">//页面的值           </span></div><div class="line">$page = <span class="keyword">isset</span>($_GET[<span class="string">'page'</span>]) ?$_GET[<span class="string">'page'</span>] : <span class="number">1</span>;                </div><div class="line"><span class="comment">//页面最大数目                  </span></div><div class="line">$maxpage = ceil($total/$pagesize);             </div><div class="line"><span class="comment">//偏移量             </span></div><div class="line">$offset = ($page<span class="number">-1</span>)*$pagesize;               </div><div class="line">$sql = <span class="string">"select * from mess_info limit &#123;$offset&#125;,&#123;$pagesize&#125;"</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"pager"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"previous"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=1"</span>&gt;</span>&amp;larr; 首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=&lt;?php echo $page&lt;=1 ? $page : $page-1;?&gt;"</span>&gt;</span>上一页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=&lt;?php echo $page&gt;=$maxpage ? $maxpage : $page+1;?&gt;"</span>&gt;</span>下一页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"next"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=&lt;?php echo $maxpage;?&gt;"</span>&gt;</span>末页 &amp;rarr;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;如何实现分页功能&quot;&gt;&lt;a href=&quot;#如何实现分页功能&quot; class=&quot;headerlink&quot; title=&quot;如何实现分页功能&quot;&gt;&lt;/a&gt;如何实现分页功能&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;1.代码如下&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;hig
+    
+    </summary>
+    
+      <category term="php" scheme="http://xueyao.org/categories/php/"/>
+    
+    
+      <category term="分页" scheme="http://xueyao.org/tags/%E5%88%86%E9%A1%B5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>安装WAMP开发环境</title>
     <link href="http://xueyao.org/2016/07/16/apache-mysql-php-phpmyadmin-install.html"/>
     <id>http://xueyao.org/2016/07/16/apache-mysql-php-phpmyadmin-install.html</id>
@@ -388,32 +537,6 @@
       <category term="php" scheme="http://xueyao.org/tags/php/"/>
     
       <category term="mysql" scheme="http://xueyao.org/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP实现分页功能</title>
-    <link href="http://xueyao.org/2016/07/16/paging.html"/>
-    <id>http://xueyao.org/2016/07/16/paging.html</id>
-    <published>2016-07-15T16:00:00.000Z</published>
-    <updated>2017-08-29T09:21:41.526Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="如何实现分页功能"><a href="#如何实现分页功能" class="headerlink" title="如何实现分页功能"></a>如何实现分页功能</h4><p><strong>1.代码如下</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$total = mysql_num_rows($res1);             </div><div class="line"><span class="comment">//页面大小               </span></div><div class="line">$pagesize = <span class="number">3</span>;           </div><div class="line"><span class="comment">//页面的值           </span></div><div class="line">$page = <span class="keyword">isset</span>($_GET[<span class="string">'page'</span>]) ?$_GET[<span class="string">'page'</span>] : <span class="number">1</span>;                </div><div class="line"><span class="comment">//页面最大数目                  </span></div><div class="line">$maxpage = ceil($total/$pagesize);             </div><div class="line"><span class="comment">//偏移量             </span></div><div class="line">$offset = ($page<span class="number">-1</span>)*$pagesize;               </div><div class="line">$sql = <span class="string">"select * from mess_info limit &#123;$offset&#125;,&#123;$pagesize&#125;"</span>;</div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"pager"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"previous"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=1"</span>&gt;</span>&amp;larr; 首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=&lt;?php echo $page&lt;=1 ? $page : $page-1;?&gt;"</span>&gt;</span>上一页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=&lt;?php echo $page&gt;=$maxpage ? $maxpage : $page+1;?&gt;"</span>&gt;</span>下一页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"next"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=&lt;?php echo $maxpage;?&gt;"</span>&gt;</span>末页 &amp;rarr;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;如何实现分页功能&quot;&gt;&lt;a href=&quot;#如何实现分页功能&quot; class=&quot;headerlink&quot; title=&quot;如何实现分页功能&quot;&gt;&lt;/a&gt;如何实现分页功能&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;1.代码如下&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;hig
-    
-    </summary>
-    
-      <category term="php" scheme="http://xueyao.org/categories/php/"/>
-    
-    
-      <category term="分页" scheme="http://xueyao.org/tags/%E5%88%86%E9%A1%B5/"/>
     
   </entry>
   
