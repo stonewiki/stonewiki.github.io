@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://xueyao.org/2017/09/06/java-web-jsp-start.html</loc>
+    <lastmod>2017-09-06T14:23:45.081Z</lastmod>
+    <data>
+        <display>
+        <title>JavaWeb之JSP入门</title>
+        <pubTime>2017-09-06T12:54:57.000Z</pubTime>
+        
+        <tag>jsp</tag>
+         
+         
+           
+             
+              <breadCrumb title="jsp" url="http://xueyao.org/categories/jsp/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://xueyao.org/2017/08/26/js-linkage-effect-example.html</loc>
     <lastmod>2017-09-06T14:17:59.751Z</lastmod>
     <data>
@@ -17,26 +37,6 @@
            
              
               <breadCrumb title="js" url="http://xueyao.org/categories/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xueyao.org/2017/09/06/java-web-jsp-start.html</loc>
-    <lastmod>2017-09-06T14:16:45.667Z</lastmod>
-    <data>
-        <display>
-        <title>JavaWeb之JSP入门</title>
-        <pubTime>2017-09-06T12:54:57.000Z</pubTime>
-        
-        <tag>jsp</tag>
-         
-         
-           
-             
-              <breadCrumb title="jsp" url="http://xueyao.org/categories/jsp/"/>
           
         </display>
     </data>
