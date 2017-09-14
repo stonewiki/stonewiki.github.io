@@ -4,6 +4,45 @@
 
     
   <url>
+    <loc>http://xueyao.org/2017/09/14/jsp-ajax-three-level-linkage-effect-example.html</loc>
+    <lastmod>2017-09-14T10:17:21.885Z</lastmod>
+    <data>
+        <display>
+        <title>AJAX省市县三级联动的实现</title>
+        <pubTime>2017-09-13T16:00:00.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+        <tag>ajax</tag>
+         
+        <tag>jsp</tag>
+         
+         
+           
+             
+              <breadCrumb title="ajax" url="http://xueyao.org/categories/ajax/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xueyao.org/2017/09/12/javamail-simple-example.html</loc>
+    <lastmod>2017-09-13T11:30:43.503Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2017-09-12T09:29:55.438Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://xueyao.org/2017/09/06/java-web-jsp-start.html</loc>
     <lastmod>2017-09-06T14:23:45.081Z</lastmod>
     <data>
