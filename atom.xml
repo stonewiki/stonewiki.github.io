@@ -608,6 +608,32 @@
   </entry>
   
   <entry>
+    <title>PHP实现分页功能</title>
+    <link href="http://xueyao.org/2016/07/16/paging.html"/>
+    <id>http://xueyao.org/2016/07/16/paging.html</id>
+    <published>2016-07-15T16:00:00.000Z</published>
+    <updated>2017-08-29T09:21:41.526Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="如何实现分页功能"><a href="#如何实现分页功能" class="headerlink" title="如何实现分页功能"></a>如何实现分页功能</h4><p><strong>1.代码如下</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$total = mysql_num_rows($res1);             </div><div class="line"><span class="comment">//页面大小               </span></div><div class="line">$pagesize = <span class="number">3</span>;           </div><div class="line"><span class="comment">//页面的值           </span></div><div class="line">$page = <span class="keyword">isset</span>($_GET[<span class="string">'page'</span>]) ?$_GET[<span class="string">'page'</span>] : <span class="number">1</span>;                </div><div class="line"><span class="comment">//页面最大数目                  </span></div><div class="line">$maxpage = ceil($total/$pagesize);             </div><div class="line"><span class="comment">//偏移量             </span></div><div class="line">$offset = ($page<span class="number">-1</span>)*$pagesize;               </div><div class="line">$sql = <span class="string">"select * from mess_info limit &#123;$offset&#125;,&#123;$pagesize&#125;"</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"pager"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"previous"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=1"</span>&gt;</span>&amp;larr; 首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=&lt;?php echo $page&lt;=1 ? $page : $page-1;?&gt;"</span>&gt;</span>上一页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=&lt;?php echo $page&gt;=$maxpage ? $maxpage : $page+1;?&gt;"</span>&gt;</span>下一页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"next"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=&lt;?php echo $maxpage;?&gt;"</span>&gt;</span>末页 &amp;rarr;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;如何实现分页功能&quot;&gt;&lt;a href=&quot;#如何实现分页功能&quot; class=&quot;headerlink&quot; title=&quot;如何实现分页功能&quot;&gt;&lt;/a&gt;如何实现分页功能&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;1.代码如下&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;hig
+    
+    </summary>
+    
+      <category term="php" scheme="http://xueyao.org/categories/php/"/>
+    
+    
+      <category term="分页" scheme="http://xueyao.org/tags/%E5%88%86%E9%A1%B5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>安装WAMP开发环境</title>
     <link href="http://xueyao.org/2016/07/16/apache-mysql-php-phpmyadmin-install.html"/>
     <id>http://xueyao.org/2016/07/16/apache-mysql-php-phpmyadmin-install.html</id>
@@ -639,32 +665,6 @@
       <category term="php" scheme="http://xueyao.org/tags/php/"/>
     
       <category term="mysql" scheme="http://xueyao.org/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP实现分页功能</title>
-    <link href="http://xueyao.org/2016/07/16/paging.html"/>
-    <id>http://xueyao.org/2016/07/16/paging.html</id>
-    <published>2016-07-15T16:00:00.000Z</published>
-    <updated>2017-08-29T09:21:41.526Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="如何实现分页功能"><a href="#如何实现分页功能" class="headerlink" title="如何实现分页功能"></a>如何实现分页功能</h4><p><strong>1.代码如下</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$total = mysql_num_rows($res1);             </div><div class="line"><span class="comment">//页面大小               </span></div><div class="line">$pagesize = <span class="number">3</span>;           </div><div class="line"><span class="comment">//页面的值           </span></div><div class="line">$page = <span class="keyword">isset</span>($_GET[<span class="string">'page'</span>]) ?$_GET[<span class="string">'page'</span>] : <span class="number">1</span>;                </div><div class="line"><span class="comment">//页面最大数目                  </span></div><div class="line">$maxpage = ceil($total/$pagesize);             </div><div class="line"><span class="comment">//偏移量             </span></div><div class="line">$offset = ($page<span class="number">-1</span>)*$pagesize;               </div><div class="line">$sql = <span class="string">"select * from mess_info limit &#123;$offset&#125;,&#123;$pagesize&#125;"</span>;</div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"pager"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"previous"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=1"</span>&gt;</span>&amp;larr; 首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=&lt;?php echo $page&lt;=1 ? $page : $page-1;?&gt;"</span>&gt;</span>上一页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=&lt;?php echo $page&gt;=$maxpage ? $maxpage : $page+1;?&gt;"</span>&gt;</span>下一页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"next"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"list.php?page=&lt;?php echo $maxpage;?&gt;"</span>&gt;</span>末页 &amp;rarr;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;如何实现分页功能&quot;&gt;&lt;a href=&quot;#如何实现分页功能&quot; class=&quot;headerlink&quot; title=&quot;如何实现分页功能&quot;&gt;&lt;/a&gt;如何实现分页功能&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;1.代码如下&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;hig
-    
-    </summary>
-    
-      <category term="php" scheme="http://xueyao.org/categories/php/"/>
-    
-    
-      <category term="分页" scheme="http://xueyao.org/tags/%E5%88%86%E9%A1%B5/"/>
     
   </entry>
   
