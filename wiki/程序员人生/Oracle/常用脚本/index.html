@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>常见脚本 | Stone Wiki</title>
+    
+    
+        <meta name="keywords" content="Oracle" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="批量插入操作123456789101112131415161718192021INSERT ALL        &lt;foreach collection&#x3D;&quot;list&quot; item&#x3D;&quot;item&quot; index&#x3D;&quot;index&quot;&gt;            INTO TTP_TOPTIER_QUESTION            &lt;t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见脚本">
+<meta property="og:url" content="http://www.1512.org/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Oracle/%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/index.html">
+<meta property="og:site_name" content="Stone Wiki">
+<meta property="og:description" content="批量插入操作123456789101112131415161718192021INSERT ALL        &lt;foreach collection&#x3D;&quot;list&quot; item&#x3D;&quot;item&quot; index&#x3D;&quot;index&quot;&gt;            INTO TTP_TOPTIER_QUESTION            &lt;t">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-01-14T23:04:48.000Z">
+<meta property="article:modified_time" content="2023-02-14T14:50:17.852Z">
+<meta property="article:author" content="Simon Xue">
+<meta property="article:tag" content="Oracle">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Stone Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '4624602462', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?00bb181c28f0741cd7087dad291d7cd8";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Stone Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            程序员人生
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Docker
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Docker/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/">常见命令</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Gist.Github
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Gist.Github/Stream%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">Stream常用操作</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Git/%E8%A7%A3%E5%86%B3%E5%A4%A7%E6%96%87%E4%BB%B6%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0/">解决大文件无法上传</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Java
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            常用工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Java/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/%E4%BB%A3%E7%A0%81%E6%89%8B%E5%8A%A8%E5%88%86%E9%A1%B5/">代码手动分页</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            MySQL
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/MySQL/%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93/">备份数据库</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Mybatis
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Mybatis/Xml%E9%AB%98%E7%BA%A7%E6%98%A0%E5%B0%84/">XML高级映射</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Oracle
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Oracle/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/">存储过程</a></li>  <li class="file active"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Oracle/%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/">常见脚本</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Oracle/%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">注意事项</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Other
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Other/Harbor/">Harbor</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">Hello Wiki</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-程序员人生/Oracle/常用脚本" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/">程序员人生</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Oracle/">Oracle</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Oracle/" rel="tag">Oracle</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Oracle/%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/">
+            <time datetime="2023-01-14T23:04:48.000Z" itemprop="datePublished">2023-01-14</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/stonewiki/stonewiki.github.io/raw/master/source/_posts/程序员人生/Oracle/常用脚本.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/stonewiki/stonewiki.github.io/edit/master/source/_posts/程序员人生/Oracle/常用脚本.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/stonewiki/stonewiki.github.io/commits/master/source/_posts/程序员人生/Oracle/常用脚本.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            常见脚本
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h3 id="批量插入操作"><a href="#批量插入操作" class="headerlink" title="批量插入操作"></a>批量插入操作</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">ALL</span></span><br><span class="line">        <span class="operator">&lt;</span>foreach collection<span class="operator">=</span>&quot;list&quot; item<span class="operator">=</span>&quot;item&quot; index<span class="operator">=</span>&quot;index&quot;<span class="operator">&gt;</span></span><br><span class="line">            <span class="keyword">INTO</span> TTP_TOPTIER_QUESTION</span><br><span class="line">            <span class="operator">&lt;</span>trim prefix<span class="operator">=</span>&quot;(&quot; suffix<span class="operator">=</span>&quot;)&quot;<span class="operator">&gt;</span></span><br><span class="line">                <span class="operator">&lt;</span>include refid<span class="operator">=</span>&quot;Base_List&quot;<span class="operator">&gt;</span><span class="operator">&lt;</span><span class="operator">/</span>include<span class="operator">&gt;</span></span><br><span class="line">            <span class="operator">&lt;</span><span class="operator">/</span>trim<span class="operator">&gt;</span></span><br><span class="line">            <span class="operator">&lt;</span>trim prefix<span class="operator">=</span>&quot;VALUES (&quot; suffix<span class="operator">=</span>&quot;)&quot;<span class="operator">&gt;</span></span><br><span class="line">                #&#123;item.id,jdbcType<span class="operator">=</span><span class="type">VARCHAR</span>&#125;,</span><br><span class="line">                #&#123;item.basicInfoId,jdbcType<span class="operator">=</span><span class="type">VARCHAR</span>&#125;,</span><br><span class="line">                #&#123;item.question,jdbcType<span class="operator">=</span><span class="type">VARCHAR</span>&#125;,</span><br><span class="line">                #&#123;item.answer,jdbcType<span class="operator">=</span><span class="type">VARCHAR</span>&#125;,</span><br><span class="line">                #&#123;item.answerEn,jdbcType<span class="operator">=</span><span class="type">VARCHAR</span>&#125;,</span><br><span class="line">                #&#123;item.questionEn,jdbcType<span class="operator">=</span><span class="type">VARCHAR</span>&#125;,</span><br><span class="line">                #&#123;item.createdBy,jdbcType<span class="operator">=</span><span class="type">VARCHAR</span>&#125;,</span><br><span class="line">                #&#123;item.createDate,jdbcType<span class="operator">=</span><span class="type">TIMESTAMP</span>&#125;,</span><br><span class="line">                #&#123;item.updatedBy,jdbcType<span class="operator">=</span><span class="type">VARCHAR</span>&#125;,</span><br><span class="line">                #&#123;item.updateDate,jdbcType<span class="operator">=</span><span class="type">TIMESTAMP</span>&#125;,</span><br><span class="line">                #&#123;item.optionType,jdbcType<span class="operator">=</span><span class="type">VARCHAR</span>&#125;</span><br><span class="line">            <span class="operator">&lt;</span><span class="operator">/</span>trim<span class="operator">&gt;</span></span><br><span class="line">        <span class="operator">&lt;</span><span class="operator">/</span>foreach<span class="operator">&gt;</span></span><br><span class="line">        <span class="keyword">SELECT</span> <span class="number">1</span> <span class="keyword">FROM</span> DUAL</span><br></pre></td></tr></table></figure>
+
+<h3 id="批量更新操作"><a href="#批量更新操作" class="headerlink" title="批量更新操作"></a>批量更新操作</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">&quot;updateBatch&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;java.util.List&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">&quot;list&quot;</span> <span class="attr">item</span>=<span class="string">&quot;item&quot;</span> <span class="attr">index</span>=<span class="string">&quot;index&quot;</span> <span class="attr">open</span>=<span class="string">&quot;begin&quot;</span> <span class="attr">close</span>=<span class="string">&quot;;end;&quot;</span> <span class="attr">separator</span>=<span class="string">&quot;;&quot;</span>&gt;</span></span><br><span class="line">   update table_A</span><br><span class="line">   <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">     name= #&#123;item.name&#125;</span><br><span class="line">   <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">   where id= item.id</span><br><span class="line">  <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查询相关操作"><a href="#查询相关操作" class="headerlink" title="查询相关操作"></a>查询相关操作</h3><h4 id="内连接去重"><a href="#内连接去重" class="headerlink" title="内连接去重"></a>内连接去重</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> ar.id, ar.parent_id, ar.res_key, ar.res_name, ar.res_type, ar.component, ar.path, ar.perms, ar.icon, ar.sort_no, ar.visible, ar.target, ar.redirect, ar.defaulted</span><br><span class="line"><span class="keyword">FROM</span> ADM_RESOURCE ar</span><br><span class="line">         <span class="keyword">INNER</span> <span class="keyword">JOIN</span> ADM_ROLE_RESOURCE arr <span class="keyword">ON</span> ar.ID <span class="operator">=</span> arr.RESOURCE_ID</span><br><span class="line">         <span class="keyword">INNER</span> <span class="keyword">JOIN</span> ADM_ROLE R <span class="keyword">on</span> arr.ROLE_ID <span class="operator">=</span> R.ID</span><br><span class="line">         <span class="keyword">INNER</span> <span class="keyword">JOIN</span> ADM_ROLE_USER aru <span class="keyword">on</span> aru.ROLE_ID <span class="operator">=</span> R.ID;</span><br></pre></td></tr></table></figure>
+
+<h4 id="递归查询"><a href="#递归查询" class="headerlink" title="递归查询"></a>递归查询</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 向下递归</span></span><br><span class="line"><span class="keyword">SELECT</span> ID, USER_NAME</span><br><span class="line">        <span class="keyword">FROM</span> ORG_CUSTOMER_ACCOUNT</span><br><span class="line">        <span class="keyword">START</span> <span class="keyword">WITH</span> ID<span class="operator">=</span><span class="string">&#x27;1374231638187180032&#x27;</span></span><br><span class="line">        <span class="keyword">CONNECT</span> <span class="keyword">BY</span> PRIOR  ID <span class="operator">=</span>  CREATED_BY </span><br><span class="line"><span class="comment">-- 向上递归</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> ID,USER_NAME</span><br><span class="line">        <span class="keyword">FROM</span> ORG_CUSTOMER_ACCOUNT</span><br><span class="line">        <span class="keyword">START</span> <span class="keyword">WITH</span> ID<span class="operator">=</span><span class="string">&#x27;1374231638187180032&#x27;</span></span><br><span class="line">        <span class="keyword">CONNECT</span> <span class="keyword">BY</span> PRIOR  CREATED_BY <span class="operator">=</span>  ID</span><br></pre></td></tr></table></figure>
+
+<h4 id="判断日期区间"><a href="#判断日期区间" class="headerlink" title="判断日期区间"></a>判断日期区间</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ID, TITLE, TYPE, TIME_TYPE, SEND_DATE,</span><br><span class="line">       END_DATE, RECEIVE_PERSON</span><br><span class="line"><span class="keyword">FROM</span> POR_ANNOUNCEMENT</span><br><span class="line"><span class="keyword">WHERE</span> (SEND_DATE <span class="keyword">IS</span> <span class="keyword">NULL</span> <span class="keyword">OR</span> SYSDATE <span class="operator">&gt;</span> SEND_DATE)</span><br><span class="line"><span class="keyword">AND</span> (END_DATE <span class="keyword">IS</span> <span class="keyword">NULL</span> <span class="keyword">OR</span> END_DATE <span class="operator">&gt;</span> SYSDATE)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> CREATE_TM <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="第一个查询无结果采用第二个查询结果"><a href="#第一个查询无结果采用第二个查询结果" class="headerlink" title="第一个查询无结果采用第二个查询结果"></a>第一个查询无结果采用第二个查询结果</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ID,USER_NAME,</span><br><span class="line">NVL((<span class="keyword">SELECT</span> NAME <span class="keyword">FROM</span> ORG_EMPLOYEE <span class="keyword">WHERE</span> ID <span class="operator">=</span> CREATED_BY), </span><br><span class="line">(<span class="keyword">SELECT</span> USER_NAME <span class="keyword">FROM</span> ORG_CUSTOMER_ACCOUNT <span class="keyword">WHERE</span> ID <span class="operator">=</span> CREATED_BY)) <span class="keyword">AS</span> name </span><br><span class="line"><span class="keyword">FROM</span> ORG_CUSTOMER_ACCOUNT <span class="keyword">WHERE</span> ID <span class="operator">=</span> <span class="string">&#x27;1369819577617219584&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="分组并把相同GROUP-BY变成一条数据"><a href="#分组并把相同GROUP-BY变成一条数据" class="headerlink" title="分组并把相同GROUP BY变成一条数据"></a>分组并把相同GROUP BY变成一条数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> BASIC_INFO_ID, (<span class="built_in">LISTAGG</span>(DEVICE_NAME,<span class="string">&#x27;,&#x27;</span>) <span class="keyword">within</span> <span class="keyword">group</span> ( <span class="keyword">order</span> <span class="keyword">by</span> BASIC_INFO_ID)) <span class="keyword">AS</span> DEVICENAMES</span><br><span class="line">      <span class="keyword">FROM</span> MCI_SERVICE_REQUEST</span><br><span class="line">      <span class="keyword">GROUP</span> <span class="keyword">BY</span> BASIC_INFO_ID</span><br></pre></td></tr></table></figure>
+<p>分组并把相同GROUP BY 变成一条数据.png</p>
+<h4 id="查询条件去重，去重条件是一个字段，显示是多个字段"><a href="#查询条件去重，去重条件是一个字段，显示是多个字段" class="headerlink" title="查询条件去重，去重条件是一个字段，显示是多个字段"></a>查询条件去重，去重条件是一个字段，显示是多个字段</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> ID_, PROC_INST_ID_, TASK_DEF_KEY_, <span class="built_in">row_number</span>() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> PROC_INST_ID_ <span class="keyword">order</span> <span class="keyword">by</span> ID_ <span class="keyword">DESC</span>) <span class="keyword">AS</span> ABC</span><br><span class="line">      <span class="keyword">FROM</span> ACT_HI_TASKINST) A <span class="keyword">WHERE</span> A.ABC <span class="operator">=</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>partition by 分组条件<br>order by 排序条件</p>
+<p>去重.png</p>
+<h4 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> REPLACE <span class="keyword">VIEW</span> V_USER_INFO <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> ID, (NAME <span class="operator">||</span> <span class="string">&#x27;(&#x27;</span> <span class="operator">||</span> JOB_NUMBER <span class="operator">||</span> <span class="string">&#x27;)&#x27;</span>) <span class="keyword">AS</span> DISPLAY_NUMBER_NAME, NAME</span><br><span class="line"><span class="keyword">FROM</span> ORG_EMPLOYEE</span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> ID, USER_NAME, USER_NAME</span><br><span class="line"><span class="keyword">FROM</span> ORG_CUSTOMER_ACCOUNT</span><br><span class="line"><span class="keyword">WITH</span> READ <span class="keyword">ONLY</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="查看视图的创建语句"><a href="#查看视图的创建语句" class="headerlink" title="查看视图的创建语句"></a>查看视图的创建语句</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> text <span class="keyword">from</span> all_views <span class="keyword">where</span> view_name <span class="operator">=</span><span class="string">&#x27;V_CUSTOMER_INFO&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="获得最新数据-根据指定字段排序并分组"><a href="#获得最新数据-根据指定字段排序并分组" class="headerlink" title="获得最新数据(根据指定字段排序并分组)"></a>获得最新数据(根据指定字段排序并分组)</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> FI.<span class="operator">*</span>  <span class="keyword">FROM</span></span><br><span class="line">	( <span class="keyword">SELECT</span> T.<span class="operator">*</span>, <span class="built_in">ROW_NUMBER</span> ( ) <span class="keyword">OVER</span> ( <span class="keyword">PARTITION</span> <span class="keyword">BY</span> T.DEVICE_NAME <span class="keyword">ORDER</span> <span class="keyword">BY</span> T.CREATE_TM <span class="keyword">DESC</span> ) RW <span class="keyword">FROM</span> DEV_BASIC_INFO T ) FI </span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	FI.RW <span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>CREATE_TM 是排序的字段<br>DEVICE_NAME 是去重复的条件</p>
+<h4 id="Oracle数据库分页查询出现重复"><a href="#Oracle数据库分页查询出现重复" class="headerlink" title="Oracle数据库分页查询出现重复"></a>Oracle数据库分页查询出现重复</h4><p>如果排序的字段没有唯一性，需要后面加上一个主键，如下</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 原来的排序</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> CREATE_TM;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 优化后的排序</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> CREATE_TM, ID</span><br></pre></td></tr></table></figure>
+
+<h4 id="ORACLE行数据逗号分割转列"><a href="#ORACLE行数据逗号分割转列" class="headerlink" title="ORACLE行数据逗号分割转列"></a>ORACLE行数据逗号分割转列</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> REGEXP_SUBSTR(MEMBERS, <span class="string">&#x27;[^,]+&#x27;</span>, <span class="number">1</span>, LEVEL, <span class="string">&#x27;i&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> ADM_CIDB_DETAIL</span><br><span class="line"><span class="keyword">WHERE</span> CUST_CODE <span class="operator">=</span> <span class="string">&#x27;SRJ&#x27;</span></span><br><span class="line"><span class="keyword">CONNECT</span> <span class="keyword">BY</span> LEVEL <span class="operator">&lt;=</span> LENGTH(MEMBERS) <span class="operator">-</span> LENGTH(REGEXP_REPLACE(MEMBERS, <span class="string">&#x27;,&#x27;</span>, <span class="string">&#x27;&#x27;</span>)) <span class="operator">+</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="ORACLE中IN长度大于1000时处理"><a href="#ORACLE中IN长度大于1000时处理" class="headerlink" title="ORACLE中IN长度大于1000时处理"></a>ORACLE中IN长度大于1000时处理</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;ids != null&quot;</span>&gt;</span></span><br><span class="line">    t1.ID IN</span><br><span class="line">    <span class="comment">&lt;!-- 处理in的集合超过1000条时Oracle不支持的情况 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">trim</span> <span class="attr">suffixOverrides</span>=<span class="string">&quot; OR t1.ID IN()&quot;</span>&gt;</span> <span class="comment">&lt;!-- 表示删除最后一个条件 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">&quot;ids&quot;</span> <span class="attr">item</span>=<span class="string">&quot;id&quot;</span> <span class="attr">index</span>=<span class="string">&quot;index&quot;</span> <span class="attr">open</span>=<span class="string">&quot;(&quot;</span> <span class="attr">close</span>=<span class="string">&quot;)&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;index != 0&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">choose</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">&quot;index % 1000 == 999&quot;</span>&gt;</span>) OR t1.ID IN (<span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">otherwise</span>&gt;</span>,<span class="tag">&lt;/<span class="name">otherwise</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">choose</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        #&#123;id&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">trim</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="分组多个字段，合并某一个字段，并行转列"><a href="#分组多个字段，合并某一个字段，并行转列" class="headerlink" title="分组多个字段，合并某一个字段，并行转列"></a>分组多个字段，合并某一个字段，并行转列</h4><p><strong>1、分组多个字段合并某一个字段</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 分组多个字段，合并某一个字段</span></span><br><span class="line"><span class="keyword">SELECT</span> AREA,CUST_CODE, DEPT, (<span class="built_in">LISTAGG</span>(MEMBERS,<span class="string">&#x27;,&#x27;</span>) <span class="keyword">within</span> <span class="keyword">group</span> ( <span class="keyword">order</span> <span class="keyword">by</span> AREA, DEPT, CUST_CODE)) <span class="keyword">AS</span> DEVICENAMES</span><br><span class="line">      <span class="keyword">FROM</span> ADM_CIDB_DETAIL</span><br><span class="line">      <span class="keyword">GROUP</span> <span class="keyword">BY</span> AREA, DEPT, CUST_CODE</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、内容行转列</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.CUST_CODE,</span><br><span class="line">       <span class="built_in">MAX</span>(<span class="keyword">CASE</span> t.DEPT <span class="keyword">WHEN</span> <span class="string">&#x27;hcBackupce&#x27;</span> <span class="keyword">THEN</span> t.MEMBER <span class="keyword">ELSE</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">END</span>)    <span class="keyword">AS</span> hcBackupce,</span><br><span class="line">       <span class="built_in">MAX</span>(<span class="keyword">CASE</span> t.DEPT <span class="keyword">WHEN</span> <span class="string">&#x27;hcBackupcs&#x27;</span> <span class="keyword">THEN</span> t.MEMBER <span class="keyword">ELSE</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">END</span>)    <span class="keyword">AS</span> hcBackupcs,</span><br><span class="line">       <span class="built_in">MAX</span>(<span class="keyword">CASE</span> t.DEPT <span class="keyword">WHEN</span> <span class="string">&#x27;hcBackupsales&#x27;</span> <span class="keyword">THEN</span> t.MEMBER <span class="keyword">ELSE</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">END</span>) <span class="keyword">AS</span> hcBackupsales,</span><br><span class="line">       <span class="built_in">MAX</span>(<span class="keyword">CASE</span> t.DEPT <span class="keyword">WHEN</span> <span class="string">&#x27;hcCe&#x27;</span> <span class="keyword">THEN</span> t.MEMBER <span class="keyword">ELSE</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">END</span>)          <span class="keyword">AS</span> hcCe,</span><br><span class="line">       <span class="built_in">MAX</span>(<span class="keyword">CASE</span> t.DEPT <span class="keyword">WHEN</span> <span class="string">&#x27;hcCs&#x27;</span> <span class="keyword">THEN</span> t.MEMBER <span class="keyword">ELSE</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">END</span>)          <span class="keyword">AS</span> hcCs,</span><br><span class="line">       <span class="built_in">MAX</span>(<span class="keyword">CASE</span> t.DEPT <span class="keyword">WHEN</span> <span class="string">&#x27;hcSales&#x27;</span> <span class="keyword">THEN</span> t.MEMBER <span class="keyword">ELSE</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">END</span>)       <span class="keyword">AS</span> hcSales,</span><br><span class="line">       <span class="built_in">MAX</span>(<span class="keyword">CASE</span> t.DEPT <span class="keyword">WHEN</span> <span class="string">&#x27;lgBackupce&#x27;</span> <span class="keyword">THEN</span> t.MEMBER <span class="keyword">ELSE</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">END</span>)    <span class="keyword">AS</span> lgBackupce,</span><br><span class="line">       <span class="built_in">MAX</span>(<span class="keyword">CASE</span> t.DEPT <span class="keyword">WHEN</span> <span class="string">&#x27;lgBackupcs&#x27;</span> <span class="keyword">THEN</span> t.MEMBER <span class="keyword">ELSE</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">END</span>)    <span class="keyword">AS</span> lgBackupcs,</span><br><span class="line">       <span class="built_in">MAX</span>(<span class="keyword">CASE</span> t.DEPT <span class="keyword">WHEN</span> <span class="string">&#x27;lgBackupsales&#x27;</span> <span class="keyword">THEN</span> t.MEMBER <span class="keyword">ELSE</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">END</span>) <span class="keyword">AS</span> lgBackupsales,</span><br><span class="line">       <span class="built_in">MAX</span>(<span class="keyword">CASE</span> t.DEPT <span class="keyword">WHEN</span> <span class="string">&#x27;lgCe&#x27;</span> <span class="keyword">THEN</span> t.MEMBER <span class="keyword">ELSE</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">END</span>)          <span class="keyword">AS</span> lgCe,</span><br><span class="line">       <span class="built_in">MAX</span>(<span class="keyword">CASE</span> t.DEPT <span class="keyword">WHEN</span> <span class="string">&#x27;lgCs&#x27;</span> <span class="keyword">THEN</span> t.MEMBER <span class="keyword">ELSE</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">END</span>)          <span class="keyword">AS</span> lgCs,</span><br><span class="line">       <span class="built_in">MAX</span>(<span class="keyword">CASE</span> t.DEPT <span class="keyword">WHEN</span> <span class="string">&#x27;lgSales&#x27;</span> <span class="keyword">THEN</span> t.MEMBER <span class="keyword">ELSE</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">END</span>)       <span class="keyword">AS</span> lgSales</span><br><span class="line"></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">         <span class="keyword">SELECT</span> CUST_CODE,</span><br><span class="line">                <span class="built_in">lower</span>(AREA) <span class="operator">||</span> initcap(DEPT)                                               <span class="keyword">AS</span> DEPT,</span><br><span class="line">                (</span><br><span class="line">                    <span class="built_in">LISTAGG</span>(MEMBERS, <span class="string">&#x27;,&#x27;</span>) <span class="keyword">within</span> <span class="keyword">GROUP</span> ( <span class="keyword">ORDER</span> <span class="keyword">BY</span> AREA, DEPT, CUST_CODE )) <span class="keyword">AS</span> <span class="keyword">MEMBER</span></span><br><span class="line">         <span class="keyword">FROM</span>  ADM_CIDB_DETAIL</span><br><span class="line">         <span class="keyword">GROUP</span> <span class="keyword">BY</span> AREA,</span><br><span class="line">                  DEPT,</span><br><span class="line">                  CUST_CODE</span><br><span class="line">     ) t</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> t.CUST_CODE</span><br></pre></td></tr></table></figure>
+
+<h3 id="某张表授权给某一个用户"><a href="#某张表授权给某一个用户" class="headerlink" title="某张表授权给某一个用户"></a>某张表授权给某一个用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> ORGDA1.ORG_DEPARTMENT <span class="keyword">TO</span> ADMINDA1;</span><br></pre></td></tr></table></figure>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Oracle/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    存储过程
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Oracle/%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">注意事项</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Simon Xue &copy; 2023 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
