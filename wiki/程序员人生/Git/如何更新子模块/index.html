@@ -3,22 +3,23 @@
 <head>
     <meta charset="utf-8">
     
-    <title>关于 | Stone Wiki</title>
+    <title>如何更新子模块 | Stone Wiki</title>
     
     
-        <meta name="keywords" content="关于" />
+        <meta name="keywords" content="Git" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="关于个人Wiki知识库。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://www.1512.org/about/index.html">
+    <meta name="description" content="步骤1.子模块修改后提交到远程仓库 2.进入到主仓库的子模块的目录 1234567891011# 以outeasy.com项目为例# 绑定的子模块路径是themes&#x2F;webstack# ----------------# 进入子模块路径cd themes&#x2F;webstack# 检出子模块的master分支git checkout master# 拉取子模块最新代码(分支master)git pull">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何更新子模块">
+<meta property="og:url" content="http://www.1512.org/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Git/%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0%E5%AD%90%E6%A8%A1%E5%9D%97/index.html">
 <meta property="og:site_name" content="Stone Wiki">
-<meta property="og:description" content="关于个人Wiki知识库。">
+<meta property="og:description" content="步骤1.子模块修改后提交到远程仓库 2.进入到主仓库的子模块的目录 1234567891011# 以outeasy.com项目为例# 绑定的子模块路径是themes&#x2F;webstack# ----------------# 进入子模块路径cd themes&#x2F;webstack# 检出子模块的master分支git checkout master# 拉取子模块最新代码(分支master)git pull">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-02-18T18:40:34.331Z">
-<meta property="article:modified_time" content="2024-02-18T18:40:34.331Z">
+<meta property="article:published_time" content="2024-02-19T23:04:48.000Z">
+<meta property="article:modified_time" content="2024-02-18T18:40:34.327Z">
 <meta property="article:author" content="Simon Xue">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
     
 
@@ -200,9 +201,9 @@ var _hmt = _hmt || [];
         
         
          <ul class="unstyled" id="tree" > 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             程序员人生
                         </a>
@@ -225,13 +226,13 @@ var _hmt = _hmt || [];
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Gist.Github/Stream%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">Stream常用操作</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             Git
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Git/%E8%A7%A3%E5%86%B3%E5%A4%A7%E6%96%87%E4%BB%B6%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0/">解决大文件无法上传</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Git/%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0%E5%AD%90%E6%A8%A1%E5%9D%97/">如何更新子模块</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Git/%E8%A7%A3%E5%86%B3%E5%A4%A7%E6%96%87%E4%BB%B6%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0/">解决大文件无法上传</a></li>  <li class="file active"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Git/%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0%E5%AD%90%E6%A8%A1%E5%9D%97/">如何更新子模块</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -360,16 +361,55 @@ var _hmt = _hmt || [];
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-程序员人生/Git/如何更新子模块" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
             <header class="article-header">
                 
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/">程序员人生</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Git/">Git</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Git/" rel="tag">Git</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Git/%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0%E5%AD%90%E6%A8%A1%E5%9D%97/">
+            <time datetime="2024-02-19T23:04:48.000Z" itemprop="datePublished">2024-02-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/stonewiki/stonewiki.github.io/raw/master/source/_posts/程序员人生/Git/如何更新子模块.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/stonewiki/stonewiki.github.io/edit/master/source/_posts/程序员人生/Git/如何更新子模块.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/stonewiki/stonewiki.github.io/commits/master/source/_posts/程序员人生/Git/如何更新子模块.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
                 
     
         <h1 class="article-title" itemprop="name">
-            关于
+            如何更新子模块
         </h1>
     
 
@@ -382,7 +422,10 @@ var _hmt = _hmt || [];
             
         
         
-            <h3 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h3><p>个人Wiki知识库。</p>
+            <h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>1.子模块修改后提交到远程仓库</p>
+<p>2.进入到主仓库的子模块的目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以outeasy.com项目为例</span></span><br><span class="line"><span class="comment"># 绑定的子模块路径是themes/webstack</span></span><br><span class="line"><span class="comment"># ----------------</span></span><br><span class="line"><span class="comment"># 进入子模块路径</span></span><br><span class="line"><span class="built_in">cd</span> themes/webstack</span><br><span class="line"><span class="comment"># 检出子模块的master分支</span></span><br><span class="line">git checkout master</span><br><span class="line"><span class="comment"># 拉取子模块最新代码(分支master)</span></span><br><span class="line">git pull origin master</span><br><span class="line"><span class="comment"># 查看子模块日志是否是最新的</span></span><br><span class="line">git submodule</span><br></pre></td></tr></table></figure>
+<p>3.主仓库提交到远程</p>
 
             </div>
         
@@ -393,6 +436,16 @@ var _hmt = _hmt || [];
 
 
     
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%BA%E7%94%9F/Gist.Github/Stream%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Stream常用操作</div>
+        </a>
+    
+</nav>
+
 
 
 
