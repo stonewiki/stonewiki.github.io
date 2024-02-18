@@ -7,9 +7,6 @@ on:
  
 jobs:
   pages:
-    environment:
-      name: github-pages
-      url: http://www.1512.org
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
