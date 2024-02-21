@@ -44,7 +44,7 @@ jobs:
             # 注意替换为你的 CODING 目标仓库地址
             coding-repo: "git@e.coding.net:flowstone/flowstone.coding.me.git"
       - name: Async Github Branch To Gitee
-        uses: shanghaobo/github-branch-gitee@master
+        uses: shanghaobo/github-branch-gitee@main
         with:
           github_repo: flowstone/flowstone.github.io
           github_branch: master
