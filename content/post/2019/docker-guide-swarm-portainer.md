@@ -29,7 +29,7 @@ Swarm是使用SwarmKit构建的Docker引擎内置(原生)的集群管理和编�
 
 集群中管理节点与工作节点的关系
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-resource-manage-01.png)
+![](/images/2019/8/docker-resource-manage-01.png)
 
 #### 服务和任务
 
@@ -47,7 +47,7 @@ Swarm是使用SwarmKit构建的Docker引擎内置(原生)的集群管理和编�
 
 容器、任务、服务的关系
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-resource-manage-02.png)
+![](/images/2019/8/docker-resource-manage-02.png)
 
 ### 创建Swarm集群
 
@@ -65,7 +65,7 @@ docker swarm init --advertise-addr 192.168.1.1
 
 注意：使用docker swarm init
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-resource-manage-03.png)
+![](/images/2019/8/docker-resource-manage-03.png)
 
 #### 增加工作节点
 
@@ -85,7 +85,7 @@ docker swarm join \
 docker node ls
 ```
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-resource-manage-04.png)
+![](/images/2019/8/docker-resource-manage-04.png)
 
 ### 部署服务
 
@@ -99,13 +99,13 @@ docker node ls
 docker service create --replicas 3 -p 80:80 --name nginx nginx:latest
 ```
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-resource-manage-05.png)
+![](/images/2019/8/docker-resource-manage-05.png)
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-resource-manage-06.png)
+![](/images/2019/8/docker-resource-manage-06.png)
 
 现在我们使用浏览器，输入任意节点IP，即可看到nginx默认页面。
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-resource-manage-07.png)
+![](/images/2019/8/docker-resource-manage-07.png)
 
 #### 查看服务
 
@@ -161,18 +161,18 @@ docker run  -d -p 9000:9000 \
 portainer/portainer
 ```
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-resource-manage-08.png)
+![](/images/2019/8/docker-resource-manage-08.png)
 
 #### Portainer配置
 
 设置管理员帐号密码
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-resource-manage-09.png)
+![](/images/2019/8/docker-resource-manage-09.png)
 
 Portainer界面内容
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-resource-manage-10.png)
+![](/images/2019/8/docker-resource-manage-10.png)
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-resource-manage-11.png)
+![](/images/2019/8/docker-resource-manage-11.png)
 
 *关注【小码农薛尧】，了解更多信息*

@@ -112,7 +112,7 @@ public void templateTest(HttpServletResponse response) {
 ```
 5、运行代码，生成的文件如下
 ![](
-https://xueyao.oss-cn-hangzhou.aliyuncs.com/2021/7/202107751450.png?x-oss-process=style/logo)
+/images/2021/7/202107751450.png)
 
 ## 总结
 

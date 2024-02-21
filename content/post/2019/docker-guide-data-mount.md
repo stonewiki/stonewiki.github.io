@@ -10,7 +10,7 @@ categories: "Docker"
 * 数据卷(Volumes)
 * 挂载主机目录(Bind mounts)
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-data-mount-01.png)
+![](/images/2019/8/docker-data-mount-01.png)
 
 ### 数据卷
 
@@ -37,7 +37,7 @@ docker volume create my-volume
 ``` bash
 docker volume inspect my-volume
 ```
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-data-mount-02.png)
+![](/images/2019/8/docker-data-mount-02.png)
 
 启动一个挂载数据卷的容器：
 

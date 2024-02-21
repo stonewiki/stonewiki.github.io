@@ -9,7 +9,7 @@ categories: "JS"
 
 本例子中省市县数据保存在MySQL数据库中,部分数据截图如下:
 
-![省市县数据](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2017/09/2017-09-14_173943.png)
+![省市县数据](/images/2017/09/2017-09-14_173943.png)
 
 
 
@@ -17,7 +17,7 @@ categories: "JS"
 
 1、导入需要的jar包
 
-![所需jar包](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2017/09/2017-09-14_174657.png)
+![所需jar包](/images/2017/09/2017-09-14_174657.png)
 
 2、连接池配置文件
 
@@ -305,7 +305,7 @@ $(function() {
 
 效果图如下:
 
-![ajax三级联动效果图](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2017/09/2017-09-14_172045.gif)
+![ajax三级联动效果图](/images/2017/09/2017-09-14_172045.gif)
 
 
 

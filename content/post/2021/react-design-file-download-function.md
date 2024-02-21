@@ -69,7 +69,7 @@ public static void copyFile(File file, OutputStream out) throws IOException {
 ```
 使用Postman调用接口，效果如下
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2021/1/20210121223257127_1184200995.png?x-oss-process=style/logo)
+![](/images/2021/1/20210121223257127_1184200995.png)
 
 接口响应体中，包含了大量的乱码，如果出现这个效果，则代表接口已返回文件流。
 

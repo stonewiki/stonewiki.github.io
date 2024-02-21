@@ -14,7 +14,7 @@ categories: "Java"
     * suspend/resume、wait/notify、park/unpark
 
 ### 文件共享
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/9/thread-communication-01.png)
+![](/images/2019/9/thread-communication-01.png)
 
 ``` java
 public class MainTest {
@@ -50,7 +50,7 @@ public class MainTest {
 ```
 
 ### 变量共享
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/9/thread-communication-02.png)
+![](/images/2019/9/thread-communication-02.png)
 
 ``` java
 public class MainTest {
@@ -94,7 +94,7 @@ JDK中对于需要多线程协作完成某一任务的场景，提供了对应AP
 
 示例：线程１去买包子，没有包子，则不再执行。线程２生产出包子，通知线程－１继续执行。
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/9/thread-communication-03.png)
+![](/images/2019/9/thread-communication-03.png)
 
 #### API-被弃用的suspend和resume
 作用：调用suspend挂起目标线程，通过resume可以恢复线程执行。
