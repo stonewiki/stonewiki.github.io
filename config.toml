@@ -36,7 +36,7 @@ beian = "苏ICP备14012079号"
   header_title = "薛尧"                 # Your header title
   header_subtitle = "Java Developer | Short Video Creator" # Your header subtitle
   home_image = "https://cloudflare-ipfs.com/ipfs/bafybeifgyesyxxtia5lxe7exyfkhb6dcbopd6rgenhu3eih4n4epqrxiy4"          # Path to header image starting from the static directory (optional)
-  recent_posts = 10                           # Max amount of recent posts to show
+  recent_posts = 5                           # Max amount of recent posts to show
   mainSections = ["posts", "post", "blog"]   # Main sections to include in recent posts
   [params.style]                             # CSS style overrides
     backgroundColor = "#f8f9fa"
