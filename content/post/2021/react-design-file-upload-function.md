@@ -36,7 +36,7 @@ const props = {
  </Upload>
 ```
 上述代码，可以实现一个上传功能，但是还没有和后端有交互，效果图如下
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2021/1/20210121213849699_1070937386.png?x-oss-process=style/logo)
+![](image/2021/1/20210121213849699_1070937386.png)
 
 我们再添加一个上传按钮，来和后端交互，代码如下所示
 ```tsx
