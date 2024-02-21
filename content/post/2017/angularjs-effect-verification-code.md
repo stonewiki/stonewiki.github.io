@@ -10,7 +10,7 @@ categories: "JS"
 
 ## 效果如下
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2017/11/2017-11-11_204515.png)
+![](/images/2017/11/2017-11-11_204515.png)
 
 ## 表单代码如下
 

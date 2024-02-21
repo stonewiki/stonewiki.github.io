@@ -14,9 +14,9 @@ Spring Cloud Feign调用其它服务报错，错误提示如下:Failed to instan
 
 通过查询一些资料，得到的结论，是定义接口传递的参数时，没有用@RequestBody修饰，查看定义接口有用@RequestBogy修饰，Feign的接口实现里没有用@RequestBody修饰，添加后问题就解决了，以后还是要仔细看待每个问题。
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/10/WX20191027-115928.png)
+![](/images/2019/10/WX20191027-115928.png)
 
 
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/10/WX20191027-120945.png)
+![](/images/2019/10/WX20191027-120945.png)
 

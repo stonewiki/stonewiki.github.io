@@ -11,7 +11,7 @@ categories: "Java"
 
 Guava是Google guava中的一个内存缓存模块，用于将数据缓存到JVM内存中。实际项目开发中经常将一些公共或者常用的数据缓存起来方便快速访问。
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/cache-guava-01.png)
+![](/images/2019/8/cache-guava-01.png)
 
 Guava Cache是单个应用运行时的本地缓存。它不把数据存放到文件或外部服务器。如果不符合需求，可以选择Memcached、Redis等工具。
 
@@ -155,6 +155,6 @@ public class User implements Serializable {
 
 运行后的结果如下：
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/cache-guava-02.png)
+![](/images/2019/8/cache-guava-02.png)
 
 第一次循环时缓存中没有数据，构建了缓存，第二次直接命中缓存。如果程序需要单机内存缓存，可以用该方式构建缓存。

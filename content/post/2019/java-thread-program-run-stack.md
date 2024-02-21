@@ -10,11 +10,11 @@ categories: "Java"
 
 class文件包含JAVA程序执行的字节码；数据严格按照格式紧凑排列在class文件中的二进制流，中间无任何分隔符；文件开头有一个0xcafebabe(16进制)特殊的一个标志。
 
-![class文件内容](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/program-run-heap-01.png)
+![class文件内容](/images/2019/8/program-run-heap-01.png)
 
 ## JVM运行时数据区
 
-![jvm运行时数据区](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/program-run-heap-02.png)
+![jvm运行时数据区](/images/2019/8/program-run-heap-02.png)
 
 线程独占：每个线程都会有它独立的空间，随线程生命周期而创建和销毁
 线程共享：所有线程能访问这块内存数据，随虚拟机或者GC而创建和销毁
@@ -27,7 +27,7 @@ JVM用来存储加载的类信息、常量、静态变量、编译后的代码�
 
 ### 堆内存
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/program-run-heap-03.png)
+![](/images/2019/8/program-run-heap-03.png)
 
 堆内存还可以细分为：老年代、新生代(Eden、From Survivor、To Survivor)
 JVM启动时创建，存放对象的实例。垃圾回收器主要就是管理堆内存。

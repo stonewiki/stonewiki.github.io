@@ -118,7 +118,7 @@ public class UserDaoImpl{
 
 ### 配置
 导入jar包（11）
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2017/10/2017-10-15_170353.png)
+![](/images/2017/10/2017-10-15_170353.png)
 
 红线画起来的表示：
 

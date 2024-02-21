@@ -11,7 +11,7 @@ categories: "Java"
 
 ### 为什么要用缓存
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/cache-define-simple-01.png)
+![](/images/2019/8/cache-define-simple-01.png)
 
 
 

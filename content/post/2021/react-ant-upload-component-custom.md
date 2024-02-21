@@ -13,15 +13,15 @@ categories: "JS"
 ## 实际效果
 
 现有一个需求，是上传文件，点击浏览文件按钮，选中文件后，在按钮的上方显示，上传的文件列表，如下图所示
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2021/1/20210110125630518_804905005.png?x-oss-process=style/logo)
+![](/images/2021/1/20210110125630518_804905005.png)
 
 ## 当前效果
 
 目前使用阿里的Ant UI组件库，使用其中的上传组件，官方提供的示例，如下图如示
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2021/1/20210113133631917_394793026.png?x-oss-process=style/logo)
+![](/images/2021/1/20210113133631917_394793026.png)
 
 本地使用后，如下图所示
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2021/1/20210110125953680_1038926582.png?x-oss-process=style/logo)
+![](/images/2021/1/20210110125953680_1038926582.png)
 
 如何才能实现，我们需要的效果呢，Google了好多文章，找到了一种方式，就是重写itemRender方法，自定义文件列表的展示，使用这个方法，需要重写多个action。
 

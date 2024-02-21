@@ -69,7 +69,7 @@ docker build -t nginx:v3 .
 
 从命令的输出结果中，我们可以清晰的看到镜像的构建过程。在Step2中，RUN指令启动了一个容器782d25b7c611,执行了所要示的命令，并最后提交了这一层ba38ff665f57,随后删除了所用到的这个容器782d25b7c611。
 
-![dockerfile构建](https://xueyao.oss-cn-hangzhou.aliyuncs.com/20191214172011541.png)
+![dockerfile构建](/images/20191214172011541.png)
 
 启动构建的Nginx
 ``` bash
@@ -78,7 +78,7 @@ docker run --name nginx-test -p 8081:80 -d nginx:v3
 
 如图所示
 
-![docker启动nginx容器](https://xueyao.oss-cn-hangzhou.aliyuncs.com/20191214172033511.png)
+![docker启动nginx容器](/images/20191214172033511.png)
 
 ## Dockerfile指令详解
 

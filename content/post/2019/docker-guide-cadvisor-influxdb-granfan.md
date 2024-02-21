@@ -237,64 +237,64 @@ docker-compose up
 
 查看三个服务容器是否启动
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-01.png)
+![](/images/2019/8/docker-monitor-01.png)
 
 浏览grafana服务，http://ip:3000
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-02.png)
+![](/images/2019/8/docker-monitor-02.png)
 
 登陆grafana服务
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-03.png)
+![](/images/2019/8/docker-monitor-03.png)
 
 浏览influxdb服务，http://ip:8083/
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-04.png)
+![](/images/2019/8/docker-monitor-04.png)
 
 ### 配置grafana工具
 
 1、配置数据源
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-05.png)
+![](/images/2019/8/docker-monitor-05.png)
 
 选择influxdb数据源
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-06.png)
+![](/images/2019/8/docker-monitor-06.png)
 
 具体配置如下
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-07.png)
+![](/images/2019/8/docker-monitor-07.png)
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-08.png)
+![](/images/2019/8/docker-monitor-08.png)
 
 配置完成后，如下图
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-09.png)
+![](/images/2019/8/docker-monitor-09.png)
 
 2、配置面板
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-10.png)
+![](/images/2019/8/docker-monitor-10.png)
 
 选择面板类型
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-11.png) 
+![](/images/2019/8/docker-monitor-11.png) 
 
 选择图形
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-13.png)
+![](/images/2019/8/docker-monitor-13.png)
 
 配置查询条件
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-14.png)
+![](/images/2019/8/docker-monitor-14.png)
 
 配置完后，效果如下图
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-15.png)
+![](/images/2019/8/docker-monitor-15.png)
 
 grafana支持查询条件，可以从influxdb中了解
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-16.png)
+![](/images/2019/8/docker-monitor-16.png)
 
 浏览cAdvisor服务，http://ip:8080/
 
-![](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/8/docker-monitor-17.png)
+![](/images/2019/8/docker-monitor-17.png)

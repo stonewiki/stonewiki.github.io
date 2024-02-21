@@ -56,7 +56,7 @@ select * from student inner join score
 ```
 
 结果如下：
-![查询结果](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/2019-05-19-7.44.24.png)
+![查询结果](/images/2019/2019-05-19-7.44.24.png)
 
 
 这个结果有许多相同的数据，这个情况叫做笛卡尔积，如何避免笛卡积，需要在内连接查询上添加查询条件就可以解决这个问题。
@@ -67,7 +67,7 @@ select * from student inner join score
 select s.id,s.name,sc.chinese  from student s inner join score sc on s.id = sc.student_id
 ```
 查询的结果如下：
-![查询结果](https://xueyao.oss-cn-hangzhou.aliyuncs.com/2019/2019-05-19-7.57.07.png)
+![查询结果](/images/2019/2019-05-19-7.57.07.png)
 
 从上图中，可以看到没有小花的成绩数据，因为内连接只会显示两个表中都有的数据。用集合的方式来说就是取两个表数据的交集。
 
