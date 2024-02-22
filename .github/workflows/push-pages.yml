@@ -33,7 +33,7 @@ jobs:
           spacename: flowstone
           repository: flowstone.bitbucket.io
           password: ${{ secrets.BITBUCKET_PASSWORD }}
-      - name: Sync Repo to CODING
+      - name: Sync Repo to Coding
         uses: serverlesslife-cn/sync-repo-to-coding@master
         env:
             # 在 GitHub Settings->Secrets 配置 CODING_PRIVATE_KEY
@@ -43,8 +43,10 @@ jobs:
             github-repo: "git@github.com:flowstone/flowstone.github.io.git"
             # 注意替换为你的 CODING 目标仓库地址
             coding-repo: "git@e.coding.net:flowstone/flowstone.coding.me.git"
-      - uses: keninkujovic/gitlab-sync@2.0.0
+      - name: Sync Repo to Gitlab
+        uses: action-pack/gitlab-sync@v3
         with:
-          gitlab_url: ${{ secrets.GITLAB_URL }}
           username: ${{ secrets.USERNAME }}
-          gitlab_pat: ${{ secrets.GITLAB_PAT }}
+          url: ${{ secrets.GITLAB_URL }}
+          # Personal access token from gitlab.com 
+          token: ${{ secrets.GITLAB_PAT }}
