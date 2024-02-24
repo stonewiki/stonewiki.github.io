@@ -11,7 +11,7 @@
 
 博客预览如下
 
-![](/blog-preview-image.png)
+![](https://github.com/flowstone/flowstone.github.io/blob/master/static/blog-preview-image.png)
 
 ### 项目部署
 
