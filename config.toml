@@ -1,6 +1,6 @@
 baseURL = "http://blog.xueyao.me"
 title = "薛尧的博客"
-languageCode = "en-us"
+languageCode = "zh-CN"
 theme = "devise"
 relativeURLs = true
 enableEmoji = true
@@ -14,20 +14,20 @@ buildfuture = true
 [menu]
   [[menu.main]]
     identifier = "about"
-    name = "About"
-    title = "About"
+    name = "关于"
+    title = "关于"
     url = "/about/"
     weight = -110
   [[menu.main]]
     identifier = "posts"
-    name = "Posts"
-    title = "Posts"
+    name = "文章"
+    title = "文章"
     url = "/post/"
     weight = -100
   [[menu.main]]
     identifier = "categories"
-    name = "Categories"
-    title = "Categories"
+    name = "分类"
+    title = "分类"
     url = "/categories/"
     weight = -90
 
@@ -42,8 +42,8 @@ buildfuture = true
   [params.style]                             # CSS style overrides
     backgroundColor = "#f8f9fa"
     homeImageBorderColor = "#ffffff"
-    fontFamilyBase = "Helvetica Neue"        # First-choice font
-    fontColor = "#212529"
+    fontFamilyBase = "AlimamaFangYuanTiVF-Thin"        # First-choice font
+    fontColor = "#292421"
   [[params.social]]
     fa_icon = "fab fa-github fa-1x"          # Font Awesome icon class
     href = "http://github.com/flowstone"      # Link to associate with icon (http://, https://, mailto:)
