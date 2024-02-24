@@ -8,6 +8,7 @@ googleAnalytics = ""
 enableRobotsTXT = true
 copyright = "&copy; Copyright 2024"
 beian = "苏ICP备14012079号"
+buildfuture = true
 
 # Main menu items
 [menu]
