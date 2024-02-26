@@ -17,7 +17,7 @@
 <meta property="og:description" content="步骤1.子模块修改后提交到远程仓库 2.进入到主仓库的子模块的目录 1234567891011# 以outeasy.com项目为例# 绑定的子模块路径是themes&#x2F;webstack# ----------------# 进入子模块路径cd themes&#x2F;webstack# 检出子模块的master分支git checkout master# 拉取子模块最新代码(分支master)git pull">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-19T23:04:48.000Z">
-<meta property="article:modified_time" content="2024-02-18T20:09:00.892Z">
+<meta property="article:modified_time" content="2024-02-26T02:30:15.416Z">
 <meta property="article:author" content="Simon Xue">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
@@ -425,6 +425,9 @@ var _hmt = _hmt || [];
             <h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>1.子模块修改后提交到远程仓库</p>
 <p>2.进入到主仓库的子模块的目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以outeasy.com项目为例</span></span><br><span class="line"><span class="comment"># 绑定的子模块路径是themes/webstack</span></span><br><span class="line"><span class="comment"># ----------------</span></span><br><span class="line"><span class="comment"># 进入子模块路径</span></span><br><span class="line"><span class="built_in">cd</span> themes/webstack</span><br><span class="line"><span class="comment"># 检出子模块的master分支</span></span><br><span class="line">git checkout master</span><br><span class="line"><span class="comment"># 拉取子模块最新代码(分支master)</span></span><br><span class="line">git pull origin master</span><br><span class="line"><span class="comment"># 查看子模块日志是否是最新的</span></span><br><span class="line">git submodule</span><br></pre></td></tr></table></figure>
+
+<p>另一种操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入父项目根目录下更新子模块</span></span><br><span class="line">git submodule update --remote themes/webstack</span><br></pre></td></tr></table></figure>
 <p>3.主仓库提交到远程</p>
 
             </div>
@@ -433,7 +436,7 @@ var _hmt = _hmt || [];
         </footer>
     </div>
 </article>
-
+<!-- 
 
     
 <nav id="article-nav">
@@ -448,6 +451,7 @@ var _hmt = _hmt || [];
 
 
 
+-->
 
 
     
@@ -467,7 +471,7 @@ var _hmt = _hmt || [];
         <div id="footer-info" class="inner">
             Simon Xue &copy; 2024 
             <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
-            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            <br> 由 <a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题  <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
             
                 <br>
                 <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
