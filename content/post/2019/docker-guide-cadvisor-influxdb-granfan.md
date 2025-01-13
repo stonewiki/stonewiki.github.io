@@ -237,64 +237,64 @@ docker-compose up
 
 查看三个服务容器是否启动
 
-![](/images/2019/8/docker-monitor-01.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-01.png)
 
 浏览grafana服务，http://ip:3000
 
-![](/images/2019/8/docker-monitor-02.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-02.png)
 
 登陆grafana服务
 
-![](/images/2019/8/docker-monitor-03.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-03.png)
 
 浏览influxdb服务，http://ip:8083/
 
-![](/images/2019/8/docker-monitor-04.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-04.png)
 
 ### 配置grafana工具
 
 1、配置数据源
 
-![](/images/2019/8/docker-monitor-05.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-05.png)
 
 选择influxdb数据源
 
-![](/images/2019/8/docker-monitor-06.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-06.png)
 
 具体配置如下
 
-![](/images/2019/8/docker-monitor-07.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-07.png)
 
-![](/images/2019/8/docker-monitor-08.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-08.png)
 
 配置完成后，如下图
 
-![](/images/2019/8/docker-monitor-09.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-09.png)
 
 2、配置面板
 
-![](/images/2019/8/docker-monitor-10.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-10.png)
 
 选择面板类型
 
-![](/images/2019/8/docker-monitor-11.png) 
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-11.png) 
 
 选择图形
 
-![](/images/2019/8/docker-monitor-13.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-13.png)
 
 配置查询条件
 
-![](/images/2019/8/docker-monitor-14.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-14.png)
 
 配置完后，效果如下图
 
-![](/images/2019/8/docker-monitor-15.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-15.png)
 
 grafana支持查询条件，可以从influxdb中了解
 
-![](/images/2019/8/docker-monitor-16.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-16.png)
 
 浏览cAdvisor服务，http://ip:8080/
 
-![](/images/2019/8/docker-monitor-17.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-monitor-17.png)

@@ -25,4 +25,4 @@ docker service ls #查看副本情况
 
 可以使用portainer的方式在web界面上创建服务并指定副本数，同时可以随时动态增减副本数。
 
-![](/images/2019/8/docker-rapid-expansion-01.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-rapid-expansion-01.png)

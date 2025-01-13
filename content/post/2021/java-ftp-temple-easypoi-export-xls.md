@@ -111,7 +111,7 @@ public void templateTest(HttpServletResponse response) {
 }
 ```
 5、运行代码，生成的文件如下
-![](/images/2021/7/202107751450.png)
+![](https://ueyao.github.io/image-hosting/blog/2021/7/202107751450.png)
 
 ## 总结
 

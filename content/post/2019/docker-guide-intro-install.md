@@ -17,7 +17,7 @@ Docker在容器的基础上，进行了进一步的封装，从文件系统、�
 
 ### Docker和传统虚拟机
 
-![docker和传统虚拟机比较](/images/2019/docker-vm.png)
+![docker和传统虚拟机比较](https://ueyao.github.io/image-hosting/blog/2019/docker-vm.png)
 
 传统虚拟机技术是虚拟出一套硬件后，在其上运行一个完整操作系统，在该系统上再运行所需应用进程；
 
@@ -44,7 +44,7 @@ Docker在容器的基础上，进行了进一步的封装，从文件系统、�
 
 ### Docker架构
 
-![](/images/2019/docker-framework.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/docker-framework.png)
 
 Docker使用客户端-服务器(C/S)架构模式，使用远程API来管理和创建Docker容器。
 
@@ -220,5 +220,5 @@ sudo systemctl restart docker
 docker info
 ```
 
-![docker信息](/images/2019/docker-163.png)
+![docker信息](https://ueyao.github.io/image-hosting/blog/2019/docker-163.png)
 

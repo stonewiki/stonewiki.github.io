@@ -62,7 +62,7 @@ public class Demo {
 理想状态：要么自增成功i=1, j=1，要么自增失败i=0, j=0
 真正程序执行结果：i=1, j=0
 
-![](/images/2019/thread-stop-01.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/thread-stop-01.png)
 
 没有保证同步代码块里面数据的一致性，破坏了线程安全
 stop方法直接停止线程
@@ -78,7 +78,7 @@ stop方法直接停止线程
 
 对Demo中的示例，stop()改成interrupt()后，最终输出为"i=1 j=1"，数据一致。
 
-![](/images/2019/thread-stop-02.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/thread-stop-02.png)
 
 ## 正确的线程中止-标志位
 
@@ -107,4 +107,4 @@ public class Demo4 extends Thread {
 ```
 在上方代码逻辑中，增加一个判断，用来控制线程执行的中止。
 
-![](/images/2019/thread-stop-03.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/thread-stop-03.png)

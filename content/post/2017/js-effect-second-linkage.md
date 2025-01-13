@@ -171,6 +171,6 @@ var china = [
 
 二级联动效果
 
-![二级联动效果图](/images/2017/2017-08-26-123422.gif)
+![二级联动效果图](https://ueyao.github.io/image-hosting/blog/2017/2017-08-26-123422.gif)
 
 [代码托管于GitHub](https://github.com/flowstone/blog-example-code/tree/master/2017-08-26-js-linkage-effect-example)

@@ -27,7 +27,7 @@ categories: "JS"
 
 1、 先创建一个固定的日历，效果如下
 
-![自定义日历初始效果图](/images/2016/201160927_232635.png)
+![自定义日历初始效果图](https://ueyao.github.io/image-hosting/blog/2016/201160927_232635.png)
 
 html代码如下
 
@@ -387,7 +387,7 @@ promotion.php
 
 最终效果图如下，样式不是很美观
 
-![自定义日历最终效果图](/images/2016/20160927_232715.png)
+![自定义日历最终效果图](https://ueyao.github.io/image-hosting/blog/2016/20160927_232715.png)
 
 
 [代码托管于GitHub](https://github.com/flowstone/2016-Code/tree/master/day075AJax)

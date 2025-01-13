@@ -42,7 +42,7 @@ Linux系统需要单独使用二进制或者pip方式进行安装。
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose  #赋予可执行权限
 ```
-![](/images/2019/8/docker-compose-01.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-compose-01.png)
 
 #### PIP安装
 如果您计算机的架构是ARM(例如，树莓派),建议使用pip安装。
@@ -63,13 +63,13 @@ git clone -b master https://github.com/apache/incubator-dubbo-ops.git
 
 修改admin中的application配置，把zookeeper地址改为zookeeper://zookeeper:2181
 
-![](/images/2019/8/docker-compose-02.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-compose-02.png)
 
 使用maven进行编译打包
 ``` bash
 mvn clean package -Dmaven.test.skip=true
 ```
-![](/images/2019/8/docker-compose-03.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-compose-03.png)
 
 在dubbo-admin目录下编写Dockerfile文件，内容为
 ``` bash
@@ -85,7 +85,7 @@ ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 ```
 
 使用docker build -t dubbo-admin:1.0 .命令进行构建。
-![](/images/2019/8/docker-compose-04.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-compose-04.png)
 
 在项目根目录下编写docker-compose.yml文件，这个是Compose使用的主模板文件。
 ``` yml
@@ -110,11 +110,11 @@ services:
 docker-compose up
 ```
 
-![](/images/2019/8/docker-compose-05.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-compose-05.png)
 
 在浏览器中访问http://服务器ip:7001 进行验证，用户名密码为:root/root guest/guest
 
-![](/images/2019/8/docker-compose-06.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-compose-06.png)
 
 ## Compose命令说明
 ### 命令对象与格式

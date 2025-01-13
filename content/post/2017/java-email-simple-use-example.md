@@ -10,15 +10,15 @@ categories: "Java"
 ### 邮件服务器
 * 易邮邮件服务器
 * 配置如下
-![易邮邮件服务器](/images/2017/09/2017-09-13_085915.png)
+![易邮邮件服务器](https://ueyao.github.io/image-hosting/blog/2017/09/2017-09-13_085915.png)
 
-![易邮邮件服务器配置](/images/2017/09/2017-09-13_191012.png)
+![易邮邮件服务器配置](https://ueyao.github.io/image-hosting/blog/2017/09/2017-09-13_191012.png)
 
 
 ### 邮件客户端
 * Foxmail
 * 配置如下
-![Foxmail配置](/images/2017/09/2017-09-13_192046.png)
+![Foxmail配置](https://ueyao.github.io/image-hosting/blog/2017/09/2017-09-13_192046.png)
 
 ### 使用Javamail发送邮件
 1、下载
@@ -96,7 +96,7 @@ public class MailUtils {
 ```
 效果图
 
-![效果图](/images/2017/09/2017-09-13_193447.png)
+![效果图](https://ueyao.github.io/image-hosting/blog/2017/09/2017-09-13_193447.png)
 
 通过QQ邮箱发送
 ``` java
@@ -167,4 +167,4 @@ public class MailQQUtils {
 
 效果图
 
-![](/images/2017/09/2017-09-13_211125.png)
+![](https://ueyao.github.io/image-hosting/blog/2017/09/2017-09-13_211125.png)

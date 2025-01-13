@@ -15,28 +15,28 @@ categories: "Java"
 
 ### 步骤
 1. 下载ElasticSearch
-![](/images/20191214170137796.png)
+![](https://ueyao.github.io/image-hosting/blog/20191214170137796.png)
 
 2. 选择自己操作系统所对应的版本
-  ![](/images/20191214170230123.png)
+  ![](https://ueyao.github.io/image-hosting/blog/20191214170230123.png)
 3. 解压后的目录
-  ![](/images/20191214170312691.png)
+  ![](https://ueyao.github.io/image-hosting/blog/20191214170312691.png)
 4. 进入bin目录下，运行elasticsearch命令
-  ![](/images/20191214170400358.png)
+  ![](https://ueyao.github.io/image-hosting/blog/20191214170400358.png)
 5. 看到下图，就说明elasticsearch启动成功，如果你的电脑是Linux，会提示不允许使用root运行，请使用elasticsearch用户启动程序
-  ![](/images/20191214170510673.png)
+  ![](https://ueyao.github.io/image-hosting/blog/20191214170510673.png)
 6. 浏览器查看http://127.0.0.1:9200,出现下图则说明ElasticSearch启动成功
-  ![](/images/2017/11/2017-11-20_212810.png)
+  ![](https://ueyao.github.io/image-hosting/blog/2017/11/2017-11-20_212810.png)
 7. 现在ElasticSearch启动好了，再安装一个图形化操作插件Kibana,原本准备安装Sense，结果安装失败，后来知道，6.4.2版本里已经不支持安装Sense，现在Kibana集成了Sense功能，只需要安装Kibana,下载地址如下
-  ![](/images/20191214170706807.png)
+  ![](https://ueyao.github.io/image-hosting/blog/20191214170706807.png)
 8. 解压Kibana文件到ElasticSearch目录下(个人习惯)
-  ![](/images/2019121417073882.png)
+  ![](https://ueyao.github.io/image-hosting/blog/2019121417073882.png)
 9. 运行Kibana项目(/bin/kibana)，看到下图，红色警告部分，因为ElasticSearch服务没有启动，所以kibana项目报告，心跳检测有没有ElasticSearch服务
-  ![](/images/20191214170815994.png)
+  ![](https://ueyao.github.io/image-hosting/blog/20191214170815994.png)
 10. 当启动ElasticSearch服务，kibana程序检测到有活着的elasticSearch服务，立即注册上
-  ![](/images/20191214170850998.png)
+  ![](https://ueyao.github.io/image-hosting/blog/20191214170850998.png)
 11. 浏览器查看http://127.0.0.1:5601,出现下图则说明Kibana启动成功
-   ![](/images/20191214171002432.png)
+   ![](https://ueyao.github.io/image-hosting/blog/20191214171002432.png)
 
 ## 总结
 ElasticSearch和Kibana安装和运行是非常容易的，但是还有许多细节需要注意，操作系统和ElasticSearch版本都要弄清楚。

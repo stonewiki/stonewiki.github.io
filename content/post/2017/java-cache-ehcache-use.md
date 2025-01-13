@@ -193,7 +193,7 @@ applicationContext-shiro.xml
                 /validatecode.jsp* = anon
                 /css/** = anon
                 /js/** = anon
-                /images/** = anon
+                https://ueyao.github.io/image-hosting/blog/** = anon
                 /services/** = anon 
                 /pages/base/courier.html* = perms[courier:list]
                 /pages/base/area.html* = roles[base]

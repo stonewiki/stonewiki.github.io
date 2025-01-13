@@ -14,15 +14,15 @@ categories: "Docker"
 
 可以在https://hub.docker.com 免费注册一个Docker账号。在命令行执行docker login输入用户名及密码来完成在命令行界面登记Docker Hub。你可以通过docker logout退出登录。
 
-![](/images/2019/8/docker-repository-01.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-repository-01.png)
 
 ### 拉取镜像
 
 可以通过docker search命令来查找官方仓库中的镜像，并利用docker pull命令来将它下载到本地。
 
-![](/images/2019/8/docker-repository-02.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-repository-02.png)
 
-![](/images/2019/8/docker-repository-03.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-repository-03.png)
 
 ### 推送镜像
 
@@ -30,15 +30,15 @@ categories: "Docker"
 
 修改本地镜像的名字为账号名/镜像名
 
-![](/images/2019/8/docker-repository-04.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-repository-04.png)
 
 上传镜像到公共仓库
 
-![](/images/2019/8/docker-repository-05.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-repository-05.png)
 
 上传过后，查看远程公共仓库
 
-![](/images/2019/8/docker-repository-06.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-repository-06.png)
 
 ## 私有仓库
 
@@ -54,7 +54,7 @@ docker-registry是官方提供的工具，可以用于构建私有的镜像仓�
 docker run --name registry -d  -p 5000:5000 --restart=always  -v /opt/data/registry:/var/lib/registry registry
 ```
 
-![](/images/2019/8/docker-repository-07.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-repository-07.png)
 
 在私有仓库上传、搜索、下载镜像
 
@@ -76,7 +76,7 @@ docker tag session-web:latest 127.0.0.1:5000/session-web:latest
 docker push 127.0.0.1:5000/session-web:latest
 ```
 
-![](/images/2019/8/docker-repository-08.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-repository-08.png)
 
 用curl查看仓库中的镜像
 
@@ -86,7 +86,7 @@ curl 127.0.0.1:5000/v2/_catlog
 
 如果可以看到{"repositories":["session-web"]},表明镜像已经被成功上传了。
 
-![](/images/2019/8/docker-repository-09.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-repository-09.png)
 
 先删除已有镜像，再尝试从私有仓库中下载这个镜像。
 
@@ -95,7 +95,7 @@ docker image rm 127.0.0.1:5000/session-web:latest
 docker pull 127.0.0.1:5000/session-web:latest
 ```
 
-![](/images/2019/8/docker-repository-10.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/docker-repository-10.png)
 
 ### 注意事项
 

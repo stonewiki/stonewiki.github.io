@@ -1,4 +1,4 @@
-baseURL = "http://blog.xueyao.tech"
+baseURL = "http://flowstone.github.io"
 title = "薛尧的博客"
 languageCode = "zh-CN"
 theme = "devise"
@@ -7,7 +7,7 @@ enableEmoji = true
 googleAnalytics = ""
 enableRobotsTXT = true
 copyright = "&copy; Copyright 2024"
-beian = "苏ICP备14012079号"
+beian = ""
 buildfuture = true
 disqusShortname = "xie-yao-de-bo-ke"
 
@@ -37,13 +37,13 @@ disqusShortname = "xie-yao-de-bo-ke"
   description = "薛尧的博客"      # Your meta description of the site
   header_title = "薛尧"                 # Your header title
   header_subtitle = "Java Developer | Short Video Creator" # Your header subtitle
-  home_image = "/images/avator.png"          # Path to header image starting from the static directory (optional)
+  home_image = "https://ueyao.github.io/image-hosting/blog/avatar.png"          # Path to header image starting from the static directory (optional)
   recent_posts = 5                           # Max amount of recent posts to show
   mainSections = ["posts", "post", "blog"]   # Main sections to include in recent posts
   [params.style]                             # CSS style overrides
     backgroundColor = "#f8f9fa"
     homeImageBorderColor = "#ffffff"
-    fontFamilyBase = "AlimamaFangYuanTiVF-Thin"        # First-choice font
+    fontFamilyBase = ""        # First-choice font
     fontColor = "#292421"
   [[params.social]]
     fa_icon = "fab fa-github fa-1x"          # Font Awesome icon class
@@ -56,4 +56,4 @@ disqusShortname = "xie-yao-de-bo-ke"
   #  href = ""
   [[params.social]]
     fa_icon = "fas fa-at fa-1x"
-    href = "mailto:xueyao.me@gmail.com"
+    href = "mailto:xueyao.me#gmail.com"
