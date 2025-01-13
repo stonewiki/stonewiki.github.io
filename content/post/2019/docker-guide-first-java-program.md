@@ -51,11 +51,11 @@ docker run --name session-web -d -p 8888:8080 session-web:latest
 启动后使用netstat -na|grep 8888 验证端口是否是在监听状态
 
 
-![查看服务端口有没有启动](/images/2019/docker-run-container-port.png)
+![查看服务端口有没有启动](https://ueyao.github.io/image-hosting/blog/2019/docker-run-container-port.png)
 
 浏览器中访问http://ip:8888/session-web/user/login
 
-![最终效果图](/images/2019/docker-run-java-result.png)
+![最终效果图](https://ueyao.github.io/image-hosting/blog/2019/docker-run-java-result.png)
 
 本文中war包在此仓库下https://github.com/flowstone/blog-example-code
 

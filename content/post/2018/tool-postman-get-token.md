@@ -10,15 +10,15 @@ categories: "Tool"
 
 用户登陆页面的请求头参数为固定不变，如图所示
 
-![](/images/2018/11/12/2018-11-12-5.36.35.png)
+![](https://ueyao.github.io/image-hosting/blog/2018/11/12/2018-11-12-5.36.35.png)
 
 当填写正确的用户名和密码时，系统用返回如下图的数据，里面携带token的值,如图所示
 
-![](/images/2018/11/12/2018-11-12-5.49.47.png)
+![](https://ueyao.github.io/image-hosting/blog/2018/11/12/2018-11-12-5.49.47.png)
 
 在用户登陆测试接口页面，在点击Tests，在里面添加下面代码，如图所示：
 
-![](/images/2018/11/12/2018-11-12-5.51.36.png)
+![](https://ueyao.github.io/image-hosting/blog/2018/11/12/2018-11-12-5.51.36.png)
 
 ``` javascript
 pm.test("Status code is 200", function () {
@@ -65,25 +65,25 @@ pm.environment.set("lp-sign", lpSign);
 
 ## 步骤如下
 1、 打开设置
-![](/images/2018/11/12/2018-11-12-5.55.52.png)
+![](https://ueyao.github.io/image-hosting/blog/2018/11/12/2018-11-12-5.55.52.png)
 
 2、 添加新环境
-![](/images/2018/11/12/2018-11-12-5.59.36.png)
+![](https://ueyao.github.io/image-hosting/blog/2018/11/12/2018-11-12-5.59.36.png)
 
 3、 添加环境变量
-![](/images/2018/11/12/2018-11-12-7.14.38.png)
+![](https://ueyao.github.io/image-hosting/blog/2018/11/12/2018-11-12-7.14.38.png)
 
 保存环境变量，在调用其它接口时，先选择环境，如下图所示
 
-![](/images/2018/11/12/2018-11-12-7.18.57.png)
+![](https://ueyao.github.io/image-hosting/blog/2018/11/12/2018-11-12-7.18.57.png)
 
 当Postman调用登陆接口时，会自动把缺少的环境变量值都添充完整，如下图所示
 
-![](/images/2018/11/12/2018-11-12-7.24.30.png)
+![](https://ueyao.github.io/image-hosting/blog/2018/11/12/2018-11-12-7.24.30.png)
 
 调用其它接口时，请求头引用环境变量，具体语法如下图所示
 
-![](/images/2018/11/12/2018-11-12-8.05.02.png)
+![](https://ueyao.github.io/image-hosting/blog/2018/11/12/2018-11-12-8.05.02.png)
 
 这样我们以后，调用其它接口，就不用每次都修改请求头数据，只要引用环境变量就完美解决问题。
 

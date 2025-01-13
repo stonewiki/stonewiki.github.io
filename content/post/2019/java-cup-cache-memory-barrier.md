@@ -11,7 +11,7 @@ categories: "Java"
 
 例如：CPU高速缓存。尽可能地避免处理器访问主内存的时间开销，处理器大多会利用缓存(cache)以提高性能。
 
-![](/images/2019/8/cpu-cache-and-memory-barrier-01.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/cpu-cache-and-memory-barrier-01.png)
 
 ## 多级缓存
 
@@ -43,7 +43,7 @@ MESI协议，它规定每条缓存有个状态位，同时定义了下面四个�
 
 ## CPU性能优化手段-运行时指令重排
 
-![](/images/2019/8/cpu-cache-and-memory-barrier-02.png)
+![](https://ueyao.github.io/image-hosting/blog/2019/8/cpu-cache-and-memory-barrier-02.png)
 
 指令重排的场景：当CPU写缓存时发现缓存区块正被其他CPU占用，为了提高CPU处理性能，可能将后面的读缓存命令优先执行。
 

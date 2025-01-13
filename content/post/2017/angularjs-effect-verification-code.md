@@ -10,7 +10,7 @@ categories: "JS"
 
 ## 效果如下
 
-![](/images/2017/11/2017-11-11_204515.png)
+![](https://ueyao.github.io/image-hosting/blog/2017/11/2017-11-11_204515.png)
 
 ## 表单代码如下
 
