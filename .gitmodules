@@ -3,4 +3,8 @@
 	url = git@github.com:flowstone/hugo-theme-devise.git
 [submodule "content/post"]
 	path = content/post
-	url = https://github.com/flowstone/blog-articles
+	url = git@github.com:flowstone/blog-articles.git
+	
+[submodule "themes/hugo-theme-reimu"]
+	path = themes/hugo-theme-reimu
+	url = git@github.com:flowstone/hugo-theme-reimu.git

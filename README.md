@@ -1,5 +1,5 @@
 ## 个人博客
-> blog.xueyao.me
+> blog.xueyao.tech
 
 ### 项目介绍
 
