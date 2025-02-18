@@ -5,6 +5,4 @@
 	path = content/post
 	url = git@github.com:flowstone/blog-articles.git
 	
-[submodule "themes/hugo-theme-reimu"]
-	path = themes/hugo-theme-reimu
-	url = git@github.com:flowstone/hugo-theme-reimu.git
+
