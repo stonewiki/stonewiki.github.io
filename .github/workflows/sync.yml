@@ -46,5 +46,5 @@ jobs:
         run: |
           git push --force gitee ${{ steps.get_branch.outputs.branch }}
           git push --force bitbucket ${{ steps.get_branch.outputs.branch }}
-          git push --force gitlab ${{ steps.get_branch.outputs.branch }}
+          #git push --force gitlab ${{ steps.get_branch.outputs.branch }}
 
