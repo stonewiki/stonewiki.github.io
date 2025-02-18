@@ -42,24 +42,29 @@ jobs:
       - name: Checkout articles repo
         uses: actions/checkout@v2
         with:
-          repository: flowstone/blog-articles
-          path: content/post
-          token: ${{ secrets.GITHUB_TOKEN }}
-
+          submodules: recursive  # 关键参数
+          fetch-depth: 0        # 获取全部提交历史（避免浅克隆导致子模块更新失败）
+      - name: Force update submodules
+        run: git submodule update --init --force --recursive    
+       
        # Set Git configuration for user identity
       - name: Set Git configuration
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
       
-      - name: Commit and push articles changes
+      - name: Check and commit submodule changes
         run: |
-          git submodule update --remote content/post
-          git diff --exit-code content/post || (
+          if [ ! -d "content/post" ]; then
+            echo "Error: 'content/post' submodule missing!"
+            exit 1
+          fi
+  
+          if ! git diff --quiet --exit-code content/post; then
             git add content/post
             git commit -m "Sync articles from new repository"
             git push origin main
-          )
+          fi
 
   # Build job
   build:
@@ -78,6 +83,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+      - name: Debug content/post directory
+        run: |
+          if [ -d "content/post" ]; then
+            echo "content/post directory exists."
+            ls -l content/post
+          else
+            echo "content/post directory does not exist."
+          fi
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
@@ -89,9 +102,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-          hugo \
-            --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+          hugo --minify --baseURL "https://flowstone.github.io/"
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3
         with:
