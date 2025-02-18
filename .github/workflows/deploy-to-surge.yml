@@ -21,7 +21,13 @@ jobs:
         
       - name: Install Surge
         run: npm install -g surge  # 全局安装 Surge
-
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Update submodules
+        run: git submodule update --init --recursive --remote 
+        
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Build with Hugo
