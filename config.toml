@@ -20,3 +20,6 @@ weight = 1
 guessSyntax = true
 noClasses = false
 
+[markup.goldmark.renderer]
+  unsafe = true  # 允许渲染原始 HTML
+ignoreLogs = ['warning-goldmark-raw-html']
