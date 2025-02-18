@@ -1,6 +1,6 @@
 baseURL = "http://flowstone.github.io"
 title = "薛尧的博客"
-theme = "hugo-theme-reimu"
+theme = "devise"
 relativeURLs = true
 enableEmoji = true
 googleAnalytics = ""
