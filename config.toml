@@ -1,5 +1,5 @@
 baseURL = "http://flowstone.github.io"
-title = "薛尧的博客"
+title = "薛尧笔记"
 theme = "hugo-theme-reimu"
 relativeURLs = true
 enableEmoji = true
