@@ -70,7 +70,7 @@ footer:
   icon:
     url: "../images/logo.png" # this path is relative to the css/main.css, so it needs to go up one level to reach the images folder
     rotate: true
-    mask: true # whether to use the images as a mask
+    mask: false # whether to use the images as a mask
 
 # Sidebar
 sidebar: left
@@ -389,7 +389,7 @@ top:
   icon:
     url: "../images/logo.png" # this path is relative to the css/main.css, so it needs to go up one level to reach the images folder
     rotate: true
-    mask: true # whether to use the images as a mask
+    mask: false # whether to use the images as a mask
 
 # whether to display the notification when the article is outdated
 outdate:
@@ -409,7 +409,7 @@ sponsor:
   tip: 请作者喝杯咖啡吧！
   icon:
     url: "../images/logo.png" # this path is relative to the css/main.css, so it needs to go up one level to reach the images folder
-    rotate: false
+    rotate: true
     mask: false # whether to use the images as a mask
   qr:
      - name: 支付宝
