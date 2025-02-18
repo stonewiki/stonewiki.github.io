@@ -1,0 +1,386 @@
+<!doctype html><html lang=zh-cn data-theme-mode=auto><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Ehcache缓存简单使用 | 薛尧笔记
+</title><meta name=description content="平凡的程序员"><script>window.siteConfig=JSON.parse('{"anchor_icon":null,"clipboard":{"copyright":{"content":"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！","count":50,"enable":true},"fail":"复制失败 (ﾟ⊿ﾟ)ﾂ","success":"复制成功(*^▽^*)"},"code_block":{"expand":true},"icon_font":false,"outdate":{"daysago":180,"enable":false,"message":"本文最后更新于 {time}，请注意文中内容可能已经发生变化。"}}')</script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload as=style href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap" media=print onload='this.media="all"'><link rel=stylesheet href=https://npm.webcache.cn/@fortawesome/fontawesome-free@6.5.1/css/regular.min.css><link rel=stylesheet href=https://npm.webcache.cn/@fortawesome/fontawesome-free@6.5.1/css/solid.min.css><link rel=preload as=style href=https://npm.webcache.cn/@fortawesome/fontawesome-free@6.5.1/css/brands.min.css onload='this.onload=null,this.rel="stylesheet"'><link rel=preload as=style href=https://npm.webcache.cn/@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css onload='this.onload=null,this.rel="stylesheet"'><link rel=preload as=style href=https://npm.webcache.cn/@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css onload='this.onload=null,this.rel="stylesheet"'><link rel=stylesheet href=../../../css/loader.min.2ad0e9bbffb534e893c0ecefc44787a277cf851387e8ad9dccfbc3a5f0886dbe.css><meta property="og:type" content="website"><meta property="og:title" content="Ehcache缓存简单使用 | 薛尧笔记"><meta property="og:description" content="平凡的程序员"><meta property="og:url" content="https://flowstone.github.io/post/2017/java-cache-ehcache-use/"><meta property="og:site_name" content="薛尧笔记"><meta property="og:image" content="/"><meta property="article:author" content="薛尧笔记"><meta property="article:published_time" content="2017-11-25T12:10:42+00:00"><meta property="article:modified_time" content="2017-11-25T12:10:42+00:00"><meta name=twitter:card content="summary"><meta name=twitter:image content="/"><link rel="shortcut icon" href=../../../favicon.ico><link rel=stylesheet href=../../../css/main.min.037eec95531df75d9f7ad1258f34491e56e31c8b12b633d527e51d64e8069311.css><link rel=preload as=style href=https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css onload='this.onload=null,this.rel="stylesheet"'><link rel=preload as=style href=https://npm.webcache.cn/katex@0.16.9/dist/katex.min.css onload='this.onload=null,this.rel="stylesheet"'><link rel=stylesheet href=https://npm.webcache.cn/@waline/client@2.15.8/dist/waline.css><script src=https://npm.webcache.cn/pace-js@1.2.4/pace.min.js integrity=sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8 crossorigin=anonymous></script><link rel=stylesheet href=https://npm.webcache.cn/@reimujs/aos@0.1.0/dist/aos.css></head><body><div id=loader><div class="loading-left-bg loading-bg"></div><div class="loading-right-bg loading-bg"></div><div class=spinner-box><div class=loading-taichi><img src=../../../images/logo.png alt=loading></div><div class=loading-word>喝杯水，放松一下心情...</div></div></div></div><script>var time=null,startLoading=()=>{time=Date.now(),document.getElementById("loader").classList.remove("loading")},endLoading=()=>{time?Date.now()-time>500?(time=null,document.body.style.overflow="auto",document.getElementById("loader").classList.add("loading")):(setTimeout(endLoading,500-(Date.now()-time)),time=null):(document.body.style.overflow="auto",document.getElementById("loader").classList.add("loading"))};window.addEventListener("DOMContentLoaded",endLoading),document.getElementById("loader").addEventListener("click",endLoading)</script><div id=copy-tooltip style="pointer-events:none;opacity:0;transition:all .2s ease;position:fixed;top:50%;left:50%;z-index:999;transform:translate(-50%,-50%);color:#fff;background:rgba(0,0,0,.5);padding:10px 15px;border-radius:10px"></div><div id=container><div id=wrap><div id=header-nav><nav id=main-nav><span class=main-nav-link-wrap><div class='main-nav-icon icon'>&#xf015;</div><a class=main-nav-link href=../../../>首页</a>
+</span><span class=main-nav-link-wrap><div class='main-nav-icon icon'>&#xf187;</div><a class=main-nav-link href=../../../archives>归档</a>
+</span><span class=main-nav-link-wrap><div class='main-nav-icon icon'>&#xf129;</div><a class=main-nav-link href=../../../about>关于</a>
+</span><span class=main-nav-link-wrap><div class='main-nav-icon icon'>&#xf004;</div><a class=main-nav-link href=../../../friend>友链</a>
+</span><a id=main-nav-toggle class=nav-icon></a></nav><nav id=sub-nav></nav></div><header id=header><picture><source media="(max-width: 479px)" srcset=../../../images/banner-600w.webp><source media="(max-width: 799px)" srcset=../../../images/banner-800w.webp><source media="(min-width: 800px)" srcset=../../../images/banner.webp><img fetchpriority=high src=../../../images/banner.webp alt=Ehcache缓存简单使用>
+</picture><img src alt=Ehcache缓存简单使用 style=visibility:hidden><div id=header-outer><div id=header-title><a href=../../../ id=logo><h1 data-aos=slide-up>Ehcache缓存简单使用</h1></a><h2 id=subtitle-wrap data-aos=slide-down></h2></div></div></header><div id=content class=sidebar-left><aside id=sidebar><div class="sidebar-wrapper wrap-sticky"><div class=sidebar-wrap data-aos=fade-up><div class=sidebar-toc-sidebar><div class=sidebar-toc><h3 class=toc-title>文章目录</h3><div class="sidebar-toc-wrapper toc-div-class"><nav id=TableOfContents><ul><li><ul><li></li></ul></li></ul></nav></div></div></div><div class="sidebar-common-sidebar hidden"><div class=sidebar-author><img data-src=../../../avatar/avatar.png data-sizes=auto alt=薛尧笔记 class=lazyload><div class=sidebar-author-name>薛尧笔记</div><div class=sidebar-description>平凡的程序员</div></div><div class=sidebar-state><div class=sidebar-state-article><div>文章</div><div class=sidebar-state-number>64</div></div><div class=sidebar-state-category><div>分类</div><div class=sidebar-state-number>14</div></div><div class=sidebar-state-tag><div>标签</div><div class=sidebar-state-number>0</div></div></div><div class=sidebar-social><div class="icon-github sidebar-social-icon"><a href=https://github.com/flowstone itemprop=url target=_blank aria-label=github rel="noopener external nofollow noreferrer"></a></div></div><div class=sidebar-menu><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=../../../ aria-label=首页></a><div class='sidebar-menu-icon icon'>&#xf015;</div><div class=sidebar-menu-link>首页</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=../../../archives aria-label=归档></a><div class='sidebar-menu-icon icon'>&#xf187;</div><div class=sidebar-menu-link>归档</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=../../../about aria-label=关于></a><div class='sidebar-menu-icon icon'>&#xf129;</div><div class=sidebar-menu-link>关于</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=../../../friend aria-label=友链></a><div class='sidebar-menu-icon icon'>&#xf004;</div><div class=sidebar-menu-link>友链</div></div></div></div><div class=sidebar-btn-wrapper style=position:static><div class="sidebar-toc-btn current"></div><div class=sidebar-common-btn></div></div></div></div><div class=sidebar-widget></div></aside><section id=main><article class="h-entry article" itemprop=blogPost itemscope itemtype=https://schema.org/BlogPosting><div class=article-inner data-aos=fade-up><div class=article-meta><div class=article-date><a href=https://flowstone.github.io/post/2017/java-cache-ehcache-use/ class=article-date-link data-aos=zoom-in><time datetime="2017-11-25 12:10:42 +0000 UTC" itemprop=datePublished>2017-11-25</time>
+<time style=display:none id=post-update-time>2017-11-25</time></a></div><div class=article-category><a class=article-category-link href=../../../categories/java data-aos=zoom-in>JAVA</a></div></div><div class=hr-line></div><div class="e-content article-entry" itemprop=articleBody><h4 id=spring整合ehcache><a class=header-anchor href=#spring%e6%95%b4%e5%90%88ehcache></a>SPRING整合EHCACHE</h4><h5 id=1引入坐标><a class=header-anchor href=#1%e5%bc%95%e5%85%a5%e5%9d%90%e6%a0%87></a>1.引入坐标</h5><p>pom.xml</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl><span class=c>&lt;!-- ehcache的缓存框架 --&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;groupId&gt;</span>net.sf.ehcache<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;artifactId&gt;</span>ehcache-core<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;version&gt;</span>2.6.10<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl><span class=c>&lt;!-- spring整合第三方框架的 --&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;groupId&gt;</span>org.springframework<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;artifactId&gt;</span>spring-context-support<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;version&gt;</span>${spring.version}<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;/dependency&gt;</span>
+</span></span></code></pre></div><h5 id=2配置ehcache><a class=header-anchor href=#2%e9%85%8d%e7%bd%aeehcache></a>2.配置Ehcache</h5><p>ehcache.xml</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl><span class=nt>&lt;ehcache</span> <span class=na>xmlns:xsi=</span><span class=s>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span class=na>xsi:noNamespaceSchemaLocation=</span><span class=s>&#34;../config/ehcache.xsd&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- 硬盘上缓存的临时目录 --&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;diskStore</span> <span class=na>path=</span><span class=s>&#34;java.io.tmpdir&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- 
+</span></span></span><span class=line><span class=cl><span class=c>    maxElementsInMemory:内存中最大存放的元素的个数
+</span></span></span><span class=line><span class=cl><span class=c>    eternal：是否永生，默认是false
+</span></span></span><span class=line><span class=cl><span class=c>    timeToIdleSeconds：发呆闲置的时间，超过该时间，被清除，单位秒
+</span></span></span><span class=line><span class=cl><span class=c>    timeToLiveSeconds：存活的事件，超过该时间被清除
+</span></span></span><span class=line><span class=cl><span class=c>    maxElementsOnDisk：如果内存满了，溢出到硬盘上的临时目录中的存放的元素的个数
+</span></span></span><span class=line><span class=cl><span class=c>    diskExpiryThreadIntervalSeconds：轮询时间，巡视组
+</span></span></span><span class=line><span class=cl><span class=c>    memoryStoreEvictionPolicy：内存对象的清理策略，如果满了，怎么办?
+</span></span></span><span class=line><span class=cl><span class=c>    策略有三个：LRU、LFU、FIFO
+</span></span></span><span class=line><span class=cl><span class=c>    LRU:最少使用被清理，次数
+</span></span></span><span class=line><span class=cl><span class=c>    LFU：时间，闲置最长的时间
+</span></span></span><span class=line><span class=cl><span class=c>    FIFO：管道策略，先进先出
+</span></span></span><span class=line><span class=cl><span class=c>     --&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;defaultCache</span>
+</span></span><span class=line><span class=cl>            <span class=na>maxElementsInMemory=</span><span class=s>&#34;10000&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>eternal=</span><span class=s>&#34;false&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>timeToIdleSeconds=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>timeToLiveSeconds=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>maxElementsOnDisk=</span><span class=s>&#34;10000000&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>diskExpiryThreadIntervalSeconds=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>memoryStoreEvictionPolicy=</span><span class=s>&#34;LRU&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;persistence</span> <span class=na>strategy=</span><span class=s>&#34;localTempSwap&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;/defaultCache&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- Spring整合的菜单缓存 --&gt;</span>
+</span></span><span class=line><span class=cl>     <span class=nt>&lt;cache</span> <span class=na>name=</span><span class=s>&#34;project_menu_cache&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>maxElementsInMemory=</span><span class=s>&#34;10000&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>eternal=</span><span class=s>&#34;false&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>timeToIdleSeconds=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>timeToLiveSeconds=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>maxElementsOnDisk=</span><span class=s>&#34;10000000&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>diskExpiryThreadIntervalSeconds=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>memoryStoreEvictionPolicy=</span><span class=s>&#34;LRU&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;persistence</span> <span class=na>strategy=</span><span class=s>&#34;localTempSwap&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;/cache&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;/ehcache&gt;</span>
+</span></span></code></pre></div><h5 id=3配置spring整合ehcache><a class=header-anchor href=#3%e9%85%8d%e7%bd%aespring%e6%95%b4%e5%90%88ehcache></a>3.配置Spring整合Ehcache</h5><p>applicationContext-cache.xml</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl><span class=cp>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;beans</span> <span class=na>xmlns=</span><span class=s>&#34;http://www.springframework.org/schema/beans&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=na>xmlns:xsi=</span><span class=s>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span class=na>xmlns:context=</span><span class=s>&#34;http://www.springframework.org/schema/context&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=na>xmlns:cache=</span><span class=s>&#34;http://www.springframework.org/schema/cache&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=na>xsi:schemaLocation=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>http://www.springframework.org/schema/beans
+</span></span></span><span class=line><span class=cl><span class=s>http://www.springframework.org/schema/beans/spring-beans.xsd
+</span></span></span><span class=line><span class=cl><span class=s>http://www.springframework.org/schema/context
+</span></span></span><span class=line><span class=cl><span class=s>http://www.springframework.org/schema/context/spring-context.xsd
+</span></span></span><span class=line><span class=cl><span class=s>http://www.springframework.org/schema/cache
+</span></span></span><span class=line><span class=cl><span class=s>http://www.springframework.org/schema/cache/spring-cache.xsd&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- 配置ehcache的对象EhCacheManager --&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;bean</span> <span class=na>id=</span><span class=s>&#34;ehCacheManager&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>class=</span><span class=s>&#34;org.springframework.cache.ehcache.EhCacheManagerFactoryBean&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=c>&lt;!-- 注入ehcache核心配置文件的位置 Default is &#34;ehcache.xml&#34; in the root of the 
+</span></span></span><span class=line><span class=cl><span class=c>            class path, or if not found, &#34;ehcache-failsafe.xml&#34; in the EhCache jar (default 
+</span></span></span><span class=line><span class=cl><span class=c>            EhCache initialization). 可以不配置，默认找类路径下的ehcache.xml --&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;configLocation&#34;</span> <span class=na>value=</span><span class=s>&#34;classpath:ehcache.xml&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;/bean&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- Spring整合Ehache --&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- Spring的平台缓存管理器 --&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;bean</span> <span class=na>id=</span><span class=s>&#34;springCacheManager&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>class=</span><span class=s>&#34;org.springframework.cache.ehcache.EhCacheCacheManager&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=c>&lt;!-- 注入ehcache的对象 --&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;cacheManager&#34;</span> <span class=na>ref=</span><span class=s>&#34;ehCacheManager&#34;</span><span class=nt>&gt;&lt;/property&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;/bean&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- spring的缓存注解驱动 --&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;cache:annotation-driven</span> <span class=na>cache-manager=</span><span class=s>&#34;springCacheManager&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;/beans&gt;</span>
+</span></span></code></pre></div><h5 id=4在需要操作缓存数据的方法上添加注解><a class=header-anchor href=#4%e5%9c%a8%e9%9c%80%e8%a6%81%e6%93%8d%e4%bd%9c%e7%bc%93%e5%ad%98%e6%95%b0%e6%8d%ae%e7%9a%84%e6%96%b9%e6%b3%95%e4%b8%8a%e6%b7%bb%e5%8a%a0%e6%b3%a8%e8%a7%a3></a>4.在需要操作缓存数据的方法上添加注解</h5><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=n>保存缓存</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nd>@Cacheable</span><span class=p>(</span><span class=n>value</span><span class=o>=</span><span class=err>”</span><span class=n>cache</span><span class=err>”</span><span class=p>)</span><span class=w> </span><span class=c1>//要缓存查询的结果到Ehchache中,参数是缓存区域</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>清除缓存</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nd>@CacheEvict</span><span class=p>(</span><span class=n>value</span><span class=o>=</span><span class=err>”</span><span class=n>cache</span><span class=err>”</span><span class=p>,</span><span class=n>allEntries</span><span class=o>=</span><span class=kc>true</span><span class=p>)</span><span class=w> </span><span class=c1>//</span><span class=w>
+</span></span></span></code></pre></div><h4 id=shiro整合ehcache><a class=header-anchor href=#shiro%e6%95%b4%e5%90%88ehcache></a>SHIRO整合EHCACHE</h4><h5 id=1引入ehcache配置ehcache><a class=header-anchor href=#1%e5%bc%95%e5%85%a5ehcache%e9%85%8d%e7%bd%aeehcache></a>1.引入ehcache，配置ehcache</h5><p>ehcache.xml</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl><span class=c>&lt;!-- Shiro权限缓存-认证 --&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;cache</span> <span class=na>name=</span><span class=s>&#34;project_realm_authentication_cache&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>maxElementsInMemory=</span><span class=s>&#34;10000&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>eternal=</span><span class=s>&#34;false&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>timeToIdleSeconds=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>timeToLiveSeconds=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>maxElementsOnDisk=</span><span class=s>&#34;10000000&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>diskExpiryThreadIntervalSeconds=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>memoryStoreEvictionPolicy=</span><span class=s>&#34;LRU&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;persistence</span> <span class=na>strategy=</span><span class=s>&#34;localTempSwap&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;/cache&gt;</span>
+</span></span><span class=line><span class=cl><span class=c>&lt;!-- Shiro权限缓存-授权 --&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;cache</span> <span class=na>name=</span><span class=s>&#34;project_realm_authorization_cache&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>maxElementsInMemory=</span><span class=s>&#34;10000&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>eternal=</span><span class=s>&#34;false&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>timeToIdleSeconds=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>timeToLiveSeconds=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>maxElementsOnDisk=</span><span class=s>&#34;10000000&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>diskExpiryThreadIntervalSeconds=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=na>memoryStoreEvictionPolicy=</span><span class=s>&#34;LRU&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;persistence</span> <span class=na>strategy=</span><span class=s>&#34;localTempSwap&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;/cache&gt;</span>
+</span></span></code></pre></div><h5 id=2shiro整合ehchache><a class=header-anchor href=#2shiro%e6%95%b4%e5%90%88ehchache></a>2.shiro整合ehchache</h5><p>pom.xml</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl><span class=c>&lt;!-- shiro整合ehcache --&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;groupId&gt;</span>org.apache.shiro<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;artifactId&gt;</span>shiro-ehcache<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;version&gt;</span>1.3.2<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;/dependency&gt;</span>
+</span></span></code></pre></div><h5 id=3spring中配置ehcache缓存><a class=header-anchor href=#3spring%e4%b8%ad%e9%85%8d%e7%bd%aeehcache%e7%bc%93%e5%ad%98></a>3.spring中配置ehcache缓存</h5><p>applicationContext-shiro.xml</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl><span class=cp>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;beans</span> <span class=na>xmlns=</span><span class=s>&#34;http://www.springframework.org/schema/beans&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=na>xmlns:xsi=</span><span class=s>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span class=na>xmlns:aop=</span><span class=s>&#34;http://www.springframework.org/schema/aop&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=na>xmlns:context=</span><span class=s>&#34;http://www.springframework.org/schema/context&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=na>xmlns:jdbc=</span><span class=s>&#34;http://www.springframework.org/schema/jdbc&#34;</span> <span class=na>xmlns:tx=</span><span class=s>&#34;http://www.springframework.org/schema/tx&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=na>xmlns:jpa=</span><span class=s>&#34;http://www.springframework.org/schema/data/jpa&#34;</span> <span class=na>xmlns:task=</span><span class=s>&#34;http://www.springframework.org/schema/task&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=na>xsi:schemaLocation=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+</span></span></span><span class=line><span class=cl><span class=s>        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+</span></span></span><span class=line><span class=cl><span class=s>        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+</span></span></span><span class=line><span class=cl><span class=s>        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+</span></span></span><span class=line><span class=cl><span class=s>        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+</span></span></span><span class=line><span class=cl><span class=s>        http://www.springframework.org/schema/data/jpa 
+</span></span></span><span class=line><span class=cl><span class=s>        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- 配置Shiro核心Filter  --&gt;</span> 
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;bean</span> <span class=na>id=</span><span class=s>&#34;shiroFilter&#34;</span> 
+</span></span><span class=line><span class=cl>        <span class=na>class=</span><span class=s>&#34;org.apache.shiro.spring.web.ShiroFilterFactoryBean&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=c>&lt;!-- 安全管理器 --&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;securityManager&#34;</span> <span class=na>ref=</span><span class=s>&#34;securityManager&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=c>&lt;!-- 未认证，跳转到哪个页面  --&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;loginUrl&#34;</span> <span class=na>value=</span><span class=s>&#34;/login.html&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=c>&lt;!-- 登录页面页面 --&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;successUrl&#34;</span> <span class=na>value=</span><span class=s>&#34;/index.html&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=c>&lt;!-- 认证后，没有权限跳转页面 --&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;unauthorizedUrl&#34;</span> <span class=na>value=</span><span class=s>&#34;/unauthorized.html&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=c>&lt;!-- shiro URL控制过滤器规则  --&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;filterChainDefinitions&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;value&gt;</span>
+</span></span><span class=line><span class=cl>                /login.html* = anon
+</span></span><span class=line><span class=cl>                /user_login.action* = anon 
+</span></span><span class=line><span class=cl>                /validatecode.jsp* = anon
+</span></span><span class=line><span class=cl>                /css/** = anon
+</span></span><span class=line><span class=cl>                /js/** = anon
+</span></span><span class=line><span class=cl>                https://ueyao.github.io/image-hosting/blog/** = anon
+</span></span><span class=line><span class=cl>                /services/** = anon 
+</span></span><span class=line><span class=cl>                /pages/base/courier.html* = perms[courier:list]
+</span></span><span class=line><span class=cl>                /pages/base/area.html* = roles[base]
+</span></span><span class=line><span class=cl>                /** = authc
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;/value&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;/property&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;/bean&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- 安全管理器  --&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;bean</span> <span class=na>id=</span><span class=s>&#34;securityManager&#34;</span> 
+</span></span><span class=line><span class=cl>        <span class=na>class=</span><span class=s>&#34;org.apache.shiro.web.mgt.DefaultWebSecurityManager&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=c>&lt;!-- 注入自定义realm --&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;realm&#34;</span> <span class=na>ref=</span><span class=s>&#34;bosRealm&#34;</span><span class=nt>&gt;&lt;/property&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=c>&lt;!-- 开启Shiro缓存功能，需要在shiro安全管理器中注入shiro的 平台缓存管理器 --&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;cacheManager&#34;</span> <span class=na>ref=</span><span class=s>&#34;shiroCacheManager&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;/bean&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- 配置Shiro的bean后处理器：用来初始化Shiro的bean在spring中--&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;bean</span> <span class=na>id=</span><span class=s>&#34;lifecycleBeanPostProcessor&#34;</span> <span class=na>class=</span><span class=s>&#34;org.apache.shiro.spring.LifecycleBeanPostProcessor&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- 开启Shiro注解 --&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- Enable Shiro Annotations for Spring-configured beans.
+</span></span></span><span class=line><span class=cl><span class=c>    Only run after --&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- the lifecycleBeanProcessor has run:
+</span></span></span><span class=line><span class=cl><span class=c>    depends-on：当前bean初始化时，必须依赖于指定的bean，（指定的
+</span></span></span><span class=line><span class=cl><span class=c>    bean必须先初始化）
+</span></span></span><span class=line><span class=cl><span class=c>    下面的两个bean配置：传统的aop编程：增强、切点、切面
+</span></span></span><span class=line><span class=cl><span class=c>    --&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;bean</span> <span class=na>class=</span><span class=s>&#34;org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=na>depends-on=</span><span class=s>&#34;lifecycleBeanPostProcessor&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;bean</span> <span class=na>class=</span><span class=s>&#34;org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=c>&lt;!-- 必须注入安全管理器 --&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;securityManager&#34;</span> <span class=na>ref=</span><span class=s>&#34;securityManager&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;/bean&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- shiro整合echcache的缓存配置 --&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!-- 配置Shiro的平台缓存管理 --&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;bean</span> <span class=na>id=</span><span class=s>&#34;shiroCacheManager&#34;</span> <span class=na>class=</span><span class=s>&#34;org.apache.shiro.cache.ehcache.EhCacheManager&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=c>&lt;!-- 注入ehcache的对象 --&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;cacheManager&#34;</span> <span class=na>ref=</span><span class=s>&#34;ehCacheManager&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;/bean&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nt>&lt;/beans&gt;</span>
+</span></span></code></pre></div><h5 id=4在reaml对象中指定缓存权限的数据的区域><a class=header-anchor href=#4%e5%9c%a8reaml%e5%af%b9%e8%b1%a1%e4%b8%ad%e6%8c%87%e5%ae%9a%e7%bc%93%e5%ad%98%e6%9d%83%e9%99%90%e7%9a%84%e6%95%b0%e6%8d%ae%e7%9a%84%e5%8c%ba%e5%9f%9f></a>4.在reaml对象中指定缓存权限的数据的区域</h5><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kn>package</span><span class=w> </span><span class=nn>me.xueyao.project.realms</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>org.apache.shiro.authc.AuthenticationException</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>org.apache.shiro.authc.AuthenticationInfo</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>org.apache.shiro.authc.AuthenticationToken</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>org.apache.shiro.authc.SimpleAuthenticationInfo</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>org.apache.shiro.authc.UsernamePasswordToken</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>org.apache.shiro.authz.AuthorizationInfo</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>org.apache.shiro.authz.SimpleAuthorizationInfo</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>org.apache.shiro.realm.AuthorizingRealm</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>org.apache.shiro.subject.PrincipalCollection</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>org.springframework.beans.factory.annotation.Autowired</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>org.springframework.beans.factory.annotation.Value</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>org.springframework.stereotype.Component</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>me.xueyao.project.dao.system.PermissionRepository</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>me.xueyao.project.dao.system.RoleRepository</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>me.xueyao.project.dao.system.UserRepository</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>me.xueyao.project.domain.system.Permission</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>me.xueyao.project.domain.system.Role</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=nn>me.xueyao.project.domain.system.User</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nd>@Component</span><span class=p>(</span><span class=s>&#34;projectRealm&#34;</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>ProjectRealm</span><span class=w> </span><span class=kd>extends</span><span class=w> </span><span class=n>AuthorizingRealm</span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>//只需要向父类注入缓存域即可</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>//认证缓存区域</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Value</span><span class=p>(</span><span class=s>&#34;project_realm_authentication_cache&#34;</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>//方法注入按照参数注入和方法名无关</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>setSuperAuthenticationCacheName</span><span class=p>(</span><span class=n>String</span><span class=w> </span><span class=n>authenticationCacheName</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=kd>super</span><span class=p>.</span><span class=na>setAuthenticationCacheName</span><span class=p>(</span><span class=n>authenticationCacheName</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>//授权缓存区域</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Value</span><span class=p>(</span><span class=s>&#34;project_realm_authorization_cache&#34;</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>setSuperauthorizationCacheName</span><span class=p>(</span><span class=n>String</span><span class=w> </span><span class=n>authorizationCacheName</span><span class=p>){</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=kd>super</span><span class=p>.</span><span class=na>setAuthorizationCacheName</span><span class=p>(</span><span class=n>authorizationCacheName</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Autowired</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>private</span><span class=w> </span><span class=n>UserRepository</span><span class=w> </span><span class=n>userRepository</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Autowired</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>private</span><span class=w> </span><span class=n>RoleRepository</span><span class=w> </span><span class=n>roleRepository</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Autowired</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>private</span><span class=w> </span><span class=n>PermissionRepository</span><span class=w> </span><span class=n>permissionRepository</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>//提供授权数据</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Override</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>protected</span><span class=w> </span><span class=n>AuthorizationInfo</span><span class=w> </span><span class=nf>doGetAuthorizationInfo</span><span class=p>(</span><span class=n>PrincipalCollection</span><span class=w> </span><span class=n>principals</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>// TODO Auto-generated method stub</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>println</span><span class=p>(</span><span class=s>&#34;授权数据提供中...&#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>SimpleAuthorizationInfo</span><span class=w> </span><span class=n>authorizationInfo</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>SimpleAuthorizationInfo</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>//写死安全数据</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>//添加功能权限：底层是set集合</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>//authorizationInfo.addStringPermission(&#34;courier:list&#34;);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>//添加角色权限</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>//authorizationInfo.addRole(&#34;base&#34;);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>//2.根据登录用户动态获取授权数据 </span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>//方法一</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>//User user = (User)SecurityUtils.getSubject().getPrincipal();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>//方法二</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>User</span><span class=w> </span><span class=n>user</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=n>User</span><span class=p>)</span><span class=n>principals</span><span class=p>.</span><span class=na>getPrimaryPrincipal</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>//判断是否是管理员</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=s>&#34;admin&#34;</span><span class=p>.</span><span class=na>equals</span><span class=p>(</span><span class=n>user</span><span class=p>.</span><span class=na>getUsername</span><span class=p>()))</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>for</span><span class=w> </span><span class=p>(</span><span class=n>Role</span><span class=w> </span><span class=n>role</span><span class=w> </span><span class=p>:</span><span class=n>roleRepository</span><span class=p>.</span><span class=na>findAll</span><span class=p>())</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=c1>//添加角色</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=n>authorizationInfo</span><span class=p>.</span><span class=na>addRole</span><span class=p>(</span><span class=n>role</span><span class=p>.</span><span class=na>getKeyword</span><span class=p>());</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>for</span><span class=w> </span><span class=p>(</span><span class=n>Permission</span><span class=w> </span><span class=n>permission</span><span class=w> </span><span class=p>:</span><span class=w> </span><span class=n>permissionRepository</span><span class=p>.</span><span class=na>findAll</span><span class=p>())</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=c1>//添加功能权限</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=n>authorizationInfo</span><span class=p>.</span><span class=na>addStringPermission</span><span class=p>(</span><span class=n>permission</span><span class=p>.</span><span class=na>getKeyword</span><span class=p>());</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=c1>//不是管理员</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>for</span><span class=w> </span><span class=p>(</span><span class=n>Role</span><span class=w> </span><span class=n>role</span><span class=w> </span><span class=p>:</span><span class=w> </span><span class=n>roleRepository</span><span class=p>.</span><span class=na>findByUsers</span><span class=p>(</span><span class=n>user</span><span class=p>))</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=c1>//添加角色</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=n>authorizationInfo</span><span class=p>.</span><span class=na>addRole</span><span class=p>(</span><span class=n>role</span><span class=p>.</span><span class=na>getKeyword</span><span class=p>());</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=c1>//添加角色具有的权限</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=k>for</span><span class=w> </span><span class=p>(</span><span class=n>Permission</span><span class=w> </span><span class=n>permission</span><span class=w> </span><span class=p>:</span><span class=w> </span><span class=n>role</span><span class=p>.</span><span class=na>getPermissions</span><span class=p>())</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=c1>//此处涉及持久态问题，只有持久态后才可以查询 </span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                    </span><span class=n>authorizationInfo</span><span class=p>.</span><span class=na>addStringPermission</span><span class=p>(</span><span class=n>permission</span><span class=p>.</span><span class=na>getKeyword</span><span class=p>());</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>return</span><span class=w> </span><span class=n>authorizationInfo</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>//提供认证数据</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Override</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>protected</span><span class=w> </span><span class=n>AuthenticationInfo</span><span class=w> </span><span class=nf>doGetAuthenticationInfo</span><span class=p>(</span><span class=n>AuthenticationToken</span><span class=w> </span><span class=n>token</span><span class=p>)</span><span class=w> </span><span class=kd>throws</span><span class=w> </span><span class=n>AuthenticationException</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>// 目标：根据用户名查询用户对象，封装成认证信息对象，返回交给安全管理器</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>//用户名</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>String</span><span class=w> </span><span class=n>username</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>((</span><span class=n>UsernamePasswordToken</span><span class=p>)</span><span class=n>token</span><span class=p>).</span><span class=na>getUsername</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>//查询数据库：根据用户查询 对象</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>User</span><span class=w> </span><span class=n>user</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>userRepository</span><span class=p>.</span><span class=na>findByUsername</span><span class=p>(</span><span class=n>username</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>//判断</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=kc>null</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=n>user</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=c1>//如果返回null，安全管理器认为用户名不存在</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>return</span><span class=w> </span><span class=kc>null</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=c1>//用户名存在，将用户信息封装到认证信息对象中，交给安全管理器</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>             * @param1 principal 负责人，就是用户对象，以后会保存到session中
+</span></span></span><span class=line><span class=cl><span class=cm>             * @param2 credential 凭证，这里就是真实的密码
+</span></span></span><span class=line><span class=cl><span class=cm>             * @param3 realm的对象的一个唯一的名字，类似uuid，底层就是一个随机数
+</span></span></span><span class=line><span class=cl><span class=cm>             */</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=n>SimpleAuthenticationInfo</span><span class=w> </span><span class=n>authenticationInfo</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>SimpleAuthenticationInfo</span><span class=p>(</span><span class=n>user</span><span class=p>,</span><span class=w> </span><span class=n>user</span><span class=p>.</span><span class=na>getPassword</span><span class=p>(),</span><span class=w> </span><span class=kd>super</span><span class=p>.</span><span class=na>getName</span><span class=p>());</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>return</span><span class=w> </span><span class=n>authenticationInfo</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div></div><footer class=article-footer><blockquote class=article-copyright><p><strong><span class="icon-user icon"></span>本文作者：</strong>薛尧笔记 @ 薛尧笔记</p><p><strong><span class="icon-link icon"></span>本文链接：</strong><a href=https://flowstone.github.io/post/2017/java-cache-ehcache-use/>https://flowstone.github.io/post/2017/java-cache-ehcache-use/</a></p><p><strong><span class="icon-copyright icon"></span>本文版权：</strong>本博客所有文章除特别声明外，均采用
+<a href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh rel="noopener external nofollow noreferrer" target=_blank><span class=icon-creative-commons></span>BY-NC-SA</a>
+许可协议。转载请注明出处！</p><span class="icon-creative-commons article-copyright-bg"></span></blockquote><div class=sponsor-wrapper><div class=sponsor-button-wrapper><div class="sponsor-icon rotate"></div><div class=sponsor-title>赞助</div></div><div class=sponsor-tip>请作者喝杯咖啡吧！</div><div class=sponsor-qr><div class=sponsor-qr-image-wrapper><img src=../../../sponsor/alipay.jpg alt=支付宝 width=200><p class=sponsor-qr-name>支付宝</p></div><div class=sponsor-qr-image-wrapper><img src=../../../sponsor/wechat.jpg alt=微信 width=200><p class=sponsor-qr-name>微信</p></div></div></div><div class=share-wrapper><a href="http://service.weibo.com/share/share.php?url=https://flowstone.github.io/post/2017/java-cache-ehcache-use/&amp;appkey=&amp;title=Ehcache%e7%bc%93%e5%ad%98%e7%ae%80%e5%8d%95%e4%bd%bf%e7%94%a8&amp;pic=&amp;ralateUid=" target=_blank rel="noopener noreferrer" title=Ehcache缓存简单使用><div class="share-icon icon icon-weibo"></div></a><a href="http://connect.qq.com/widget/shareqq/index.html?url=https://flowstone.github.io/post/2017/java-cache-ehcache-use/&amp;title=Ehcache%e7%bc%93%e5%ad%98%e7%ae%80%e5%8d%95%e4%bd%bf%e7%94%a8&amp;desc=SPRING%e6%95%b4%e5%90%88EHCACHE%201.%e5%bc%95%e5%85%a5%e5%9d%90%e6%a0%87%20pom.xml%0a&amp;amp;lt;!--%20ehcache%e7%9a%84%e7%bc%93%e5%ad%98%e6%a1%86%e6%9e%b6%20--&amp;amp;gt;%20&amp;amp;lt;dependency&amp;amp;gt;%20&amp;amp;lt;groupId&amp;amp;gt;net.sf.ehcache&amp;amp;lt;/groupId&amp;amp;gt;%20&amp;amp;lt;artifactId&amp;amp;gt;ehcache-core&amp;amp;lt;/artifactId&amp;amp;gt;%20&amp;amp;lt;version&amp;amp;gt;2.6.10&amp;amp;lt;/version&amp;amp;gt;%20&amp;amp;lt;/dependency&amp;amp;gt;%20&amp;amp;lt;!--%20spring%e6%95%b4%e5%90%88%e7%ac%ac%e4%b8%89%e6%96%b9%e6%a1%86%e6%9e%b6%e7%9a%84%20--&amp;amp;gt;%20&amp;amp;lt;dependency&amp;amp;gt;%20%e2%80%a6&amp;source=https://flowstone.github.io/" target=_blank rel="noopener noreferrer" title=Ehcache缓存简单使用><div class="share-icon icon icon-qq"></div></a><a href=javascript:; title=Ehcache缓存简单使用><div class="share-icon icon icon-weixin"><div id=share-weixin><div class=share-weixin-dom><div class=share-weixin-content><img id=share-weixin-banner><div id=share-weixin-title></div><div id=share-weixin-desc></div></div><div class=share-weixin-qrcode><div class=share-weixin-info><div id=share-weixin-author></div><div id=share-weixin-theme>Powered By hugo-theme-reimu</div></div><img id=share-weixin-qr></div></div><div class=share-weixin-canvas></div></div></div></a></div><a data-aos=zoom-in href=https://flowstone.github.io/post/2017/java-cache-ehcache-use/#comments class=article-comment-link><span class="post-comments-count waline-comment-count" data-path=https//flowstone.github.io/post/2017/java-cache-ehcache-use/ itemprop=commentCount></span>
+留言
+</a><span data-aos=zoom-in class=article-visitor-link><span class=waline-pageview-count data-path=/post/2017/java-cache-ehcache-use/>0</span>
+<em class=post-meta-item-text>阅读量</em></span><ul class=article-tag-list itemprop=keywords></ul></footer></div><nav id=article-nav data-aos=fade-up><div class="article-nav-link-wrap article-nav-link-left"><img data-src=https://cdn.jsdelivr.net/gh/ueYao/image-hosting@main/blog/2025/02/20250218033458712961.png data-sizes=auto alt=Quartz作业调度的入门使用 class=lazyload>
+<a href=https://flowstone.github.io/post/2017/java-quartz-guide/></a><div class=article-nav-caption>前一篇</div><h3 class=article-nav-title>Quartz作业调度的入门使用</h3></div><div class="article-nav-link-wrap article-nav-link-right"><img data-src=https://cdn.jsdelivr.net/gh/ueYao/image-hosting@main/blog/2025/02/20250218031419824365.jpg data-sizes=auto alt=EasyUI-表单combobox下拉框回显 class=lazyload>
+<a href=https://flowstone.github.io/post/2017/bug-easyui-combobox/></a><div class=article-nav-caption>后一篇</div><h3 class=article-nav-title>EasyUI-表单combobox下拉框回显</h3></div></nav></article><div id=comments class=wcomment data-aos=fade-up></div></section></div><footer id=footer><div style=width:100%;overflow:hidden><div class=footer-line></div></div><div id=footer-info><div><span class=icon-copyright></span>
+2020 -
+2025
+<span class="footer-info-sep rotate"></span>
+薛尧笔记</div><div>基于&nbsp;<a href=https://gohugo.io/ target=_blank>Hugo</a>&nbsp; Theme.<a href=https://github.com/D-Sketon/hugo-theme-reimu target=_blank>Reimu</a></div><div><span class=icon-brush>&nbsp;
+11.4k
+</span>&nbsp;|&nbsp;
+<span class=icon-coffee>&nbsp;
+01:35</span></div><div><span class=icon-eye></span>
+<span id=busuanzi_container_site_pv>总访问量&nbsp;<span id=busuanzi_value_site_pv></span></span>
+&nbsp;|&nbsp;
+<span class=icon-user></span>
+<span id=busuanzi_container_site_uv>总访客量&nbsp;<span id=busuanzi_value_site_uv></span></span></div></div></footer><div class=sidebar-top><div class="sidebar-top-taichi rotate"></div><div class=arrow-up></div></div><div id=mask class=hide></div></div><nav id=mobile-nav><div class=sidebar-wrap><div class=sidebar-toc-sidebar><div class=sidebar-toc><h3 class=toc-title>文章目录</h3><div class="sidebar-toc-wrapper toc-div-class"><nav id=TableOfContents><ul><li><ul><li></li></ul></li></ul></nav></div></div></div><div class="sidebar-common-sidebar hidden"><div class=sidebar-author><img data-src=../../../avatar/avatar.png data-sizes=auto alt=薛尧笔记 class=lazyload><div class=sidebar-author-name>薛尧笔记</div><div class=sidebar-description>平凡的程序员</div></div><div class=sidebar-state><div class=sidebar-state-article><div>文章</div><div class=sidebar-state-number>64</div></div><div class=sidebar-state-category><div>分类</div><div class=sidebar-state-number>14</div></div><div class=sidebar-state-tag><div>标签</div><div class=sidebar-state-number>0</div></div></div><div class=sidebar-social><div class="icon-github sidebar-social-icon"><a href=https://github.com/flowstone itemprop=url target=_blank aria-label=github rel="noopener external nofollow noreferrer"></a></div></div><div class=sidebar-menu><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=../../../ aria-label=首页></a><div class='sidebar-menu-icon icon'>&#xf015;</div><div class=sidebar-menu-link>首页</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=../../../archives aria-label=归档></a><div class='sidebar-menu-icon icon'>&#xf187;</div><div class=sidebar-menu-link>归档</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=../../../about aria-label=关于></a><div class='sidebar-menu-icon icon'>&#xf129;</div><div class=sidebar-menu-link>关于</div></div><div class=sidebar-menu-link-wrap><a class=sidebar-menu-link-dummy href=../../../friend aria-label=友链></a><div class='sidebar-menu-icon icon'>&#xf004;</div><div class=sidebar-menu-link>友链</div></div></div></div></div><div class=sidebar-btn-wrapper><div class="sidebar-toc-btn current"></div><div class=sidebar-common-btn></div></div></nav></div><script src=https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js integrity=sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf+e crossorigin=anonymous></script><script src=https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js integrity=sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q crossorigin=anonymous></script><script src=../../../js/main.js integrity crossorigin=anonymous></script><script src=../../../js/aos.js integrity crossorigin=anonymous></script><script>var aosInit=()=>{AOS.init({duration:1e3,easing:"ease",once:!0,offset:50})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",aosInit):aosInit()</script><script src=../../../js/pjax_main.js integrity crossorigin=anonymous data-pjax></script><script src=https://npm.webcache.cn/mouse-firework@0.1.0/dist/index.umd.js integrity=sha384-KM6i7tu43nYd6e0beIljxHMC5tZc58XBDu7pPA58w50h18Jsx7gLdimfS09RXlKv crossorigin=anonymous></script><script>if(window.firework){const e=JSON.parse('{"excludeelements":["a","button"],"particles":[{"colors":["#ff5252","#ff7c7c","#ffafaf","#ffd0d0"],"duration":[1200,1800],"easing":"easeOutExpo","move":["emit"],"number":20,"shape":"circle","shapeOptions":{"alpha":[0.3,0.5],"radius":[16,32]}},{"colors":["#ff0000"],"duration":[1200,1800],"easing":"easeOutExpo","move":["diffuse"],"number":1,"shape":"circle","shapeOptions":{"alpha":[0.2,0.5],"lineWidth":6,"radius":20}}]}');e.excludeElements=e.excludeelements,delete e.excludeelements,window.firework(e)}</script><script>function initLive2d(){live2d.init("https://fastly.jsdelivr.net/gh/D-Sketon/plugin-live2d/",{themeTipsPath:""})}</script><script src=https://fastly.jsdelivr.net/gh/D-Sketon/plugin-live2d/js/live2d-autoload.js async onload=initLive2d()></script><div id=lazy-script><div><script data-pjax>window.REIMU_POST={author:"薛尧笔记",title:"Ehcache缓存简单使用",url:"https://flowstone.github.io/post/2017/java-cache-ehcache-use/",description:`SPRING整合EHCACHE 1.引入坐标 pom.xml
+&amp;lt;!-- ehcache的缓存框架 --&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;net.sf.ehcache&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;ehcache-core&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.6.10&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!-- spring整合第三方框架的 --&amp;gt; &amp;lt;dependency&amp;gt; …`,cover:"https://flowstone.github.io/images/banner.webp"}</script><script src=../../../js/insert_highlight.js integrity crossorigin=anonymous data-pjax></script><script type=module data-pjax>
+        const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;
+
+        const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")
+            }).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")
+            }).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script><script data-pjax type=module>
+  const { init } = await safeImport('https:\/\/npm.webcache.cn\/@waline\/client@2.15.8\/dist\/waline.mjs', 'sha384-9sbqJjrfGjbkI6\/PI4nU\/MvBfEmkkPC4YK9I4zBeMIf1CVCZdCMH\/KinBEAZII\/5');
+  if(_$('.wcomment')) {
+    window.walineInstance = init({
+      el: '.wcomment',
+      serverURL: 'blog-waline-ochre-five.vercel.app',
+      lang: 'zh-CN',
+      locale: JSON.parse("{}"),
+      emoji: JSON.parse("[\"https://unpkg.com/@waline/emojis@1.2.0/weibo\",\"https://unpkg.com/@waline/emojis@1.2.0/alus\",\"https://unpkg.com/@waline/emojis@1.2.0/bilibili\",\"https://unpkg.com/@waline/emojis@1.2.0/qq\",\"https://unpkg.com/@waline/emojis@1.2.0/tieba\",\"https://unpkg.com/@waline/emojis@1.2.0/tw-emoji\"]"),
+      meta: JSON.parse("[\"nick\",\"mail\",\"link\"]"),
+      requiredMeta: JSON.parse("[\"nick\",\"mail\"]"),
+      wordLimit:  0 ,
+      comment: true,
+      pageSize:  10 ,
+      dark: 'html[data-theme="dark"]',
+      pageview:  true ,
+    });
+  }
+</script><script src=https://npm.webcache.cn/qrcode@1.4.4/build/qrcode.min.js defer data-pjax integrity=sha384-0RsG1yo/crf/1Qc14sho26SXXOTngNCjgJw7fuvXBt9W/OChF/Ijx+aUuBDqQwEk crossorigin=anonymous></script><script src=https://npm.webcache.cn/html-to-image@1.11.11/dist/html-to-image.js defer data-pjax integrity=sha384-UbfRVKN3/elS1r7JcK2FhmPP+KlJ4CvYwbyYD7tH+uTkbT9bNJr9eJeQ0FoFbAgz crossorigin=anonymous></script></div></div><script src=https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js async integrity=sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S crossorigin=anonymous></script><script>"serviceWorker"in navigator&&navigator.serviceWorker.getRegistrations().then(e=>{for(let t of e)t.unregister()})</script><script>const reimuCopyright=String.raw`
+   ______     ______     __     __    __     __  __    
+  /  ==    /  ___   /    / "-./     / /    
+     __<      __         -./     _   
+    _ _   _____   _   _  _   _____ 
+    /_/ /_/   /_____/   /_/   /_/  /_/   /_____/ 
+                                                    
+  `;console.log(String.raw`%c ${reimuCopyright}`,"color: #ff5252;"),console.log("%c Theme.Reimu %c https://github.com/D-Sketon/hugo-theme-reimu ","color: white; background: #ff5252; padding:5px 0;","padding:4px;border:1px solid #ff5252;")</script></body></html>
