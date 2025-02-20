@@ -2,6 +2,7 @@
 title: "About"
 date: 2024-02-20T21:05:21+08:00
 ---
+> 每天0点，网站会自动更新，人走站还在，除非Github倒闭!!!
 
 |站点|备用网址|
 |--------|------------------|
@@ -10,6 +11,7 @@ date: 2024-02-20T21:05:21+08:00
 |**Surge**|http://spotted-shelf.surge.sh/|
 |Fleek|https://xueyaoblog.on-fleek.app/|
 |Netlify|https://flowstone.netlify.app/|
+|Vercel|https://flowstone.vercel.app/|
 
 > 2022年2月17日
 
