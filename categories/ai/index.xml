@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI on 薛尧笔记</title><link>https://blog.xueyao.tech/categories/ai/</link><description>Recent content in AI on 薛尧笔记</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Tue, 11 Feb 2025 18:18:42 +0000</lastBuildDate><atom:link href="https://blog.xueyao.tech/categories/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>还在用 Cursor？免费用 Trae 打造贪吃蛇游戏</title><link>https://blog.xueyao.tech/post/2025/20250211-01/</link><pubDate>Tue, 11 Feb 2025 18:18:42 +0000</pubDate><guid>https://blog.xueyao.tech/post/2025/20250211-01/</guid><description>各位程序员小伙伴们，还在为寻找高效的代码生成工具而发愁吗？今天给大家介绍一款能替代 Cursor 的神器 ——Trae，它是一款强大的 AI 代码生成器。目前，Trae 官网仅提供 MacOS 系统的安装包，Mac 用户们有福啦！
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI on 薛尧笔记</title><link>http://blog.xueyao.tech/categories/ai/</link><description>Recent content in AI on 薛尧笔记</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Tue, 11 Feb 2025 18:18:42 +0000</lastBuildDate><atom:link href="http://blog.xueyao.tech/categories/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>还在用 Cursor？免费用 Trae 打造贪吃蛇游戏</title><link>http://blog.xueyao.tech/post/2025/20250211-01/</link><pubDate>Tue, 11 Feb 2025 18:18:42 +0000</pubDate><guid>http://blog.xueyao.tech/post/2025/20250211-01/</guid><description>各位程序员小伙伴们，还在为寻找高效的代码生成工具而发愁吗？今天给大家介绍一款能替代 Cursor 的神器 ——Trae，它是一款强大的 AI 代码生成器。目前，Trae 官网仅提供 MacOS 系统的安装包，Mac 用户们有福啦！
 ​​
 一、下载与安装 第一步，当然是下载安装 Trae。这一步很简单，就像平常安装其他软件一样，从官网获取安装包后，按照提示一步步操作即可。
 ​​
@@ -26,7 +26,7 @@ AI 生成的文件，需要用户点击接受才能保存到目录中，这是�
 ​​
 六、运行游戏及功能优化 最后，我们来运行游戏，看看效果如何。结果发现游戏速度太快，我这手速根本跟不上，很快就 “Game Over” 了，不过游戏结束弹框倒是正常出现。
 ​​
-速度太快了，很快就GG了，游戏结束弹框也有</description></item><item><title>借助 Deepseek，30 分钟打造超实用 GitHub 图床应用</title><link>https://blog.xueyao.tech/post/2025/20250209-01/</link><pubDate>Sun, 09 Feb 2025 19:18:42 +0000</pubDate><guid>https://blog.xueyao.tech/post/2025/20250209-01/</guid><description>在蛇年新春之际，我想和大家分享一个有趣的项目成果。这是一款基于 FS-Tool-Pro 项目代码改造而成的 GitHub 图床应用。借助 Deepseek 工具，我仅仅通过一些简单的提示，利用其生成的代码，经过 30 分钟的测试，这款简洁实用的应用就成功诞生了。
+速度太快了，很快就GG了，游戏结束弹框也有</description></item><item><title>借助 Deepseek，30 分钟打造超实用 GitHub 图床应用</title><link>http://blog.xueyao.tech/post/2025/20250209-01/</link><pubDate>Sun, 09 Feb 2025 19:18:42 +0000</pubDate><guid>http://blog.xueyao.tech/post/2025/20250209-01/</guid><description>在蛇年新春之际，我想和大家分享一个有趣的项目成果。这是一款基于 FS-Tool-Pro 项目代码改造而成的 GitHub 图床应用。借助 Deepseek 工具，我仅仅通过一些简单的提示，利用其生成的代码，经过 30 分钟的测试，这款简洁实用的应用就成功诞生了。
 下面为大家展示一下应用的相关界面：
 主界面：
 ​​
@@ -36,7 +36,7 @@ GitHub 仓库页面：
 ​​
 ‍
 再给大家介绍一下项目的目录结构，让大家对项目的组织方式有更清晰的了解：
-FSGithubPNG/ # 项目根目录 ├── build.sh # 构建脚本，用于清理和打包项目 ├── app.py # 项目的主入口文件，包含主要的程序逻辑 ├── src/ # 源代码目录，包含项目的主要Python代码 │ ├── main_window.py # 主窗口相关代码，定义主窗口的初始化和操作方法 │ ├── about_window.py # 关于窗口相关代码，定义关于窗口的初始化和布局 │ ├── log_window.py # 日志窗口相关代码，处理日志的显示和关闭事件 │ ├── util/ # 工具类目录，包含各种实用工具类和函数 │ │ ├── common_util.py # 通用工具类，提供一些常用的静态方法，如获取外部路径等 │ │ ├── menu_bar.py # 菜单栏相关代码，处理菜单栏的显示和操作 │ │ ├── app_init_util.py # 应用初始化工具类，负责初始化配置文件、加载样式表和字体等 │ │ ├── option_general.</description></item><item><title>炸裂！AI 工具打造的个人桌面应用，功能大揭秘！</title><link>https://blog.xueyao.tech/post/2025/20250208-05/</link><pubDate>Sat, 08 Feb 2025 19:18:42 +0000</pubDate><guid>https://blog.xueyao.tech/post/2025/20250208-05/</guid><description>想必你已经看过我撰写的《PySide6 项目开发全攻略》系列文章。虽说目前该系列仅发布了两篇，但如果你有进一步的需求，我很乐意继续更新相关内容。
+FSGithubPNG/ # 项目根目录 ├── build.sh # 构建脚本，用于清理和打包项目 ├── app.py # 项目的主入口文件，包含主要的程序逻辑 ├── src/ # 源代码目录，包含项目的主要Python代码 │ ├── main_window.py # 主窗口相关代码，定义主窗口的初始化和操作方法 │ ├── about_window.py # 关于窗口相关代码，定义关于窗口的初始化和布局 │ ├── log_window.py # 日志窗口相关代码，处理日志的显示和关闭事件 │ ├── util/ # 工具类目录，包含各种实用工具类和函数 │ │ ├── common_util.py # 通用工具类，提供一些常用的静态方法，如获取外部路径等 │ │ ├── menu_bar.py # 菜单栏相关代码，处理菜单栏的显示和操作 │ │ ├── app_init_util.py # 应用初始化工具类，负责初始化配置文件、加载样式表和字体等 │ │ ├── option_general.</description></item><item><title>炸裂！AI 工具打造的个人桌面应用，功能大揭秘！</title><link>http://blog.xueyao.tech/post/2025/20250208-05/</link><pubDate>Sat, 08 Feb 2025 19:18:42 +0000</pubDate><guid>http://blog.xueyao.tech/post/2025/20250208-05/</guid><description>想必你已经看过我撰写的《PySide6 项目开发全攻略》系列文章。虽说目前该系列仅发布了两篇，但如果你有进一步的需求，我很乐意继续更新相关内容。
 接下来，为你介绍一款我基于 PySide6 开发的应用程序。最初，这款应用是使用 tkinter​ 框架搭建的，不过由于 tkinter​ 构建的 UI 过于简单，难以满足实际需求，我最终决定迁移至 PySide6 框架进行开发。值得一提的是，本工具的代码主要由豆包、ChatGPT、DeepSeek 等 AI 工具生成，而我更多地扮演了代码搬运工的角色，应用支持Win/MacOS系统。
 以下是该工具的界面展示：
 ​​
@@ -64,7 +64,7 @@ HASH 校验 用于对文件进行 HASH 校验。
 文件签名 支持文件签名操作。
 ​​
 快速发送 可在局域网内的设备之间快速传输文件，此外还隐藏了 Flask 服务。
-​​</description></item><item><title>解锁AnythingLLM与DeekSeek：AI探索新征程</title><link>https://blog.xueyao.tech/post/2025/20250208-04/</link><pubDate>Sat, 08 Feb 2025 18:18:42 +0000</pubDate><guid>https://blog.xueyao.tech/post/2025/20250208-04/</guid><description>你是否曾想拥有一位全能 AI 伙伴，不仅能陪你畅聊、答疑解惑，还能根据你的独特需求，定制专属知识库，成为你的“超级大脑”？如今，随着人工智能的飞速发展，这一愿景已然成为现实。今天，让我们走进 AnythingLLM 与 DeekSeek 的智能世界，探索如何利用它们打造属于自己的 AI 助手。
+​​</description></item><item><title>解锁AnythingLLM与DeekSeek：AI探索新征程</title><link>http://blog.xueyao.tech/post/2025/20250208-04/</link><pubDate>Sat, 08 Feb 2025 18:18:42 +0000</pubDate><guid>http://blog.xueyao.tech/post/2025/20250208-04/</guid><description>你是否曾想拥有一位全能 AI 伙伴，不仅能陪你畅聊、答疑解惑，还能根据你的独特需求，定制专属知识库，成为你的“超级大脑”？如今，随着人工智能的飞速发展，这一愿景已然成为现实。今天，让我们走进 AnythingLLM 与 DeekSeek 的智能世界，探索如何利用它们打造属于自己的 AI 助手。
 AI 时代的新星：AnythingLLM 在人工智能的广阔天地中，AnythingLLM 犹如一颗璀璨新星，为我们打开了通向无限可能的大门。作为一款全功能 AI 应用程序，AnythingLLM 以强大的兼容性与定制性著称。你既可以选择接入成熟的商用大语言模型，借助其广博的知识获取精准解答；也可以采用开源模型，进行个性化调整，让 AI 真正成为你的专属智囊。
 ​​
 AnythingLLM 的核心功能 多用户支持与权限管理
@@ -76,10 +76,10 @@ AnythingLLM 的核心功能 多用户支持与权限管理
 访问 Ollama 官网 下载并安装，配置模型存储路径。
 ​​
 下载 DeekSeek 模型
-通过 Windows PowerShell 运行 ollama run deepseek-r1:8b​​ 下载模型（不同版本占用空间不同，可依据需求选择）。 ​​</description></item><item><title>手把手教你本地部署Deepseek，开启AI自由探索之旅</title><link>https://blog.xueyao.tech/post/2025/20250208-03/</link><pubDate>Sat, 08 Feb 2025 17:18:42 +0000</pubDate><guid>https://blog.xueyao.tech/post/2025/20250208-03/</guid><description>一、本地部署前的准备工作 1. 硬件要求 Deepseek 的不同版本对硬件要求不同，以下为推荐配置：
+通过 Windows PowerShell 运行 ollama run deepseek-r1:8b​​ 下载模型（不同版本占用空间不同，可依据需求选择）。 ​​</description></item><item><title>手把手教你本地部署Deepseek，开启AI自由探索之旅</title><link>http://blog.xueyao.tech/post/2025/20250208-03/</link><pubDate>Sat, 08 Feb 2025 17:18:42 +0000</pubDate><guid>http://blog.xueyao.tech/post/2025/20250208-03/</guid><description>一、本地部署前的准备工作 1. 硬件要求 Deepseek 的不同版本对硬件要求不同，以下为推荐配置：
 模型版本 CPU GPU 内存 存储 DeepSeek-R1-1.5B 4 核以上，Intel/AMD 多核处理器 可选 4GB+ 显存（如 GTX 1650） 8GB+ 3GB+ DeepSeek-R1-7B 8 核以上，现代多核 CPU 8GB+ 显存（如 RTX 3070/4060） 16GB+ 8GB+ DeepSeek-R1-14B 12 核以上 16GB+ 显存（如 RTX 4090） 32GB+ 15GB+ DeepSeek-R1-32B 16 核以上（如 Ryzen 9 / i9） 24GB+ 显存（如 A100 40GB） 64GB+ 30GB+ DeepSeek-R1-70B 32 核以上（服务器级 CPU） 多卡并行（如 2x A100 80GB） 128GB+ 70GB+ 2. 软件环境 操作系统：推荐 Windows、Linux（Ubuntu、CentOS）以获得最佳兼容性。
 必备工具：
-安装 Ollama（用于管理和运行 Deepseek）：Ollama 官网 二、本地部署步骤 1.</description></item><item><title>爆火的DeepSeek，你真的会用吗？</title><link>https://blog.xueyao.tech/post/2025/20250208-02/</link><pubDate>Sat, 08 Feb 2025 16:18:42 +0000</pubDate><guid>https://blog.xueyao.tech/post/2025/20250208-02/</guid><description>一、引言 最近，AI 界可是被一个名字 “霸屏” 啦，它就是DeepSeek！这货简直像一颗突然冒出来的超级巨星，在全球范围内掀起了一阵 “龙卷风”。不管是刷社交媒体，还是逛科技论坛，到处都能看到大家在热烈讨论 DeepSeek。短短时间，它的下载量就像坐了火箭一样 “蹭蹭” 往上涨，直接在全球 140 多个市场的应用商店排行榜上 “C 位出道”，连曾经风光无限的 ChatGPT 在它面前都有点 “黯然失色” 了。
+安装 Ollama（用于管理和运行 Deepseek）：Ollama 官网 二、本地部署步骤 1.</description></item><item><title>爆火的DeepSeek，你真的会用吗？</title><link>http://blog.xueyao.tech/post/2025/20250208-02/</link><pubDate>Sat, 08 Feb 2025 16:18:42 +0000</pubDate><guid>http://blog.xueyao.tech/post/2025/20250208-02/</guid><description>一、引言 最近，AI 界可是被一个名字 “霸屏” 啦，它就是DeepSeek！这货简直像一颗突然冒出来的超级巨星，在全球范围内掀起了一阵 “龙卷风”。不管是刷社交媒体，还是逛科技论坛，到处都能看到大家在热烈讨论 DeepSeek。短短时间，它的下载量就像坐了火箭一样 “蹭蹭” 往上涨，直接在全球 140 多个市场的应用商店排行榜上 “C 位出道”，连曾经风光无限的 ChatGPT 在它面前都有点 “黯然失色” 了。
 那么，DeepSeek 到底有啥神奇魔力，能让全球用户都为它 “疯狂打 call”？它真有大家说的那么牛吗？要是你对 DeepSeek 好奇得不行，却又不知道咋上手，那这篇文章可就像是为你量身定制的 “专属攻略” 啦！
 二、DeepSeek 是什么？ （一）公司背景 DeepSeek 是 杭州深度求索人工智能基础技术研究有限公司 的简称。这家成立于 2023 年 7 月的公司，由量化资管巨头 幻方量化 创立，是一家专注于 AI 基础技术研究的创新型科技企业。
 （二）模型特点 DeepSeek 最大的特点在于它是一款 推理型大模型，与市面上常见的 指令型大模型（如 ChatGPT）截然不同。
