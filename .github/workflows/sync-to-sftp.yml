@@ -5,7 +5,8 @@ on:
     branches:
       - main  # 可以根据需要修改为你想要监听的分支
   workflow_dispatch:
-
+  schedule:
+      - cron: '0 0 * * *'  # 每天同步一次
 jobs:
   sync:
     runs-on: ubuntu-latest
