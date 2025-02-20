@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-            ref: gh-pages  # 替换为你要检出的具体分支名
+            ref: domain-pages  # 替换为你要检出的具体分支名
             
       - name: Deploy with Password
         uses: wlixcc/SFTP-Deploy-Action@v1.2.5
