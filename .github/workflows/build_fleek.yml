@@ -63,7 +63,7 @@ jobs:
         run: |
           hugo \
             --minify \
-            --baseURL "https://blog.xueyao.tech/"
+            --baseURL "http://blog.xueyao.tech/"
             
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3
