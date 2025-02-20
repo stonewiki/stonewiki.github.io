@@ -5,7 +5,9 @@ on:
     branches:
       - main  # 当 main 分支有代码推送时触发部署
   workflow_dispatch:
-  
+  schedule:
+    - cron: '0 0 * * *'  # 每天同步一次
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
