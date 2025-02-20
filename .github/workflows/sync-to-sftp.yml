@@ -15,15 +15,15 @@ jobs:
         uses: actions/checkout@v3
         with:
             ref: gh-pages  # 替换为你要检出的具体分支名
-
-      - name: Sync files to SFTP server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+            
+      - name: Deploy with Password
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.5
         with:
+          username: ${{ secrets.SF_SFTP_USER }}
           server: ${{ secrets.SF_SFTP_HOST }}
           port: ${{ secrets.SF_SFTP_PORT }}
-          username: ${{ secrets.SF_SFTP_USER }}
+          local_path: './*'
+          remote_path: ${{ secrets.SF_SFTP_TARGET_DIR }}
+          sftp_only: true
           password: ${{ secrets.SF_SFTP_PASSWORD }}
-          protocol: sftp
-          local-dir: ./  # 本地要同步的目录，这里表示仓库根目录
-          server-dir: ${{ secrets.SF_SFTP_TARGET_DIR }}
-          shell: bash
+          
