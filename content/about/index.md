@@ -3,6 +3,14 @@ title: "About"
 date: 2024-02-20T21:05:21+08:00
 ---
 
+|站点|备用网址|
+|--------|------------------|
+|**Github**|https://flowstone.github.io/|
+|**SourceForge**|https://flowstoneblog.sourceforge.io/|
+|**Surge**|http://spotted-shelf.surge.sh/|
+|Fleek|https://xueyaoblog.on-fleek.app/|
+|Netlify|https://flowstone.netlify.app/|
+
 > 2022年2月17日
 
 我是一名Java程序员，
