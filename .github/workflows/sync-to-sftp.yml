@@ -15,12 +15,6 @@ jobs:
         uses: actions/checkout@v3
         with:
             ref: gh-pages  # 替换为你要检出的具体分支名
-      - name: Set up SSH key (if using key authentication)
-        if: ${{ secrets.SFTP_PRIVATE_KEY != '' }}
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SFTP_PRIVATE_KEY }}
-          known_hosts: 'any'
 
       - name: Sync files to SFTP server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
