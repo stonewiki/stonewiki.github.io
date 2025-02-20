@@ -1,0 +1,35 @@
+name: Sync to SFTP
+
+on:
+  push:
+    branches:
+      - main  # 可以根据需要修改为你想要监听的分支
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+            ref: gh-pages  # 替换为你要检出的具体分支名
+      - name: Set up SSH key (if using key authentication)
+        if: ${{ secrets.SFTP_PRIVATE_KEY != '' }}
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SFTP_PRIVATE_KEY }}
+          known_hosts: 'any'
+
+      - name: Sync files to SFTP server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.SF_SFTP_HOST }}
+          port: ${{ secrets.SF_SFTP_PORT }}
+          username: ${{ secrets.SF_SFTP_USER }}
+          password: ${{ secrets.SF_SFTP_PASSWORD }}
+          protocol: sftp
+          local-dir: ./  # 本地要同步的目录，这里表示仓库根目录
+          server-dir: ${{ secrets.SF_SFTP_TARGET_DIR }}
+          shell: bash
