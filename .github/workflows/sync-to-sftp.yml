@@ -38,7 +38,7 @@ jobs:
         run: |
           hugo \
             --minify \
-            --baseURL "https://flowstoneblog.sourceforge.io/"
+            --baseURL "https://blog.xueyao.tech/"
 
       - name: Deploy with Password
         uses: wlixcc/SFTP-Deploy-Action@v1.2.5
