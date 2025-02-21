@@ -1,4 +1,4 @@
-name: Sync to SFTP
+name: Sync to FTP
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main  # 可以根据需要修改为你想要监听的分支
   workflow_dispatch:
   schedule:
-      - cron: '0 0 * * *'  # 每天同步一次
+      - cron: '0 0 * * *' 
 jobs:
   sync:
     runs-on: ubuntu-latest
