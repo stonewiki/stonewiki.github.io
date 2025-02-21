@@ -46,6 +46,6 @@ jobs:
           username: ${{ secrets.UCOZ_FTP_USERNAME }}
           server: ${{ secrets.UCOZ_FTP_HOST }}
           local-dir: './public/'
-          server-dir: ./
+          server-dir: ./flowstone.atwebpages.com/
           password: ${{ secrets.UCOZ_FTP_PASSWORD }}
           
