@@ -47,12 +47,6 @@ jobs:
           submodules: recursive
       - name: Update submodules
         run: git submodule update --init --recursive --remote    
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-        with:
-          # 指定部署到 gh-pages 分支
-          branch: gh-pages
           
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
@@ -63,11 +57,73 @@ jobs:
         run: |
           hugo \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --baseURL "https://flowstone.github.io"
             
-      - name: Deploy 🚀
+      - name: Deploy gh-pages🚀
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public  # 你的生成文件夹
           
+      - name: Build with Hugo
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+        run: |
+          rm -rf ./public
+          hugo \
+            --minify \
+            --baseURL "https://blog.xueyao.tech/"
+      - name: Deploy Domain-pages🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public  # 你的生成文件夹
+          publish_branch: domain-pages  # default: gh-pages
+          
+      - name: Build with Hugo
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+        run: |
+          rm -rf ./public
+          hugo \
+            --minify \
+            --baseURL "https://xueyao.vercel.app/"
+      - name: Deploy vercel-pages🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public  # 你的生成文件夹
+          publish_branch: vercel-pages  
+          
+      - name: Build with Hugo
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+        run: |
+          rm -rf ./public
+          hugo \
+            --minify \
+            --baseURL "https://xueyao.netlify.app/"
+      - name: Deploy netlify-pages🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public  # 你的生成文件夹
+          publish_branch: netlify-pages  
+      - name: Build with Hugo
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+        run: |
+          rm -rf ./public
+          hugo \
+            --minify \
+            --baseURL "https://xueyaoblog.on-fleek.app/"
+      - name: Deploy fleek-pages🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public  # 你的生成文件夹
+          publish_branch: fleek-pages      
