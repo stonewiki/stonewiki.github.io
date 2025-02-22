@@ -8,7 +8,7 @@ date: 2024-02-20T21:05:21+08:00
 |--------|------------------|
 |**Github**|https://flowstone.github.io/|
 |**SourceForge**|https://flowstoneblog.sourceforge.io/|
-|**Surge**|http://spotted-shelf.surge.sh/|
+|**Surge**|http://xueyao.surge.sh/|
 |Fleek|https://xueyaoblog.on-fleek.app/|
 |Netlify|https://xueyao.netlify.app/|
 |Vercel|https://xueyao.vercel.app/|
