@@ -10,8 +10,8 @@ date: 2024-02-20T21:05:21+08:00
 |**SourceForge**|https://flowstoneblog.sourceforge.io/|
 |**Surge**|http://spotted-shelf.surge.sh/|
 |Fleek|https://xueyaoblog.on-fleek.app/|
-|Netlify|https://flowstone.netlify.app/|
-|Vercel|https://flowstone.vercel.app/|
+|Netlify|https://xueyao.netlify.app/|
+|Vercel|https://xueyao.vercel.app/|
 
 > 2022年2月17日
 
@@ -80,8 +80,8 @@ date: 2024-02-20T21:05:21+08:00
 ``` js
 /**
  * 博客DNS已做相关调整
- * 通过大陆IP访问会解析到Github Page
- * 通过外国IP访问会解析到Fleek平台下
+ * 通过大陆IP访问会解析到Github Page【废弃】
+ * 通过外国IP访问会解析到Fleek平台下【废弃】
  */
 ```
 ---
@@ -95,6 +95,10 @@ date: 2024-02-20T21:05:21+08:00
 原博客程序不再更新文章，
 
 只做存档，如果你感兴的话，可以访问以下地址：
+
+> 2025年2月
+
+更换了主题，加入多个静态网站备份
 
 #### 旧博客地址  
 * http://zblog.xueyao.tech/
