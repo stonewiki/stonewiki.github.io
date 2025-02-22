@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Github on 薛尧笔记</title><link>https://xueyao.vercel.app/tags/github/</link><description>Recent content in Github on 薛尧笔记</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 16 Feb 2025 18:18:42 +0000</lastBuildDate><atom:link href="https://xueyao.vercel.app/tags/github/index.xml" rel="self" type="application/rss+xml"/><item><title>从手动到自动：代码多平台同步的最终秘籍</title><link>https://xueyao.vercel.app/post/2025/20250216-01/</link><pubDate>Sun, 16 Feb 2025 18:18:42 +0000</pubDate><guid>https://xueyao.vercel.app/post/2025/20250216-01/</guid><description>一、背景与需求 在日常开发中，我习惯将代码存储在 Github 上。然而，由于网络访问的限制，时常会遇到无法访问的情况。为了确保其他用户能够顺利访问我的代码，我期望在向 Github 提交代码时，能够同步将代码推送到多个代码托管平台，如 Gitee、Gitlab、Bitbucket 等。
+二、初始方案：本地配置多仓库地址 起初，我通过在本地配置多个仓库地址来实现这一需求，具体命令如下：
+git remote add github 仓库地址 git remote add gitee 仓库地址 但是，每次提交代码时，都需要手动依次将代码推送到各个对应的仓库，操作较为繁琐：
+git push github main git push gitee main 三、使用 Github Action 实现自动化同步 后来，Github Action 的出现提供了自动化操作的解决方案。我开始使用它来实现多平台同步。不过，在使用多个平台同步功能时，需要事先向每个同步平台申请访问 Token。这些 Token 通常只能显示一次，当开启新的项目时，我常常忘记之前的 Token，导致难以再次配置。
+之前使用的同步代码如下：
+# Sample workflow for building and deploying a Jekyll site to GitHub Pages name: Push Other Pages on: # Runs on pushes targeting the default branch push: branches: [&amp;#34;main&amp;#34;] # Allows you to run this workflow manually from the Actions tab workflow_dispatch: jobs: # Build job build: runs-on: ubuntu-latest steps: - name: Checkout uses: actions/checkout@v2 with: ref: gh-pages fetch-depth: 0 # &amp;lt;-- clone with complete history - name: Sync Repo to Bitbucket uses: heussd/mirror-to-bitbucket-github-action@v2 with: username: flowstone spacename: flowstone repository: flowstone.</description></item><item><title>借助 Deepseek，30 分钟打造超实用 GitHub 图床应用</title><link>https://xueyao.vercel.app/post/2025/20250209-01/</link><pubDate>Sun, 09 Feb 2025 19:18:42 +0000</pubDate><guid>https://xueyao.vercel.app/post/2025/20250209-01/</guid><description>在蛇年新春之际，我想和大家分享一个有趣的项目成果。这是一款基于 FS-Tool-Pro 项目代码改造而成的 GitHub 图床应用。借助 Deepseek 工具，我仅仅通过一些简单的提示，利用其生成的代码，经过 30 分钟的测试，这款简洁实用的应用就成功诞生了。
+下面为大家展示一下应用的相关界面：
+主界面：
+​​
+配置界面：
+​​
+GitHub 仓库页面：
+​​
+‍
+再给大家介绍一下项目的目录结构，让大家对项目的组织方式有更清晰的了解：
+FSGithubPNG/ # 项目根目录 ├── build.sh # 构建脚本，用于清理和打包项目 ├── app.py # 项目的主入口文件，包含主要的程序逻辑 ├── src/ # 源代码目录，包含项目的主要Python代码 │ ├── main_window.py # 主窗口相关代码，定义主窗口的初始化和操作方法 │ ├── about_window.py # 关于窗口相关代码，定义关于窗口的初始化和布局 │ ├── log_window.py # 日志窗口相关代码，处理日志的显示和关闭事件 │ ├── util/ # 工具类目录，包含各种实用工具类和函数 │ │ ├── common_util.py # 通用工具类，提供一些常用的静态方法，如获取外部路径等 │ │ ├── menu_bar.py # 菜单栏相关代码，处理菜单栏的显示和操作 │ │ ├── app_init_util.py # 应用初始化工具类，负责初始化配置文件、加载样式表和字体等 │ │ ├── option_general.</description></item></channel></rss>
