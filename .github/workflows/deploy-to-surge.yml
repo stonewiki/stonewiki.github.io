@@ -39,10 +39,10 @@ jobs:
         run: |
           hugo \
             --minify \
-            --baseURL "http://spotted-shelf.surge.sh/"
+            --baseURL "http://xueyao.surge.sh/"
 
       - name: Deploy to Surge
         env:
           SURGE_LOGIN: xueyao.me@gmail.com  # 替换为你的 Surge 登录邮箱
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}  # 使用之前添加的 Secret
-        run: surge ./public spotted-shelf.surge.sh  # 替换为你的构建目录和 Surge 域名
+        run: surge ./public xueyao.surge.sh  # 替换为你的构建目录和 Surge 域名
