@@ -154,7 +154,7 @@ FTP默认路径 FTP主机空间路径 3.同步数据库 通过项目中的Admin-
 其实它在帮助文档中写了详细的配置，我没有按照它的说明来配置(IP地址固定)，文档如下： 最终DNS解析配置如下： 如果我们按照它的配置，指向自己的域名，就可以看到域名解析生效了，效果如下 值得注意的是当你配置了自定义域名后，Sourceforge提交的二级域名将自己跳转到你的项目目录中，无法查看你的搭建的网站。
 注意 在这些操作里，我遇到了另外一个问题，就是我按照上面的操作，打开我的域名，页面竟报出404错误，如下图 就是这个问题，困扰我一天，我一直以为是DNS解析的问题，查询好多资料，也看了官方的一些客户支持问题，从而确定DNS没有配置错误，那是什么问题造成的呢？
 说明域名已经找到了服务器，但是指定的目录下并没有我上传的网站源码，真是奇了怪，不科学，我专门去FTP上找了一番，文件也在，最后在一篇博客里发现了问题，原来官方的配置是基于PHP7版本，但是我手贱的把PHP版本改成PHP8,所以域名解析时并没有找到正确路径，也就是说PHP8版本里面有了特殊的配置，我猜想一种是IP的改变，一种是网站源码路径的改变。</description></item><item><title>About</title><link>https://blog.xueyao.tech/about/</link><pubDate>Tue, 20 Feb 2024 21:05:21 +0800</pubDate><guid>https://blog.xueyao.tech/about/</guid><description> 每天0点，网站会自动更新，人走站还在，除非Github倒闭!!!
-站点 备用网址 Github https://flowstone.github.io/ SourceForge https://flowstoneblog.sourceforge.io/ Surge http://spotted-shelf.surge.sh/ Fleek https://xueyaoblog.on-fleek.app/ Netlify https://xueyao.netlify.app/ Vercel https://xueyao.vercel.app/ 2022年2月17日
+站点 备用网址 Github https://flowstone.github.io/ SourceForge https://flowstoneblog.sourceforge.io/ Surge http://xueyao.surge.sh/ Fleek https://xueyaoblog.on-fleek.app/ Netlify https://xueyao.netlify.app/ Vercel https://xueyao.vercel.app/ 2022年2月17日
 我是一名Java程序员，
 这个博客我从2016年就创建了，
 期间写一些文章，
